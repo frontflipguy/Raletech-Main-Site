@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta name="viewport" content="width=device-width, initial-scale=.5, user-scalable=no" />
+
+	<link href="level4.css" rel="stylesheet" type="text/css" />
+	<title>Level 4</title>
+	
+</head>
+<body>
+<header><div class="navigation">
+<a href="http://www.raletech.com/" class="icon"></a>
+<a href="#" class="navigation-button" id="bye">LOCKED</a>
+<a href="#" class="navigation-button-right" onclick="trick();">HINT</a>
+<a href="http://www.raletech.com/puzzles/directory/" class="navigation-button-right">DIRECTORY</a>
+<a style="margin-left: 50px">Welcome to level 4.</a>
+</div></header>
+
+<div align="center" style="height:100vh; margin-top:120px">
+	
+	<div class="playArea" onClick="discoBorder();" onKeyPress="keyEntry();">
+	<div class="stack" id="innerBorder">
+	<table class="poop"><tr><td><div class="noColor">&diams;</div></td>
+	<td>
+	<table>
+	<tr><td class="blank" id="win"></td></tr>
+	<tr><td class="blank"></td></tr>
+	<tr><td class="blank"></td></tr>
+	<tr><td class="blank"></td></tr>
+	<tr><td class="blank"></td></tr>
+	<tr><td class="blank"></td></tr>
+	<tr><td class="blank"></td></tr>
+	<tr><td class="blank"></td></tr>	
+	<tr><td class="blank"></td></tr>
+	<tr><td class="blank"></td></tr>
+	<tr><td class="blank"></td></tr>
+	<tr><td class="blank"></td></tr>
+	<tr><td class="blank"></td></tr>	
+	<tr><td class="blank"></td></tr>
+	<tr><td class="blank"></td></tr>
+	<tr><td class="blank"></td></tr>
+	<tr><td class="blank"></td></tr>
+	<tr><td class="blank"></td></tr>	
+	<tr><td class="blank"></td></tr>
+	<tr><td class="blank"></td></tr>
+	<tr><td class="blank"></td></tr>
+	<tr><td class="blank"></td></tr>
+	</table>
+	</td>
+	<td>
+	<div class="noColor" style="visibility:hidden"></div></td>
+	</tr>
+	</table>
+	</div>
+<a href="#" class="yellow" onClick="yellow(); blipStealerStarter();">&diams;</a>
+<a href="#" class="pink" onClick="pink(); blipStealerStarter();">&hearts;</a>
+<a href="#" class="green" onClick="green(); blipStealerStarter();">&clubs;</a>
+	</div>
+	
+</div>
+
+
+<script>
+
+var blipColor = ".blank";
+var NL;
+var arrayNL = [];
+var thing = "stackY";
+var thing2 = "&diams;";
+var numberClicks = 5;
+var stealerStarter = false;
+var keepGoing = true;
+
+
+function trick(){
+alert("Hit the correct color really rapidly!"); //*looks at camera like in Parks and Rec* you can win by button mashing. This game sucks.
+}
+
+function yellow(){
+	
+	var colorCheck = document.getElementById("innerBorder").className;
+	
+	if(colorCheck=="stackY"){
+	colorChange("blipy",true);
+	}
+}
+
+function pink(){
+
+	var colorCheck = document.getElementById("innerBorder").className;
+	
+	if(colorCheck=="stackP"){
+	colorChange("blipp",true);
+	}
+}
+	
+function green(){
+
+	var colorCheck = document.getElementById("innerBorder").className;
+	
+	if(colorCheck=="stackG"){
+	colorChange("blipg", true);
+	}
+}
+
+function colorChange(color, add){
+		
+	var NL = document.querySelectorAll(".blank, .blipy, .blipp, .blipg"); //sets NL equal to a node list of all elements of the listed classes
+
+	for(var i = 0; i < NL.length; i++){ //puts all the nodes' classNames into an array
+		var a = NL[i].className;
+		arrayNL[i] = a;
+	}
+	
+	if(add === true){
+		arrayNL.push(color);
+		arrayNL.splice(0,1);}
+	else if(add === false){
+		arrayNL.splice(arrayNL.length-1,1);
+		arrayNL.unshift(color);
+	}
+	
+	for(var i = 0; i < NL.length; i++){ //puts all classNames back into an the nodelist
+		var a = arrayNL[i];
+		NL[i].className = a;
+	}
+	
+}
+
+function discoBorder(){ //once the playArea is clicked this function runs,
+	//document.querySelector(".playArea").removeAttribute("onclick"); // but it doesn't need to be told to run on every click after that
+	//the above is not true anymore since I'm tracking color changes by clicks, not a timer
+	//also, that means I can throw a bunch of other stuff into this function because it runs every click
+	
+	document.getElementById("innerBorder").className = thing;
+	document.querySelector(".noColor").innerHTML = thing2;
+	
+	if(numberClicks === 0){//alter this every 3-5 color calls
+		var rando = Math.random() * 100;
+		
+		if(rando < 33){thing = "stackP"; thing2 = "&hearts;"}
+		else if(rando > 66){thing = "stackG"; thing2 = "&clubs;"}
+		else{thing = "stackY"; thing2 = "&diams;"}
+		
+		while((numberClicks!=3)&&(numberClicks!=4)&&(numberClicks!=5)){numberClicks = Math.ceil(Math.random() * 10);}
+	}
+	numberClicks--;
+	
+	var winBlip = document.getElementById("win").className;
+	
+	if(winBlip != "blank"){	keepGoing = false; win();}
+	
+}
+
+function blipStealerStarter(){ //Can't be arsed to find a more elegant way to do this right now. What works, works.
+
+	if(stealerStarter === false){stealerStarter = true; blipStealer();}
+	
+}
+
+function blipStealer(){
+
+	setTimeout(function() {colorChange("blank", false); if(keepGoing){blipStealer();} }, 1000);
+	
+}
+
+function keyEntry(){ //for some reason this only works if a color button was the last thing clicked. It's not a bug; it's a feature.
+	var key = event.keyCode;
+	if(key == "97"){yellow();}
+	else if(key == "115"){pink();}
+	else if(key == "100"){green();}
+	
+	discoBorder();
+}
+
+function win(){
+	
+	var bye = document.getElementById("bye")
+	
+	bye.innerHTML = "&spades; PROCEED &spades;";
+	bye.href = "http://www.raletech.com/puzzles/level5/";
+	bye.style.backgroundColor = "#aebcff";
+		localStorage.setItem("flag4", true);
+}
+
+
+</script>
+
+
+</body>
+</html>

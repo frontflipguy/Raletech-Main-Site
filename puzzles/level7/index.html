@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link href="level7.css" rel="stylesheet" type="text/css" />
+	<title>Level 7</title>
+	
+</head>
+<body>
+<header><div class="navigation">
+<a href="http://www.raletech.com/" class="icon"></a>
+<a href="#" class="navigation-button" id="bye">LOCKED</a>
+<a href="#" class="navigation-button-right" onclick="trick();">HINT</a>
+<a href="http://www.raletech.com/puzzles/directory/" class="navigation-button-right">DIRECTORY</a>
+<a style="margin-left: 50px">Welcome to level 7. Have fun!</a>
+</div></header>
+
+<div align="center" style="margin-top:120px">
+
+<table id="playArea">
+		<tr align="center"><td class="indicator spades" style="visibility:hidden"></td>
+		<td class="stage1"><div class="circle" style="visibility:hidden"></div></td>
+		<td class="stage1"><div class="circle" style="visibility:hidden"></div></td>
+		<td class="stage1"><div class="circle" style="visibility:hidden"></div></td>
+		<td class="stage1"><div class="circle" style="visibility:hidden"></div></td><tr>
+		<tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		<tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		<tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		<tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		<tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		
+</table>
+	
+</div>
+
+<script>
+
+var NL; //Node List
+var arrayNL = [];
+var score = 0; 
+var suitElement;
+var keepGoing = true;
+var nextSuit;
+var rando = 0;
+var location;
+var sequence = []; //array where the sequence is stored
+
+var sloc;
+var hloc;
+var dloc;
+var cloc;
+
+var c1 = "circle";
+var c2 = "circle";
+var c3 = "circle";
+var c4 = "circle";
+
+var cArray = ["0","0","0","0"];
+
+var firstClick = true;
+var notYetVisible = true;
+
+cycleThroughSuits();
+
+function trick(){
+alert("Make any four-color squence you'd like by following the prompt tile at the top. Then repeat it without the prompt tile!"); 
+}
+
+function cycleThroughSuits(){
+	
+	firstClick = true;
+	
+	suitElement = document.querySelector(".indicator");
+	
+	var randoOld = rando;
+	
+	while(randoOld==rando){rando = Math.floor(Math.random() * 4 + 1);}
+	
+	//console.log(rando);
+
+	if(rando==1){nextSuit = "indicator spades"}
+	else if(rando==2){nextSuit = "indicator hearts"}
+	else if(rando==3){nextSuit = "indicator diams"}
+	else if(rando==4){nextSuit = "indicator clubs"}
+	
+	suitElement.className = nextSuit;
+	
+	updateTargets();
+	
+	setTimeout(function() {if(keepGoing){cycleThroughSuits();} }, 2000);
+
+}
+
+function updateTargets(){
+	
+	NL = document.querySelectorAll(".blank, .spades, .clubs, .diams, .hearts");
+	
+	for(var i = 0; i < 25; i++){
+		arrayNL[i] = NL[i+1].className;
+	}
+	
+	arrayNL[sloc] = "blank";
+	arrayNL[hloc] = "blank";
+	arrayNL[dloc] = "blank";
+	arrayNL[cloc] = "blank";	
+	
+	do{
+		sloc = Math.floor(Math.random()*25);
+		hloc = Math.floor(Math.random()*25);
+		dloc = Math.floor(Math.random()*25);
+		cloc = Math.floor(Math.random()*25);
+	} 
+	while(sloc==hloc||sloc==dloc||sloc==cloc||hloc==dloc||hloc==cloc||dloc==cloc);
+	
+	arrayNL[sloc] = "blank spades";
+	arrayNL[hloc] = "blank hearts";
+	arrayNL[dloc] = "blank diams";
+	arrayNL[cloc] = "blank clubs";
+
+	
+	for(var i = 0; i < 25; i++){
+		NL[i+1].className = arrayNL[i];
+	}
+	
+}
+
+document.getElementById("playArea").addEventListener("click", clickCheck);
+
+function clickCheck(e){
+	
+	var targ = e.target.className;
+	if(score<8){scoreBoard(targ);}
+	if(score==8){keepGoing = false; win();}
+}
+
+function scoreBoard(target){
+	
+	var ind = document.querySelector(".indicator");
+	var circ = document.querySelectorAll(".circle");
+	var bigCirc = document.querySelectorAll(".stage2, .stage1");
+	
+	if(score>3&&score<8){
+		var stage2 = cArray[score-4];
+		stage2 = stage2.replace("circle c","");
+		} 
+	
+	if(notYetVisible){	
+		ind.style.visibility = "visible";
+		for(var i = 0; i<4; i++){
+		circ[i].style.visibility = "visible";
+		notYetVisible=false;
+		}
+	}
+	
+	target = target.replace("blank ","");
+	
+	var indComp = ind.className.replace("indicator ",""); //indicator for comparison purposes
+
+	if(score<4&&target==indComp&&firstClick==true){circleChange(indComp); score++; firstClick=false;
+		if(score==4){ind.style.visibility = "hidden";}	
+	}
+	else if(score==4&&target!=stage2){score--; circleChange("blank"); ind.style.visibility = "visible";} //stage 1 shit
+	else if(score<4&&target!=indComp&&score>0){score--; circleChange("blank");}
+	
+	if(score>=4&&target==stage2&&firstClick==true){bigCirc[score-4].className = "stage2"; firstClick=false; score++;} 
+	if(score>4&&target!=stage2){score--; bigCirc[score-4].className = "stage1";} //stage 2 shit
+	//sorry the above code is such ass
+	console.log(score);
+	
+}
+
+function circleChange(suit){
+	
+	var circ = document.querySelectorAll(".circle"); //
+
+	cArray = [c1,c2,c3,c4];
+	
+	suit = "c" + suit;
+	
+	cArray[score] = "circle " + suit;
+	c1 = cArray[0];
+	c2 = cArray[1];
+	c3 = cArray[2];
+	c4 = cArray[3];
+	
+	for(var i = 0; i < 4; i++){
+		circ[i].className = cArray[i];
+	}
+	
+}
+
+function win(){ //changes the "bye" element to it's "win" state
+	
+	var bye = document.getElementById("bye");
+	var colorClass = cArray[3].replace("circle c","");
+
+	bye.innerHTML = "PROCEED";
+	bye.href = "http://www.raletech.com/puzzles/level8/";
+	bye.className = bye.className + " " + colorClass;
+	
+	localStorage.setItem("flag7", true);
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<!--Special thanks to Sanel for all his help with the creative process and to Miss Rainbow for making a cameo appearance-->
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link href="leve3.css" rel="stylesheet" type="text/css" />
+	<title>Level 8</title>
+	
+</head>
+<body>
+<header><div class="navigation">
+<a href="http://www.raletech.com/" class="icon"></a>
+<a href="#" class="navigation-button" id="bye">LOCKED</a>
+<a href="#" class="navigation-button-right" onclick="trick();">HINT</a>
+<a href="http://www.raletech.com/puzzles/directory/" class="navigation-button-right">DIRECTORY</a>
+<a style="margin-left: 50px">Welcome to level 8. Have fun!</a>
+</div></header>
+
+<div align="center" style="height:100vh; margin-top:70px">
+<div style="margin-top: 90px">
+
+<!--were here only once then were gone-->
+<!--look into eyes like deep seas-->
+<!--dont toil this life away till your last hour ends-->
+
+<div class="q1round50 q3round50 color7 idiv clue"></div>             
+<div id="q1angle50" class="idiv" style="visibility: hidden"></div>               <!-- dont -->
+<div id="q2angle50" class="idiv" style="visibility: hidden"></div>
+<div id="q3angle50" class="idiv" style="visibility: hidden"></div>
+<div id="q4angle50" class="idiv" style="visibility: hidden"></div>
+
+<div class="q2round50 q3round50 q4round50 lattice4 color2 idiv clue"></div>
+<div id="q1angle50" class="idiv" style="visibility: hidden"></div>               <!-- toil -->
+<div id="q2angle50" class="idiv" style="visibility: visible"></div>
+<div id="q3angle50" class="idiv" style="visibility: hidden"></div>
+<div id="q4angle50" class="idiv" style="visibility: hidden"></div>
+
+<div class="q1round50 color1 idiv clue"></div>
+<div id="q1angle50" class="idiv" style="visibility: hidden"></div>               <!-- this -->
+<div id="q2angle50" class="idiv" style="visibility: hidden"></div>
+<div id="q3angle50" class="idiv" style="visibility: hidden"></div>
+<div id="q4angle50" class="idiv" style="visibility: hidden"></div>
+
+<div class="q3round50 q2round50 color3 idiv clue"></div>
+<div id="q1angle50" class="idiv" style="visibility: hidden"></div>               <!-- life -->
+<div id="q2angle50" class="idiv" style="visibility: visible"></div>
+<div id="q3angle50" class="idiv" style="visibility: hidden"></div>
+<div id="q4angle50" class="idiv" style="visibility: hidden"></div>
+
+<div class="q1round50 q2round50 q3round50  lattice1 color11 idiv clue"></div>
+<div id="q1angle50" class="idiv" style="visibility: visible"></div>               <!-- away -->
+<div id="q2angle50" class="idiv" style="visibility: hidden"></div>
+<div id="q3angle50" class="idiv" style="visibility: hidden"></div>
+<div id="q4angle50" class="idiv" style="visibility: hidden"></div>
+
+<div class="q1round50 q2round50  lattice2 color6 idiv clue"></div>
+<div id="q1angle50" class="idiv" style="visibility: visible"></div>               <!-- till -->
+<div id="q2angle50" class="idiv" style="visibility: hidden"></div>
+<div id="q3angle50" class="idiv" style="visibility: hidden"></div>
+<div id="q4angle50" class="idiv" style="visibility: hidden"></div>
+
+<div class="q1round50 q2round50 color5 idiv clue"></div>
+<div id="q1angle50" class="idiv" style="visibility: hidden"></div>               <!-- your -->
+<div id="q2angle50" class="idiv" style="visibility: hidden"></div>
+<div id="q3angle50" class="idiv" style="visibility: hidden"></div>
+<div id="q4angle50" class="idiv" style="visibility: hidden"></div>
+
+<div class="q1round50 q2round50 lattice3 color12 idiv clue"></div>
+<div id="q1angle50" class="idiv" style="visibility: visible"></div>               <!-- last -->
+<div id="q2angle50" class="idiv" style="visibility: visible"></div>
+<div id="q3angle50" class="idiv" style="visibility: hidden"></div>
+<div id="q4angle50" class="idiv" style="visibility: hidden"></div>
+
+<div class="q1round50 q2round50 lattice1 color14 idiv clue"></div>
+<div id="q1angle50" class="idiv" style="visibility: hidden"></div>               <!-- hour -->
+<div id="q2angle50" class="idiv" style="visibility: hidden"></div>
+<div id="q3angle50" class="idiv" style="visibility: hidden"></div>
+<div id="q4angle50" class="idiv" style="visibility: hidden"></div>
+
+<div class="q1round50 q3round50 q4round50 lattice4 color16 idiv clue"></div>
+<div id="q1angle50" class="idiv" style="visibility: hidden"></div>               <!-- ends -->
+<div id="q2angle50" class="idiv" style="visibility: hidden"></div>
+<div id="q3angle50" class="idiv" style="visibility: hidden"></div>
+<div id="q4angle50" class="idiv" style="visibility: visible; transform: translateX(-21px) translateY(32px) rotate(45deg);"></div>
+
+
+<div class="answerbox" >Translation: <input type="text" id="answer" style="width:400px" onKeyDown="enter();"></input></div>
+<div><button id="submit" style="margin-top:10px" onclick="submit();">Submit</button></div>
+
+<div id="showSol" style="font-weight: bold; visibility: visible">&nbsp;</div>
+
+<table style="margin-top:60px; padding-top: 5px; border-top: 1px solid black;"> 
+<tr><td colspan="6" style="font-weight: bold"> KEY:</td></tr>
+<tr>
+<td>
+<div><input class="butt butt1" type="button" onclick="latticeSwap('blank');"></input></div>
+<div><input class="butt butt2" type="button" onclick="latticeSwap('plus');"></input></div>
+<div><input class="butt butt3" type="button" onclick="latticeSwap('dot');"></input></div>
+<div><input class="butt butt4" type="button" onclick="latticeSwap('slant');"></input></div>
+<div><input class="butt butt5" type="button" onclick="latticeSwap('thatch');"></input></div>
+</td> <!-- buttons for morph -->
+<td>
+	<div id="morph" class="" style="width: 144px; height: 144px; margin-left:0px; border: 1px solid #e9e9e9"></div>
+</td>
+<td><div id="container1"></div></td>
+<td style="width:50px"></td> <!--space between the two clues-->
+<td>
+	<table id="shape" style="border-collapse: collapse; width: 144px; height: 144px;">
+	<tr><td><div id="q2" class="q2"></div></td><td><div id="q1" class="q1"></div></td></tr>
+	<tr><td><div id="q3" class="q3"></div></td><td><div id="q4" class="q4"></div></td></tr>
+	</table>
+</td>
+<td><div id="container2"></div></td>
+</tr>
+<tr>
+<td></td>
+<td>
+	<table id="playArea" style="border-collapse: collapse;"><tr>
+	<td id="1" class="swatch" style="background-color:#ff8080;"></td>
+	<td id="2" class="swatch" style="background-color:#ffac80;"></td>
+	<td id="3" class="swatch" style="background-color:#ffd980;"></td>
+	<td id="4" class="swatch" style="background-color:#f9ff80;"></td>
+	<td id="5" class="swatch" style="background-color:#ccff80;"></td>
+	<td id="6" class="swatch" style="background-color:#9fff80;"></td>
+	<td id="7" class="swatch" style="background-color:#80ffb9;"></td>
+	<td id="8" class="swatch" style="background-color:#80ffe6;"></td>
+	<td id="9" class="swatch" style="background-color:#80ecff;"></td>
+	<td id="10" class="swatch" style="background-color:#80bfff;"></td>
+	<td id="11" class="swatch" style="background-color:#8093ff;"></td>
+	<td id="12" class="swatch" style="background-color:#9980ff;"></td>
+	<td id="13" class="swatch" style="background-color:#c680ff;"></td>
+	<td id="14" class="swatch" style="background-color:#f280ff;"></td>
+	<td id="15" class="swatch" style="background-color:#ff80df;"></td>
+	<td id="16" class="swatch" style="background-color:#ff80b2;"></td>
+	</tr>
+	</table>
+<div><input id="rangeInput" type="range" min="0" max="15" value="0" style="width: 144px; margin-left:0px" onchange="showValue(this.value)" /></div>
+</td>
+<td></td>
+<td></td>
+</tr>
+</table></div>
+
+</div>
+
+
+<script>
+var vq1 = 0;
+var vq2 = 0;
+var vq3 = 0;
+var vq4 = 0;
+var colorNumber;
+var targ;
+
+
+function trick(){
+alert("Color + Shape = Word. Use the key below to translate the colorful shapes above and find the hidden message!");
+}
+
+function enter(){
+	var key = event.keyCode;
+	if(key == "13"){
+		submit();
+	}
+}
+
+function submit(){
+	var userInput = document.getElementById("answer").value;
+	console.log(userInput);
+	
+	userInput = userInput.toUpperCase();
+	userInput = userInput.replace(/ /g,"");
+	userInput = userInput.replace(/'/g,"");
+	userInput = userInput.replace(/,/g,"");
+	userInput = userInput.replace(/\./g,"");
+
+	console.log(userInput);
+	
+	if(userInput==="DONTTOILTHISLIFEAWAYTILLYOURLASTHOURENDS"){
+		document.getElementById("bye").innerHTML = "PROCEED";
+		document.getElementById("bye").style.backgroundColor = "#80ffb9";
+		document.getElementById("bye").href = "http://www.raletech.com/puzzles/directory/";
+		document.getElementById("showSol").innerHTML = "Don't toil this life away till your last hour ends.";
+		document.getElementById("showSol").style.visibility = "visible";
+		
+		localStorage.setItem("flag8", true);
+
+	}
+	else{
+		document.getElementById("showSol").style.visibility = "visible";
+		document.getElementById("showSol").innerHTML = "Incorrect.";
+		setTimeout(function() {document.getElementById("showSol").innerHTML = "&nbsp;";},2000);
+		}
+
+}
+
+function showValue(newValue){
+	
+	colorNumber = newValue;
+	colorNumber++;
+	
+	try{var whichColor = document.getElementById(colorNumber).style.backgroundColor;}
+	catch(err){document.getElementById("morph").style.backgroundColor = "rgb(255, 255, 255)";
+	}
+	
+	var latticeType = document.getElementById("morph").className;
+	console.log(latticeType);
+	
+	if(latticeType=='lattice1'){colorNumber = colorNumber + 16;}
+	else if(latticeType=='lattice2'){colorNumber = colorNumber + 32;}
+	else if(latticeType=='lattice3'){colorNumber = colorNumber + 48;}
+	else if(latticeType=='lattice4'){colorNumber = colorNumber + 64;}
+	
+	document.getElementById("morph").style.backgroundColor = whichColor;
+	
+	var firstHalf;
+	
+	switch(colorNumber){
+		case 1:firstHalf="th";break;
+		case 2:firstHalf="wi";break;
+		case 3:firstHalf="li";break;
+		case 4:firstHalf="we";break;
+		case 5:firstHalf="Yo";break;
+		case 6:firstHalf="wa";break;
+		case 7:firstHalf="Do";break;
+		case 8:firstHalf="bo";break; //was "lo", swapped with "bo"
+		case 9:firstHalf="so";break;
+		case 10:firstHalf="sa";break;
+		case 11:firstHalf="ev";break;
+		case 12:firstHalf="mo";break;
+		case 13:firstHalf="go";break;
+		case 14:firstHalf="ma";break;
+		case 15:firstHalf="wh";break;
+		case 16:firstHalf="de";break;
+		case 17:firstHalf="on";break;
+		case 18:firstHalf="da";break;
+		case 19:firstHalf="Br";break;
+		case 20:firstHalf="ha";break;
+		case 21:firstHalf="TR";break;
+		case 22:firstHalf="se";break;
+		case 23:firstHalf="gi";break;
+		case 24:firstHalf="he";break;
+		case 25:firstHalf="pa";break;
+		case 26:firstHalf="ca";break;
+		case 27:firstHalf="aw";break;
+		case 28:firstHalf="du";break;
+		case 29:firstHalf="mi";break;
+		case 30:firstHalf="ho";break;
+		case 31:firstHalf="fe";break;
+		case 32:firstHalf="fa";break;
+		case 33:firstHalf="co";break;
+		case 34:firstHalf="kn";break;
+		case 35:firstHalf="ey";break;
+		case 36:firstHalf="ki";break;
+		case 37:firstHalf="ov";break;
+		case 38:firstHalf="ti";break;
+		case 39:firstHalf="be";break;
+		case 40:firstHalf="an";break;
+		case 41:firstHalf="ru";break;
+		case 42:firstHalf="bi";break;
+		case 43:firstHalf="ga";break;
+		case 44:firstHalf="Sl";break;
+		case 45:firstHalf="up";break;
+		case 46:firstHalf="fr";break;
+		case 47:firstHalf="No";break;
+		case 48:firstHalf="lo";break; //swap
+		case 49:firstHalf="sh";break;
+		case 50:firstHalf="tw";break;
+		case 51:firstHalf="Tu";break;
+		case 52:firstHalf="Ni";break;
+		case 53:firstHalf="ok";break;
+		case 54:firstHalf="hi";break;
+		case 55:firstHalf="gr";break;
+		case 56:firstHalf="po";break;
+		case 57:firstHalf="wo";break;
+		case 58:firstHalf="fi";break;
+		case 59:firstHalf="fu";break;
+		case 60:firstHalf="la";break;
+		case 61:firstHalf="ju";break;
+		case 62:firstHalf="is";break;
+		case 63:firstHalf="ye";break;
+		case 64:firstHalf="bu";break;
+		case 65:firstHalf="ou";break;
+		//case 66:firstHalf="Ps";break;
+		case 67:firstHalf="Su";break;
+		case 68:firstHalf="gu";break;
+		case 69:firstHalf="pu";break;
+		case 70:firstHalf="pl";break;
+		case 71:firstHalf="by";break;
+		case 72:firstHalf="Ag";break;
+		case 73:firstHalf="Le";break;
+		case 74:firstHalf="me";break;
+		case 75:firstHalf="in";break;
+		case 76:firstHalf="nu";break;
+		case 77:firstHalf="Ve";break;
+		case 78:firstHalf="Ta";break;
+		case 79:firstHalf="mu";break;
+		//case 80:firstHalf="hu";break;
+		case 81:firstHalf="fl";break;
+		case 82:firstHalf="ra";break;
+		case 83:firstHalf="di";break;
+		case 84:firstHalf="em";break;
+		case 85:firstHalf="bl";break;
+		case 86:firstHalf="ya";break;
+		case 87:firstHalf="cr";break;
+		case 88:firstHalf="ro";break;
+		case 89:firstHalf="ne";break;
+		case 90:firstHalf="jo";break;
+		case 91:firstHalf="ri";break;
+		case 92:firstHalf="dr";break;
+		case 93:firstHalf="st";break;
+		case 94:firstHalf="ea";break;
+		case 95:firstHalf="Vi";break;
+		case 96:firstHalf="te";break;
+		case 97:firstHalf="Ko";break;
+		case 98:firstHalf="ba";break;
+		case 66:firstHalf="to";break;
+		case 80:firstHalf="en";break;
+		default: firstHalf = "";
+
+	}
+	
+	firstHalf = firstHalf.toUpperCase();
+	document.getElementById("container1").innerHTML = firstHalf + "-";
+
+}
+
+document.getElementById("playArea").addEventListener("click", clickCheck);
+
+function clickCheck(e){
+	
+	targ = e.target.id;
+	document.getElementById("rangeInput").value = targ-1;
+	showValue(targ-1);
+}
+
+document.getElementById("shape").addEventListener("click", clickCheck2);
+
+function clickCheck2(e){
+	
+	var targClass = e.target.className;
+	var	targ = e.target.id;
+
+	//console.log(targ);
+	var roundCheck = targClass.indexOf("round");
+	var angleCheck = targClass.indexOf("angle");
+
+		
+	if(roundCheck==-1&&angleCheck==-1){
+	
+		try{document.getElementById(targ).className = targClass + " " + targClass + "round" ;}
+		catch(err){}
+		
+		switch(targ){ //this is inside roundCheck to check if the quadrant is a right angle. If it is a right angle set it to 1.
+		case "q1": vq1=1; break;
+		case "q2": vq2=1; break;
+		case "q3": vq3=1; break;
+		case "q4": vq4=1; break;
+		}
+	}
+	else if(angleCheck==-1){
+	try{document.getElementById(targ).className = targ + " " + targ + "angle" ;}
+	catch(err){}
+	
+	switch(targ){ //this is inside roundCheck to check if the quadrant is a round. If it is a round set its representative bit to 2.
+	case "q1": vq1=2; break;
+	case "q2": vq2=2; break;
+	case "q3": vq3=2; break;
+	case "q4": vq4=2; break;
+	}
+	
+	}
+	else{
+		document.getElementById(targ).className = targ;
+		
+		switch(targ){
+		case "q1": vq1=0; break;
+		case "q2": vq2=0; break;
+		case "q3": vq3=0; break;
+		case "q4": vq4=0; break;
+		}
+	}
+	
+	console.log(vq4 + "" + vq3 + "" + vq2 + "" + vq1);
+	
+	var shape = vq4*27 + vq3*9 + vq2*3 + vq1; //a ternary converter? I don't know, man!
+	console.log(shape);
+	shape = shape + 1;
+	
+	
+	var secondHalf;
+	switch(shape){
+		case 1: secondHalf = "re"; break;
+		case 2: secondHalf = "is"; break;
+		case 3: secondHalf = "es"; break;
+		case 4: secondHalf = "ke"; break;
+		case 5: secondHalf = "ur"; break;
+		case 6: secondHalf = "ll"; break;
+		case 7: secondHalf = "en"; break;
+		case 8: secondHalf = "ey"; break;
+		case 9: secondHalf = "st"; break;
+		case 10: secondHalf = "ad"; break;
+		case 11: secondHalf = "nt"; break;
+		case 12: secondHalf = "ep"; break; // was "ve" swapped with "ep"
+		case 13: secondHalf = "me"; break;
+		case 14: secondHalf = "ys"; break;
+		case 15: secondHalf = "ay"; break;
+		case 16: secondHalf = "fe"; break;
+		case 17: secondHalf = "de"; break;
+		case 18: secondHalf = "nd"; break;
+		case 19: secondHalf = "at"; break;
+		case 20: secondHalf = "ce"; break;
+		case 21: secondHalf = "UE"; break;
+		case 22: secondHalf = "sh"; break;
+		case 23: secondHalf = "rd"; break;
+		case 24: secondHalf = "ld"; break;
+		case 25: secondHalf = "pe"; break;
+		case 26: secondHalf = "ow"; break;
+		case 27: secondHalf = "th"; break;
+		case 28: secondHalf = "ng"; break;
+		case 29: secondHalf = "er"; break;
+		case 30: secondHalf = "rs"; break;
+		case 31: secondHalf = "em"; break;
+		case 32: secondHalf = "ns"; break;
+		case 33: secondHalf = "as"; break;
+		case 34: secondHalf = "id"; break;
+		case 35: secondHalf = "an"; break;
+		case 36: secondHalf = "rn"; break;
+		case 37: secondHalf = "rl"; break;
+		case 38: secondHalf = "ne"; break;
+		case 39: secondHalf = "ge"; break;
+		case 40: secondHalf = "el"; break;
+		case 41: secondHalf = "od"; break;
+		case 42: secondHalf = "ss"; break;
+		case 43: secondHalf = "il"; break;
+		case 44: secondHalf = "ar"; break;
+		case 45: secondHalf = "te"; break;
+		case 46: secondHalf = "ah"; break;
+		case 47: secondHalf = "im"; break;
+		case 48: secondHalf = "on"; break;
+		case 49: secondHalf = "rk"; break;
+		case 50: secondHalf = "om"; break;
+		case 51: secondHalf = "ft"; break;
+		case 52: secondHalf = "in"; break;
+		case 53: secondHalf = "ul"; break;
+		case 54: secondHalf = "ti"; break;
+		case 55: secondHalf = "ok"; break;
+		case 56: secondHalf = "se"; break;
+		case 57: secondHalf = "lf"; break;
+		case 58: secondHalf = "mb"; break;
+		case 59: secondHalf = "ry"; break;
+		case 60: secondHalf = "gh"; break;
+		case 61: secondHalf = "ew"; break;
+		case 62: secondHalf = "or"; break;
+		case 63: secondHalf = "ch"; break;
+		case 64: secondHalf = "rt"; break;
+		case 65: secondHalf = "ds"; break;
+		case 66: secondHalf = "nk"; break;
+		case 67: secondHalf = "lk"; break;
+		case 68: secondHalf = "ly"; break;
+		case 69: secondHalf = "dy"; break;
+		case 70: secondHalf = "ak"; break;
+		case 71: secondHalf = "it"; break;
+		case 72: secondHalf = "hh"; break;
+		case 73: secondHalf = "lo"; break;
+		case 74: secondHalf = "ts"; break;
+		case 75: secondHalf = "et"; break;
+		case 76: secondHalf = "to"; break;
+		case 77: secondHalf = "ve"; break; //to make "LOVE" heart shaped, swapped with "ep"
+		case 78: secondHalf = "ed"; break;
+		case 79: secondHalf = "wn"; break;
+		case 80: secondHalf = "ee"; break;
+		case 81: secondHalf = "ny"; break;
+		case 82: secondHalf = "lm"; break;
+		case 83: secondHalf = "os"; break;
+		case 84: secondHalf = "ct"; break;
+		case 85: secondHalf = "ol"; break;
+		case 86: secondHalf = "ug"; break;
+		case 87: secondHalf = "sy"; break;
+		case 88: secondHalf = "nn"; break;
+		case 89: secondHalf = "rp"; break;
+		case 90: secondHalf = "by"; break;
+		case 91: secondHalf = "lp"; break;
+		case 92: secondHalf = "ps"; break;
+		case 93: secondHalf = "ck"; break;
+		default: secondHalf = "";
+	}
+	secondHalf = secondHalf.toUpperCase();
+	document.getElementById("container2").innerHTML =  "-" + secondHalf;
+}
+
+	function latticeSwap(latType){
+		
+		switch(latType){
+		case "blank": document.getElementById("morph").className = ""; break;
+		case "plus": document.getElementById("morph").className = "lattice1"; break;
+		case "dot": document.getElementById("morph").className = "lattice2"; break;
+		case "slant": document.getElementById("morph").className = "lattice3"; break;
+		case "thatch": document.getElementById("morph").className = "lattice4"; break;
+		default: document.getElementById("morph").className = "";
+		}
+		
+		showValue(targ-1);
+		
+	}
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link href="level2.css" rel="stylesheet" type="text/css" />
+	<title>Level 2</title>
+	
+</head>
+<body onmouseup="allOff();">
+<header><div class="navigation" style="visibility:visible">
+<a href="http://www.raletech.com/" class="icon"></a>
+<a href="#" class="navigation-button" id="bye">LOCKED</a>
+<a href="#" class="navigation-button-right" onclick="trick();">HINT</a>
+<a href="http://www.raletech.com/puzzles/directory/" class="navigation-button-right">DIRECTORY</a>
+<a style="margin-left: 50px">Welcome to level 2. Have fun!</a>
+</div></header>
+
+<div align="center" style="height:100vh; margin-top:90px">
+
+	<div class="numbers">
+		<div id="n1" class="numDiv"></div><div id="n2" class="numDiv"></div><div id="n3" class="numDiv"></div><div id="n4" class="numDiv"></div><div id="n5" class="numDiv"></div>
+	</div>
+
+<div>
+<div class="slide-button-s red-border" style="visibility: hidden;" id="spec" onclick="win();"></div>
+<div class="square" onclick="squareon();"></div>
+<div class="plus" onclick="pluson();"></div>
+<div class="triangle"  onclick="triangleon();"></div>
+</div>
+<div>
+<div class="plus" onclick="pluson();"></div>
+<div class="triangle" onclick="triangleon();"></div>
+<div class="square" onclick="squareon();"></div>
+<div class="circle" onclick="circleon();"></div>
+</div>
+<div>
+<div class="circle" onclick="circleon();" ></div>
+<div class="plus" onclick="pluson();" ></div>
+<div class="ex" onclick="exon();" ></div>
+<div class="plus" onclick="pluson();"></div>
+</div>
+<div>
+<div class="plus" onclick="pluson();"></div>
+<div class="square" onclick="squareon();"></div>
+<div class="triangle" onclick="triangleon();"></div>
+<div class="square" onclick="squareon();"></div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+
+var flagArray = [1,2,3,4,5];
+var userArray = [0,0,0,0,0];
+
+flagArray.sort(function() {return .5 - Math.random();} );
+console.log(flagArray);
+
+var flagString = flagArray.toString();
+flagString = flagString.replace(/,/g,"");
+
+document.getElementById("n1").innerHTML = flagArray[0];
+document.getElementById("n2").innerHTML = flagArray[1];
+document.getElementById("n3").innerHTML = flagArray[2];
+document.getElementById("n4").innerHTML = flagArray[3];
+document.getElementById("n5").innerHTML = flagArray[4];
+
+
+function trick(){
+alert("When you click or tap the squares, some of them light up, I wonder why? I'm sure that \"counts\" for something!");
+}
+
+function exon(){ //1
+	var d = document.querySelectorAll(".ex");
+	for (var i = 0; i < d.length; i++) {
+    	d[i].style.backgroundColor = "#f0b6d5";
+    }
+	userArray.push(1);
+	userArray.splice(0,1);
+	test();
+}
+
+function circleon(){ //2
+	var d = document.querySelectorAll(".circle");
+	for (var i = 0; i < d.length; i++) {
+    	d[i].style.backgroundColor = "#f0b6d5";
+    }
+	userArray.push(2);
+	userArray.splice(0,1);
+	test();
+}
+
+function triangleon(){//3
+	var d = document.querySelectorAll(".triangle");
+	for (var i = 0; i < d.length; i++) {
+    	d[i].style.backgroundColor = "#f0b6d5";
+    }
+	userArray.push(3);
+	userArray.splice(0,1);
+	test();
+}
+
+function squareon(){ //4
+	var d = document.querySelectorAll(".square");
+	for (var i = 0; i < d.length; i++) {
+    	d[i].style.backgroundColor = "#f0b6d5";
+    }
+	userArray.push(4);
+	userArray.splice(0,1);
+	test();
+}
+
+function pluson(){ //5
+	var d = document.querySelectorAll(".plus");
+	for (var i = 0; i < d.length; i++) {
+    	d[i].style.backgroundColor = "#f0b6d5";
+    }
+	userArray.push(5);
+	userArray.splice(0,1);
+	test();
+}
+
+function allOff(){
+	var d = document.querySelectorAll(".ex, .circle, .triangle, .square, .plus");
+	for (var i = 0; i < d.length; i++) {
+	    d[i].style.backgroundColor = "#e6de83";
+	}
+}
+
+function win(){
+document.getElementById("bye").innerHTML = "PROCEED";
+document.getElementById("bye").href = "http://www.raletech.com/puzzles/level3/";
+document.getElementById("bye").style.backgroundColor = "#FFFEB8";
+document.querySelector(".numbers").style.backgroundColor = "#FFFEB8";
+
+		localStorage.setItem("flag2", true);
+
+}
+
+function test(){
+	console.log(userArray);
+	
+	if(userArray[4]==flagArray[0]){
+		document.getElementById("n1").className = "numDiv glow";
+		document.getElementById("n2").className = "numDiv";
+		document.getElementById("n3").className = "numDiv";
+		document.getElementById("n4").className = "numDiv";
+		document.getElementById("n5").className = "numDiv";
+	}
+	else if(userArray[3]==flagArray[0] && userArray[4]==flagArray[1]){ 
+		document.getElementById("n1").className = "numDiv glow";
+		document.getElementById("n2").className = "numDiv glow";
+		document.getElementById("n3").className = "numDiv";
+		document.getElementById("n4").className = "numDiv";
+		document.getElementById("n5").className = "numDiv";
+	}
+	else if(userArray[2]==flagArray[0] && userArray[3]==flagArray[1] && userArray[4]==flagArray[2]){ 
+		document.getElementById("n1").className = "numDiv glow";
+		document.getElementById("n2").className = "numDiv glow";
+		document.getElementById("n3").className = "numDiv glow";
+		document.getElementById("n4").className = "numDiv";
+		document.getElementById("n5").className = "numDiv";
+	}
+	else if(userArray[1]==flagArray[0] && userArray[2]==flagArray[1] && userArray[3]==flagArray[2] && userArray[4]==flagArray[3]){ 
+		document.getElementById("n1").className = "numDiv glow";
+		document.getElementById("n2").className = "numDiv glow";
+		document.getElementById("n3").className = "numDiv glow";
+		document.getElementById("n4").className = "numDiv glow";
+		document.getElementById("n5").className = "numDiv";
+	}
+	else if(userArray[0]==flagArray[0] && userArray[1]==flagArray[1] && userArray[2]==flagArray[2] && userArray[3]==flagArray[3] && userArray[4]==flagArray[4]){ 
+		document.getElementById("n1").className = "numDiv glow";
+		document.getElementById("n2").className = "numDiv glow";
+		document.getElementById("n3").className = "numDiv glow";
+		document.getElementById("n4").className = "numDiv glow";
+		document.getElementById("n5").className = "numDiv glow";
+	}
+	else{
+		document.getElementById("n1").className = "numDiv";
+		document.getElementById("n2").className = "numDiv";
+		document.getElementById("n3").className = "numDiv";
+		document.getElementById("n4").className = "numDiv";
+		document.getElementById("n5").className = "numDiv";
+	}
+	
+	
+	var userString = userArray.toString();
+	userString = userString.replace(/,/g,"");
+	if(flagString === userString){console.log("Match!"); finish();}
+}
+
+function finish(){
+	
+	document.getElementById("spec").style.visibility = "visible";
+	
+}
+
+</script>
+</body>
+</html>

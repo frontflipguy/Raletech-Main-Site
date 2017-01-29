@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link href="mySite.css" rel="stylesheet" type="text/css" />
+	<title>Way to go, kid! Kinda.</title>
+	
+</head>
+<body>
+<div style="width:100%" align="center"><div align="center" class="logout-message">Nicely done! You are a winner!<br>Enter your name, champion!<br>
+	<div id="thank"><input type="text" id="answer" style="width:150px"></input>	<button id="submit" style="margin-top:10px" onclick="submit();">Submit</button></div>
+</div>
+	<div style="visibility:hidden" id="link">(Nothing happens.)<br>
+		<a href="http://www.raletech.com/" class="linky">home</a></div>
+	</div>
+</body>
+<script>
+	function submit(){
+	var champion = document.getElementById("answer").value;
+	console.log(champion);
+		
+	var rec = localStorage.getItem("record");
+	var recMin = Math.floor(rec/60);
+	var recSec = rec%60;
+
+	localStorage.setItem("userEntry", champion);
+	document.getElementById("thank").innerHTML = champion + ": " + recMin + "." + recSec + " min.";
+	document.getElementById("link").style.visibility = "visible";
+
+	}
+</script>
+</html>

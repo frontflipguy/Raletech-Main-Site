@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta name="viewport" content="user-scalable=no" />
+	<link href="level6.css" rel="stylesheet" type="text/css" />
+	<title>Level 6</title>
+	
+</head>
+<body>
+<header><div class="navigation">
+<a href="http://www.raletech.com/" class="icon"></a>
+<a href="#" class="navigation-button" id="bye">LOCKED</a>
+<a href="#" class="navigation-button-right" onclick="trick();">HINT</a>
+<a href="http://www.raletech.com/puzzles/directory/" class="navigation-button-right">DIRECTORY</a>
+<a style="margin-left: 50px">Welcome to level 6. Have fun!</a>
+</div></header>
+
+<div align="center" style="margin-top:100px">
+<table>
+<tr>
+<td  style="padding:20px">
+<table>
+	<tr><td colspan="2"> <button onclick="reset();">RESET</button></td></tr>
+		<tr><td class="selected livey"></td><td class="blank"></td><td class="blank"></td></tr>
+		<tr><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		<tr><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+	
+</table>
+</td>
+<td  style="padding:20px">
+<table>
+		<tr><td style="visibility: hidden" colspan="2"> <button onclick="reset();" >RESET</button></td></tr>
+		<tr><td class="static"></td><td class="static"></td><td class="static"></td></tr>
+		<tr><td class="static"></td><td class="static"></td><td class="static"></td></tr>
+		<tr><td class="static"></td><td class="static"></td><td class="static"></td></tr>
+
+</table>
+</td>
+</tr>
+<tr>
+<td style="padding:0px; padding-top:5px;" align="center">
+<table class="arrowTable">
+<tr>
+<td style="visibility: hidden"></td><td class="arrowKey" onclick="up();">&#8743;</td><td style="visibility: hidden"></td>
+</tr>
+<tr>
+<td class="arrowKey" onclick="left();">&lt;</td><td class="arrowKey" onclick="down();">&#8744;</td><td class="arrowKey" onclick="right();">&gt;</td>
+</tr>
+</table>
+</td><td></td>
+</tr>
+</table>
+	
+</div>
+
+
+<script>
+var blipColor = ".blank";
+var NLi; //Node List Initial
+var NL; //Node List
+var xpos = 0; //x position of active tile
+var ypos = 0; //y position of active tile
+var translated; //this is used later for putting elements in a 2d array into a 1d list
+var score = 0; 
+var size = 3;
+var dArrayBlank = []; //a blank array for the solution algothim to "move through"
+
+var arrayNL = []; //initialized as a 1d array
+for(var l = 0; l < size; l++){ //makes it an array of arrays so it is now a 2d array
+	arrayNL[l] = [];
+	}
+
+var randoArray = []; //initialized as a 1d array
+for(var k = 0; k < size; k++){ //makes it an array of arrays so it is now a 2d array
+	randoArray[k] = [];
+	}
+	
+var checkArray = []; //initialized as a 1d array
+for(var m = 0; m < size; m++){ //makes it an array of arrays so it is now a 2d array
+	checkArray[m] = [];
+	}
+
+initialize();
+
+function trick(){
+alert("Match the patterns. The colors don't cycle this time!"); 
+}
+
+function initialize(){
+
+	var NLi = document.querySelectorAll(".static"); //gets the node list of all the "static" elements
+
+	voiceOfReason();
+	
+	for(var j = 0; j < size; j++){ //randomizes class names for randoArray
+		for(var i = 0; i < size; i++){
+			
+			var a;
+			var b;
+			//console.log(dArrayBlank[i]);
+			translated = i + j * size;
+			if(dArrayBlank[translated] == "livey"){a = "blipy"; b = "livey";} //"a" and "b" are sorted into yellow, green, or blue
+			else if(dArrayBlank[translated] == "liveg"){a = "blipg"; b = "liveg";}
+			else if(dArrayBlank[translated] == "liveb"){a = "blipb"; b = "liveb";}
+			
+			randoArray[i][j] = a; //"a" and "b" are loaded into the given array locations
+			checkArray[i][j] = b;
+
+		}
+	}
+	
+	var buffer = randoArray[2][1];
+	randoArray[2][1] = randoArray[0][1];
+	randoArray[0][1] = buffer;
+	
+	var buffer2 = checkArray[2][1];
+	checkArray[2][1] = checkArray[0][1];
+	checkArray[0][1] = buffer2;
+	
+	for(var j = 0; j < size; j++){ //puts new random classNames back into an the nodelist
+		for(var i = 0; i < size; i++){
+			var a = randoArray[i][j];
+			translated = i + j * size;
+			NLi[translated].className = a;
+		}
+	}
+}
+
+document.onkeydown = checkKey;
+
+function checkKey(e) { //checks for keyboard user inputs (the arrow keys)
+
+    if (e.keyCode == '38') {e.preventDefault(); up();}
+    else if (e.keyCode == '40') {e.preventDefault(); down();}
+    else if (e.keyCode == '37') {left();}
+    else if (e.keyCode == '39') {right();}
+}
+
+function up(){ //these functions are called by the checkKey function above or when the user clicks the arrow key elements
+	var ypos2 = ypos - 1;  //they check if the input move is legal, then call the "cycle" function on the cell 
+	if(ypos2 > -1  && arrayNL[xpos][ypos2] != "liveb"){cycle(xpos, ypos2);} //that the selector moves to based on the direction indicated.
+}
+
+function down(){
+   	var ypos2 = ypos + 1;
+	if(ypos2 < size && arrayNL[xpos][ypos2] != "liveb"){cycle(xpos, ypos2);}
+}
+	
+function left(){
+	var xpos2 = xpos - 1;
+	if(xpos2 > -1  && arrayNL[xpos2][ypos] != "liveb"){cycle(xpos2, ypos);}
+}
+	
+function right(){
+	var xpos2 = xpos + 1;
+	if(xpos2 < size  && arrayNL[xpos2][ypos] != "liveb"){cycle(xpos2, ypos);}
+}
+
+function cycle(x, y){ //this function updates the play area based on the user's input. It also tracks the user's score.
+	
+	NL = document.querySelectorAll(".blank, .selected, .livey, .liveb, .liveg"); //sets NL equal to a node list of all elements of the listed classes
+
+	for(var j = 0; j < size; j++){ //puts all the nodes' classNames into an array
+		for(var i = 0; i < size; i++){
+			translated = i + j * size;
+			var a = NL[translated].className;
+			arrayNL[i][j] = a;
+		}
+	}
+		var breakMatch; //whenever two corresponding cells that previously matched are changed to not match anymore, this is set true.
+		
+		arrayNL[xpos][ypos] = arrayNL[xpos][ypos].replace("selected ",""); //removes the "selected" class name from the previous cell
+		
+		if(arrayNL[x][y] === checkArray[x][y]){breakMatch = true;} //checks if this move will break a match.
+		else{breakMatch = false;}
+		
+		if(arrayNL[x][y] == "blank"){arrayNL[x][y] = "livey";} //handles/implements the cycling between colors
+		else if(arrayNL[x][y] == "livey"){arrayNL[x][y] = "liveg";}
+		else if(arrayNL[x][y] == "liveg"){arrayNL[x][y] = "liveb";}
+		
+		if(arrayNL[x][y] === checkArray[x][y]){score++; if(score==9){win();}} //keeps track of score and calls "win()" if 36 is reached
+		else if(breakMatch == true){score--;}
+		console.log(score);
+		
+		arrayNL[x][y] = "selected " + arrayNL[x][y]; //adds the "selected" class name to the current cell
+
+		xpos = x; //updates "xpos" with the new (current) x position
+		ypos = y; //updates "ypos" with the new (current) y position
+		
+	for(var j = 0; j < size; j++){ //puts the classNames back into an the nodelist
+		for(var i = 0; i < size; i++){
+			var a = arrayNL[i][j];
+			translated = i + j * size;
+			NL[translated].className = a;
+		}
+	}
+}
+
+function voiceOfReason(){ //randomizes it
+	
+	for(var i = 0; i < 9; i++){dArrayBlank[i] = "blank"} //loads dArrayBlank with 9 strings that say "blank"
+	
+	for(var i = -1; i < 8; i++){
+		
+		var next = i + 1;		
+
+		dArrayBlank[next] = increment(dArrayBlank[next]); //moves the selector to the current cell
+		
+		var randStrokes = Math.ceil((Math.random() * 10)/5); //generate a random number
+		if(next==0){randStrokes = 1;}
+		while(randStrokes > 1 && dArrayBlank[i]!="liveb"){ //runs this loop a random number of times
+		
+				dArrayBlank[next] = increment(dArrayBlank[next]); //increments the cycle position of the next cell
+				dArrayBlank[i] = increment(dArrayBlank[i]); //increments the cycle position of the current cell
+				randStrokes--;
+
+		}
+		console.log(dArrayBlank[i]);
+
+	} 
+	
+	if(dArrayBlank[0] == "livey"){score++;}
+
+}
+
+function increment(currentColor){ //simple function that takes input currentColor and returns which color comes next
+	
+	if(currentColor=="blank"){return "livey";}
+	else if(currentColor=="livey"){return "liveg";}
+	else if(currentColor=="liveg"){return "liveb";}
+	
+}
+
+function reset(){ //resets the puzzle to it's initial state without refreshing the page. (To keep the pattern on the right the same)
+
+	xpos = 0; //resets x position, y position, and score
+	ypos = 0;
+	score = 0;
+	if(dArrayBlank[0] == "livey"){score++;}
+
+ 	console.log("reset");
+	for(var j = 0; j < size; j++){ //puts all the nodes' classNames into an array
+		for(var i = 0; i < size; i++){
+			if(i==0&&j==0){arrayNL[i][j] = "selected livey";}
+			else{arrayNL[i][j] = "blank";}
+		}
+	}
+
+	NL = document.querySelectorAll(".blank, .selected, .livey, .liveb, .liveg");
+
+	for(var j = 0; j < size; j++){ //puts the classNames back into an the nodelist
+		for(var i = 0; i < size; i++){
+			var a = arrayNL[i][j];
+			translated = i + j * size;
+			NL[translated].className = a;
+		}
+	}
+	
+	var bye = document.getElementById("bye"); //resets the state of the "bye" element in case the user resets after having solved it
+
+	bye.innerHTML = "LOCKED";
+	bye.href = "#";
+	bye.style.backgroundColor = "#A1A1A1";
+
+}
+
+function win(){ //changes the "bye" element to it's "win" state
+	var bye = document.getElementById("bye");
+	
+	bye.innerHTML = "PROCEED";
+	bye.href = "http://www.raletech.com/puzzles/level7/";
+	bye.style.backgroundColor = "#aebcff";
+	localStorage.setItem("flag6", true);
+
+}
+
+</script>
+
+</body>
+</html>

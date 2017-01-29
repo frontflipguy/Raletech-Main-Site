@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link href="fractactoe.css" rel="stylesheet" type="text/css" />
+	<title>Frac-Tac-Toe. A fractal ate a tic-tac-toe board and crapped this out.</title>
+	
+</head>
+<body>
+<header><div class="navigation">
+<a class="icon" href="http://www.raletech.com/"></a>
+<a href="#" class="navigation-button" id="bye">LOCKED</a>
+<a href="#" class="navigation-button-right" onclick="trick();">HINT</a>
+<a href="http://www.raletech.com/2p" class="navigation-button-right">DIRECTORY</a>
+<a style="margin-left: 50px">Welcome to Frac-Tac-Toe. Have fun!</a>
+</div></header>
+
+<div align="center" style="margin-top:90px">
+
+<div style="margin-bottom:10px; font-weight: bold;">Whose turn: <div id="turn" class="turn ohi"></div></div>
+
+<table id="playArea" class="scooch oh">
+		<tr>
+			<td id="m1" onclick="getMajorCell(1);" class="major-bottom-border major-right-border">
+				<table class="scooch">
+					<tr><td id="1" class="minor-bottom-border minor-right-border"></td><td id="2" class="minor-bottom-border minor-right-border"></td><td id="3" class="minor-bottom-border"></td></tr>
+					<tr><td id="4" class="minor-bottom-border minor-right-border"></td><td id="5" class="minor-bottom-border minor-right-border"></td><td id="6" class="minor-bottom-border"></td></tr>
+					<tr><td id="7" class="minor-right-border"></td><td id="8" class="minor-right-border"></td><td id="9" class="minor"></td></tr>
+				</table>
+			</td>
+			<td id="m2" onclick="getMajorCell(2);" class="major-bottom-border major-right-border">
+				<table class="scooch">
+					<tr><td id="1" class="minor-bottom-border minor-right-border"></td><td id="2" class="minor-bottom-border minor-right-border"></td><td id="3" class="minor-bottom-border"></td></tr>
+					<tr><td id="4" class="minor-bottom-border minor-right-border"></td><td id="5" class="minor-bottom-border minor-right-border"></td><td id="6" class="minor-bottom-border"></td></tr>
+					<tr><td id="7" class="minor-right-border"></td><td id="8" class="minor-right-border"></td><td id="9" class="minor"></td></tr>
+				</table>
+			</td>
+			<td id="m3" onclick="getMajorCell(3);" class="major-bottom-border">
+				<table class="scooch">
+					<tr><td id="1" class="minor-bottom-border minor-right-border"></td><td id="2" class="minor-bottom-border minor-right-border"></td><td id="3" class="minor-bottom-border"></td></tr>
+					<tr><td id="4" class="minor-bottom-border minor-right-border"></td><td id="5" class="minor-bottom-border minor-right-border"></td><td id="6" class="minor-bottom-border"></td></tr>
+					<tr><td id="7" class="minor-right-border"></td><td id="8" class="minor-right-border"></td><td id="9" class="minor"></td></tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td id="m4" onclick="getMajorCell(4);" class="major-bottom-border major-right-border">
+				<table class="scooch">
+					<tr><td id="1" class="minor-bottom-border minor-right-border"></td><td id="2" class="minor-bottom-border minor-right-border"></td><td id="3" class="minor-bottom-border"></td></tr>
+					<tr><td id="4" class="minor-bottom-border minor-right-border"></td><td id="5" class="minor-bottom-border minor-right-border"></td><td id="6" class="minor-bottom-border"></td></tr>
+					<tr><td id="7" class="minor-right-border"></td><td id="8" class="minor-right-border"></td><td id="9" class="minor"></td></tr>
+				</table>
+			</td>
+			<td id="m5" onclick="getMajorCell(5);" class="major-bottom-border major-right-border">
+				<table class="scooch">
+					<tr><td id="1" class="minor-bottom-border minor-right-border"></td><td id="2" class="minor-bottom-border minor-right-border"></td><td id="3" class="minor-bottom-border"></td></tr>
+					<tr><td id="4" class="minor-bottom-border minor-right-border"></td><td id="5" class="minor-bottom-border minor-right-border"></td><td id="6" class="minor-bottom-border"></td></tr>
+					<tr><td id="7" class="minor-right-border"></td><td id="8" class="minor-right-border"></td><td id="9" class="minor"></td></tr>
+				</table>
+			</td>
+			<td id="m6" onclick="getMajorCell(6);" class="major-bottom-border">
+				<table class="scooch">
+					<tr><td id="1" class="minor-bottom-border minor-right-border"></td><td id="2" class="minor-bottom-border minor-right-border"></td><td id="3" class="minor-bottom-border"></td></tr>
+					<tr><td id="4" class="minor-bottom-border minor-right-border"></td><td id="5" class="minor-bottom-border minor-right-border"></td><td id="6" class="minor-bottom-border"></td></tr>
+					<tr><td id="7" class="minor-right-border"></td><td id="8" class="minor-right-border"></td><td id="9" class="minor"></td></tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td id="m7" onclick="getMajorCell(7);" class="major-right-border">
+				<table class="scooch">
+					<tr><td id="1" class="minor-bottom-border minor-right-border"></td><td id="2" class="minor-bottom-border minor-right-border"></td><td id="3" class="minor-bottom-border"></td></tr>
+					<tr><td id="4" class="minor-bottom-border minor-right-border"></td><td id="5" class="minor-bottom-border minor-right-border"></td><td id="6" class="minor-bottom-border"></td></tr>
+					<tr><td id="7" class="minor-right-border"></td><td id="8" class="minor-right-border"></td><td id="9" class="minor"></td></tr>
+				</table>
+			</td>
+			<td id="m8" onclick="getMajorCell(8);" class="major-right-border">
+				<table class="scooch">
+					<tr><td id="1" class="minor-bottom-border minor-right-border"></td><td id="2" class="minor-bottom-border minor-right-border"></td><td id="3" class="minor-bottom-border"></td></tr>
+					<tr><td id="4" class="minor-bottom-border minor-right-border"></td><td id="5" class="minor-bottom-border minor-right-border"></td><td id="6" class="minor-bottom-border"></td></tr>
+					<tr><td id="7" class="minor-right-border"></td><td id="8" class="minor-right-border"></td><td id="9" class="minor"></td></tr>
+				</table>
+			</td>
+			<td id="m9" onclick="getMajorCell(9);" class="major-padding">
+				<table class="scooch">
+					<tr><td id="1" class="minor-bottom-border minor-right-border"></td><td id="2" class="minor-bottom-border minor-right-border"></td><td id="3" class="minor-bottom-border"></td></tr>
+					<tr><td id="4" class="minor-bottom-border minor-right-border"></td><td id="5" class="minor-bottom-border minor-right-border"></td><td id="6" class="minor-bottom-border"></td></tr>
+					<tr><td id="7" class="minor-right-border"></td><td id="8" class="minor-right-border"></td><td id="9" class="minor"></td></tr>
+				</table>
+			</td>
+		</tr>
+		
+</table>
+	
+</div>
+
+<script>
+
+var cursorToggle = false;
+var cellID = 0;
+var majorCell = 0;
+
+function trick(){
+	alert("The position you choose in the \"minor\" grid will indicate which position of the \"major\" grid must be played in next."); 
+	}
+
+document.getElementById("playArea").addEventListener("click", clickCheck);
+
+function clickCheck(e){
+	
+	console.log(e.target);
+	
+	var bogus = e.target.className;
+	
+	var bogus1 = bogus.substr(0,5);
+	var bogus2 = bogus.substr(-1,1); //looks at the last letter of the class name. if it's "i", then an image has been added.
+	var bogus3 = e.target.id;
+		
+	console.log(bogus3);
+	
+	if(bogus1==="minor"&&bogus2!="i"&&(cellID==majorCell||cellID==0)){
+		if(cursorToggle){
+			e.target.className = e.target.className + " exi"; 
+			document.getElementById("playArea").className = "scooch oh"; //the class that makes the cursor change
+			document.getElementById("turn").className = "turn ohi"; //the class the shows whose turn it is
+			cursorToggle = false;}
+		else{e.target.className = e.target.className + " ohi"; 
+			document.getElementById("playArea").className = "scooch ex"; 
+			document.getElementById("turn").className = "turn exi";
+			cursorToggle = true;}
+		
+		var majorElementNext = "m" + bogus3;
+		document.getElementById(majorElementNext).className = document.getElementById(majorElementNext).className + " major-active";
+		
+		var majorElementPrev = "m" + majorCell;
+		var removeActive = document.getElementById(majorElementPrev).className;
+		removeActive = removeActive.replace(" major-active","");
+		document.getElementById(majorElementPrev).className = removeActive;
+		
+		
+		cellID = bogus3; //lastly, set cellID to the cell that was just picked
+	}
+	
+	
+}
+
+function getMajorCell(cell){
+	
+	console.log("you clicked major cell " + cell);
+	majorCell = cell;
+	
+}
+
+</script>
+
+</body>
+</html>

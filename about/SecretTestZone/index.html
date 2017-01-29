@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link href="mySite.css" rel="stylesheet" type="text/css" />
+	<title>Way to go, kid! Kinda.</title>
+	
+</head>
+<body>
+	<div class="big-one" align="center">
+		<div align="center" class="logout-message">
+			Write a mad lib.<br>
+			<textarea id="lib" style="width:450px; height:100px"></textarea><br>
+			<button id="submit" onclick="save();">Save</button><br>
+			Enter the name of the mad lib you wish to see.<br>
+			<div id="thank">
+				<input type="text" id="answer" style="width:150px">
+				
+				<button id="submit" style="margin-top:10px" onclick="submit();">Submit</button>
+			</div>
+			<div style="visibility:hidden" id="link">(Nothing happens.)<br>
+				<a href="http://www.raletech.com/" class="linky">home</a>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script>
+	
+	var champion;
+	var myVar = "stuff";
+	
+	function save(){
+	var userText = document.getElementById("lib").value;
+		
+	var httpRequest = new XMLHttpRequest();
+	
+	makeRequest('world.php',userText);
+	
+	
+	function makeRequest(url, userText){
+		
+	httpRequest.onreadystatechange = alertContents;
+    httpRequest.open('POST', url)
+    httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    httpRequest.send("userText=" + encodeURIComponent(userText));
+
+	}
+	
+	function alertContents(){
+		if (httpRequest.readyState === XMLHttpRequest.DONE) {
+		 if(this.readyState == 4 && this.status == 200) {
+				
+			var contents = httpRequest.responseText;		
+			alert(contents);
+				
+		 }
+	  }
+	}
+		
+	}
+	
+	function submit(){
+	champion = document.getElementById("answer").value;
+	console.log(champion);
+	
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", "something.xml", true);
+	xhttp.send();
+		
+	xhttp.onreadystatechange = function() {
+    	if(this.readyState == 4 && this.status == 200) {
+			retrieveXML(this);
+		}
+	}
+
+	document.getElementById("link").style.visibility = "visible";
+
+	}
+	
+	function retrieveXML(xml) {
+		var xmlDoc = xml.responseXML;
+		console.log(xmlDoc);
+		var x = xmlDoc.getElementById(champion);
+		console.log(x);
+		var y = x.innerHTML;
+		console.log(y);
+		
+		document.getElementById("thank").innerHTML = "<textarea id=\"field\" style=\"width:450px; height:300px;\"></textarea>";
+		document.getElementById("field").value = y;
+	}
+	
+</script>
+
+</html>

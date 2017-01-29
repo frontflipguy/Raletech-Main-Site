@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link href="level0.css" rel="stylesheet" type="text/css" />
+	<title>Level 0</title>
+	
+</head>
+<body>
+<header><div class="navigation">
+	<a href="http://www.raletech.com/" class="icon"></a>
+<a href="#" class="navigation-button" onclick="number(1);">1</a>
+<a href="#" class="navigation-button" onclick="number(2);">2</a>
+<a href="#" class="navigation-button" onclick="number(3);">3</a>
+<a href="#" class="navigation-button" onclick="number(4);">4</a>
+<a href="http://www.raletech.com/puzzles/level1/" class="navigation-button" id="navs" style="visibility: hidden">PROCEED</a>
+
+
+<a href="#" class="navigation-button-right" onclick="trick();">HINT</a>
+<a href="http://www.raletech.com/puzzles/directory/" class="navigation-button-right">DIRECTORY</a>
+<button id="time" style="visibility: hidden" onclick="timer()">START TIMER</button>
+
+</div></header>
+<div align="center">
+<div class="codeContainer"></div>
+<div class="big" Id="big">
+<a href="#" class="big-logo"></a>
+<a href="#" class="bigl" style="display: none"></a>
+<a href="#" class="bigr" style="display: none"></a>
+</div>
+</div>
+
+<script type="text/javascript">
+	
+	window.oncontextmenu = function(event) {
+     event.preventDefault();
+     event.stopPropagation();
+     return false;
+	};
+
+if(localStorage.getItem("flagSpeedrun")=="true"){
+document.getElementById("time").style = "visibility: visible; position: relative; float: right; margin-right: 50px; margin-top: 6px;";
+}
+	
+function trick(){
+alert("Checklist: -Find code. -Find where to enter code. -Enter code.");
+}
+	
+var password = "0000";
+
+var code = Math.ceil(Math.random()*4);
+code = code*10 + Math.ceil(Math.random()*4);
+code = code*10 + Math.ceil(Math.random()*4);
+code = code*10 + Math.ceil(Math.random()*4);
+spaceCode = " " + code;
+
+document.querySelector(".codeContainer").innerHTML = spaceCode;
+
+var clickHeld;
+var leftShift = 0;
+var rightShift = 0;
+var shakeAmountH = 5;
+var shakeAmountV = 15;
+
+function number(number){
+password = password.slice(1,4);
+password = password.concat(number);
+check();
+}
+
+	
+	function check(){
+		console.log(password);
+		if(password==code){
+					console.log("unlocked!");
+					var d = document.getElementById("navs");
+					console.log(d);
+					d.style.visibility="visible";
+					localStorage.setItem("flag0", true);
+
+				}
+	}
+	
+	document.getElementById("big").addEventListener("mousedown", click);
+
+	function click(e){
+		
+		clickHeld = true;
+		document.querySelector(".big-logo").style.display = "none";
+		var left = document.querySelector(".bigl");
+		var right = document.querySelector(".bigr");
+		left.style.display = "";
+		right.style.display = "";
+		
+		document.querySelector(".codeContainer").innerHTML = code;
+		
+		shakeL(left);
+		shakeR(right);
+	}
+	
+	function shakeL(element){
+		
+		leftShift = leftShift + 0.2;
+		var combined = Math.ceil(Math.random() * shakeAmountH) + leftShift;
+		element.style.right = combined + 'px';
+		element.style.bottom = Math.ceil(Math.random() * shakeAmountV) + 'px';
+
+		setTimeout(function() {if(clickHeld){shakeL(element);} }, 25);
+	}
+	
+function shakeR(element){
+		
+		rightShift = rightShift + 0.2;
+		var combined = Math.ceil(Math.random() * shakeAmountH) + rightShift;
+		element.style.left = combined + 'px';
+		element.style.bottom = Math.ceil(Math.random() * shakeAmountV) + 'px';
+
+		setTimeout(function() {if(clickHeld){shakeR(element);} }, 25);
+	}
+	
+	document.getElementById("big").addEventListener("mouseup", unclick);
+
+	function unclick(e){
+		
+		clickHeld = false;
+		leftShift = 0;
+		rightShift = 0;
+		var targ = e.target.className;
+		document.querySelector(".big-logo").style.display = "";
+		document.querySelector(".bigl").style.display = "none";
+		document.querySelector(".bigr").style.display = "none";
+		
+	}
+	
+function timer(){
+document.getElementById("time").innerHTML = "TIMER STARTED!";
+		localStorage.setItem("startTime", Date.now());
+	console.log(localStorage.getItem("startTime"));
+		localStorage.setItem("flag0", false);
+		localStorage.setItem("flag1", false);
+		localStorage.setItem("flag2", false);
+		localStorage.setItem("flag3", false);
+		localStorage.setItem("flag4", false);
+		localStorage.setItem("flag5", false);
+		localStorage.setItem("flag6", false);
+		localStorage.setItem("flag7", false);
+		localStorage.setItem("flag8", false);
+
+
+}
+
+</script>
+</body>
+</html>

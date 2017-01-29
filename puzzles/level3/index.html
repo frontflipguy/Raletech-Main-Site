@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link href="level3.css" rel="stylesheet" type="text/css" />
+	<title>Level 3</title>
+	
+</head>
+<body>
+<header><div class="navigation">
+<a href="http://www.raletech.com/" class="icon"></a>
+<a href="#" class="navigation-button" id="bye">LOCKED</a>
+<a href="#" class="navigation-button-right" onclick="trick();">HINT</a>
+<a href="http://www.raletech.com/puzzles/directory/" class="navigation-button-right">DIRECTORY</a>
+<a style="margin-left: 50px">Welcome to level 3. Have fun!</a>
+</div></header>
+
+<div align="center" style="height:100vh; margin-top:70px">
+<div class="poem" style="text-align:left" id="poem">
+Take a walk through the woods at dusk<br>
+Run your fingers through your hair<br>
+As you watch the last light of day fade away<br>
+Now the real becomes the ethereal<br>
+Quiet is the sky, filled with shimmering stars<br>
+Under the heavens, fireflies reply in kind<br>
+In a language older than time<br>
+Like dying stars, sending out flashes<br>
+In effort to be remembered by history<br>
+They live on, if only as echoes<br>
+You take a deep breath and slowly exhale<br></div>
+<div class="answerbox" >This poem is about <input type="text" id="answer" style="width:100px" onKeyDown="enter();"></input>.</div>
+<div><button id="submit" style="margin-top:10px" onclick="submit();" onkeyup="">Submit</button></div>
+	<div id="feedback" style="font-weight: bold;">&nbsp;</div>
+
+</div>
+
+
+<script>
+
+function trick(){
+alert("The first letter of each line holds a clue.");
+}
+
+function enter(){
+	var key = event.keyCode;
+	
+
+	if(key == "13"){
+		submit();
+	}
+}
+
+
+function submit(){
+	var userInput = document.getElementById("answer").value;
+	document.getElementById("answer").value = "";
+
+console.log(userInput);
+
+userInput = userInput.toUpperCase();
+userInput = userInput.replace(" ","");
+userInput = userInput.replace("'","");
+
+if(userInput==="TRANQUILITY"){
+	document.getElementById("bye").innerHTML = "PROCEED";
+	document.getElementById("bye").style.color = "#FFFFFF";
+	document.getElementById("bye").href = "http://www.raletech.com/puzzles/level4/";
+	document.getElementById("bye").style.backgroundColor = "#606060";
+	document.getElementById("feedback").innerHTML = "Correct!";
+
+		localStorage.setItem("flag3", true);
+
+}
+else if(userInput==="JOHNCENA"){
+	document.getElementById("poem").innerHTML = "AND HIS NAME IS JOHN CENA!";
+	document.getElementById("poem").style.color = "#00FF00";
+	document.getElementById("poem").style.fontSize = "1000%";
+	document.getElementById("poem").style.backgroundColor = "#606060";
+	document.getElementById("bye").innerHTML = "PROCEED";
+	document.getElementById("bye").style.color = "#FFFFFF";
+	document.getElementById("bye").href = "https://www.youtube.com/watch?v=tAbMNZXx8mQ";
+	document.getElementById("bye").style.backgroundColor = "#606060";
+}
+else if(userInput==="POKEMON"){
+	document.getElementById("poem").innerHTML = "Not everything is about pokemon!";
+}
+else{
+document.getElementById("feedback").innerHTML = "Incorrect.";
+setTimeout(function() {document.getElementById("feedback").innerHTML = "&nbsp;";},2000);
+}
+
+}
+
+</script>
+
+
+</body>
+</html>

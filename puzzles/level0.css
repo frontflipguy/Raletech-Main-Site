@@ -1,0 +1,186 @@
+@CHARSET "UTF-8";
+
+html {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+  line-height: 1.5;
+  font-family: 'Lato', sans-serif;
+  padding: 0px;
+}
+
+body{
+	margin: 0px;
+	
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+div{
+	
+	align:right;
+}
+
+.big{
+	 width: 1000px;
+   height:100vh; 
+  margin-top:50px;
+   display: flex;
+}
+
+.big-logo {
+ width: 1000px;
+ height: 600px;
+ display: flex;
+ background: transparent url('/raletech.png') no-repeat center;
+}
+
+.bigr {
+ width: 500px;
+ height: 600px;
+ display: flex;
+ background: transparent url('/raletech3right.png') no-repeat center;
+ position: relative;
+ 
+}
+
+.bigl {
+ width: 500px;
+ height: 600px;
+ display: flex;
+ background: transparent url('/raletech3left.png') no-repeat center;
+ position: relative;
+}
+
+
+
+.big-logo:hover {
+background: transparent url('/raletech2.png')  no-repeat;
+
+}
+
+.big-logo:active {
+ background: transparent url('/raletech2.png') no-repeat;
+ 
+}
+
+
+.navigation{
+font-size: 130%;
+font-weight: 700;
+margin: 0px;
+padding: 20px;
+border-bottom: 2px solid #000;
+border-top: 1px solid #000;
+background-color: #909090;
+position: fixed;
+width:100%;
+height: 31px;
+z-index: 10;
+}
+
+.navigation-button{
+font-size: 100%;
+background-color: #A1A1A1;
+transition: .5s;
+border: 1px solid #000;
+padding: 35px;
+padding-top: 24px;
+padding-bottom: 24px;
+margin: -4px;
+}
+
+.navigation-button:hover{
+background-color: #DADADA;
+transition: .5s;
+}
+
+.navigation-button:active{
+	background-color: #EFEFEF;
+	transition: 0s;
+}
+
+.icon{
+	 background: transparent url('/raletechicon.png') no-repeat;
+	 background-size: 100%;
+	 width: 80px;
+	 height: 60px;
+	 position: relative;
+	 right: 4px; 
+	 top: -10px;
+	 float: left;
+	 margin-right: 16px;
+}
+
+
+.navigation-button-right{
+	position: relative;
+	float: right;
+	bottom: 17px;
+	right: 25px;
+font-size: 100%;
+background-color: #A1A1A1;
+transition: .5s;
+border: 1px solid #000;
+padding: 14px;
+padding-top: 20px;
+padding-bottom: 20px;
+margin: -4px;
+}
+
+.navigation-button-right:hover{
+background-color: #DADADA;
+transition: .5s;
+}
+
+.navigation-button-right:active{
+	background-color: #EFEFEF;
+	transition: 0s;
+}
+
+.logout-message{
+font-size: 130%;
+font-weight: 700;
+margin-top: 200px;
+padding: 20px;
+border-bottom: 2px solid #000;
+border-top: 2px solid #000;
+background-color: #909090;
+width:80%;
+align: center;
+}
+
+.slide-button{
+transition: 0.5s;
+padding: 12px;
+position: relative;
+background-color: #87bcd6;
+border: 1px solid #000;
+height: 24px;
+width: 24px;
+border-radius: 6px;
+display: inline-table;
+margin: 3px;
+align: top;
+}
+
+.slide-button:hover{
+background-color: #e6de83;
+}
+
+.slide-button:active{
+background-color: #73d216;
+}
+
+.codeContainer{
+	top: 290px;
+	position: relative;
+	font-weight: bold;
+	font-size: 200%;
+	letter-spacing: 5px;
+	z-index: -1;
+}

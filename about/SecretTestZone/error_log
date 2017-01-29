@@ -1,0 +1,41 @@
+[06-Jan-2017 21:31:30 America/New_York] PHP Parse error:  syntax error, unexpected '>' in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 6
+[06-Jan-2017 21:31:55 America/New_York] PHP Parse error:  syntax error, unexpected '>' in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 7
+[06-Jan-2017 21:31:56 America/New_York] PHP Parse error:  syntax error, unexpected '>' in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 7
+[06-Jan-2017 21:33:17 America/New_York] PHP Parse error:  syntax error, unexpected '>' in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 6
+[07-Jan-2017 15:56:04 America/New_York] PHP Warning:  DOMDocument::load(): Extra content at the end of the document in /home/raledmbg/public_html/about/SecretTestZone/something.xml, line: 7 in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 11
+[07-Jan-2017 15:56:04 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 12
+[07-Jan-2017 15:58:31 America/New_York] PHP Catchable fatal error:  Argument 1 passed to DOMNode::appendChild() must be an instance of DOMNode, string given in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 12
+[07-Jan-2017 16:38:24 America/New_York] PHP Catchable fatal error:  Argument 1 passed to DOMNode::appendChild() must be an instance of DOMNode, null given in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 18
+[07-Jan-2017 16:38:59 America/New_York] PHP Catchable fatal error:  Argument 1 passed to DOMNode::appendChild() must be an instance of DOMNode, null given in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 18
+[07-Jan-2017 16:42:37 America/New_York] PHP Catchable fatal error:  Argument 1 passed to DOMNode::appendChild() must be an instance of DOMNode, null given in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 16
+[07-Jan-2017 16:45:10 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 16
+[07-Jan-2017 16:46:04 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 16
+[07-Jan-2017 16:46:41 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 16
+[07-Jan-2017 16:46:52 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 16
+[07-Jan-2017 16:50:18 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 16
+[07-Jan-2017 16:51:20 America/New_York] PHP Fatal error:  Call to undefined method DOMDocument::reateElement() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 12
+[07-Jan-2017 17:01:25 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 18
+[07-Jan-2017 17:02:31 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 18
+[07-Jan-2017 17:02:55 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 19
+[07-Jan-2017 17:03:25 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 19
+[07-Jan-2017 17:04:01 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 19
+[07-Jan-2017 17:08:43 America/New_York] PHP Warning:  DOMDocument::load(): I/O warning : failed to load external entity &quot;/something.xml&quot; in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 12
+[07-Jan-2017 17:08:43 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 18
+[07-Jan-2017 17:10:13 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 18
+[07-Jan-2017 17:12:26 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 18
+[07-Jan-2017 17:12:45 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 18
+[07-Jan-2017 17:13:08 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 18
+[07-Jan-2017 17:15:47 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 18
+[07-Jan-2017 17:24:43 America/New_York] PHP Warning:  Creating default object from empty value in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 17
+[07-Jan-2017 17:25:26 America/New_York] PHP Warning:  DOMDocument::load(): Extra content at the end of the document in /home/raledmbg/public_html/about/SecretTestZone/something.xml, line: 8 in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 12
+[07-Jan-2017 17:25:26 America/New_York] PHP Warning:  Creating default object from empty value in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 17
+[07-Jan-2017 17:27:38 America/New_York] PHP Warning:  Creating default object from empty value in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 16
+[07-Jan-2017 17:27:38 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 17
+[07-Jan-2017 17:33:24 America/New_York] PHP Parse error:  syntax error, unexpected ')' in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 13
+[07-Jan-2017 17:33:39 America/New_York] PHP Parse error:  syntax error, unexpected ')' in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 13
+[07-Jan-2017 17:37:14 America/New_York] PHP Warning:  Creating default object from empty value in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 16
+[07-Jan-2017 17:37:14 America/New_York] PHP Fatal error:  Call to a member function appendChild() on a non-object in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 17
+[07-Jan-2017 17:38:39 America/New_York] PHP Warning:  Creating default object from empty value in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 16
+[07-Jan-2017 17:38:39 America/New_York] PHP Fatal error:  Call to a member function appendChild() on a non-object in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 17
+[07-Jan-2017 17:41:10 America/New_York] PHP Warning:  Creating default object from empty value in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 16
+[07-Jan-2017 17:42:18 America/New_York] PHP Warning:  Creating default object from empty value in /home/raledmbg/public_html/about/SecretTestZone/world.php on line 16

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link href="contact.css" rel="stylesheet" type="text/css" />
+	<title>Spelling, grammar, and punctuation are important! Kinda.</title>
+	
+</head>
+<body>
+<header><div class="navigation">
+	<a href="http://www.raletech.com/"class="icon"></a> <a class="navigation-text">CONTACT</a>
+
+</div></header>
+
+<div align="left"><div class="speech">
+
+Email: <a href="mailto:bradley.a.raley@gmail.com" class="linky">bradley.a.raley@gmail.com</a>
+<button onclick="confMessage();">Copy to Clipboard</button> 
+<a id="mess" style="font-size: 60%"></a>
+</div>
+<input id="email" value="bradley.a.raley@gmail.com" style="visibility: hidden"></input>
+</div>
+
+<script type="text/javascript">
+
+function confMessage(){
+	
+	document.getElementById("mess").innerHTML = "Copied to clipboard!";
+	
+	var target = document.getElementById("email");
+	target.style.visibility = "visible";
+	target.focus();
+    target.setSelectionRange(0, target.value.length);
+	document.execCommand("copy")
+	target.style.visibility = "hidden";	
+	setTimeout(function() {document.getElementById("mess").innerHTML = "";},2000);
+}
+
+</script>
+</body>
+</html>

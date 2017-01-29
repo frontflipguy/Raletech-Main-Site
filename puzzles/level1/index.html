@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link href="level1.css" rel="stylesheet" type="text/css" />
+	<title>Level 1</title>
+	
+</head>
+<body>
+<header><div class="navigation">
+<a href="http://www.raletech.com/" class="icon"></a>
+<a href="#" class="navigation-button" id="bye">LOCKED</a>
+<a href="#" class="navigation-button-right" onclick="trick();">HINT</a>
+<a href="http://www.raletech.com/puzzles/directory/" class="navigation-button-right">DIRECTORY</a>
+<a style="margin-left: 50px">Welcome to level 1. Have fun!</a>
+</div></header>
+
+<div align="center" style="height:100vh; margin-top:150px" ID = "big">
+
+<div>
+<div class="slide-button" id="a1" style="background-color: #a7dcf6"></div>
+<div class="slide-button" id="a2"></div>
+<div class="slide-button" id="a3"></div>
+<div class="slide-button" id="a4"></div>
+<div class="slide-button" id="a5"></div>
+<div class="slide-button" id="a6"></div>
+<div class="slide-button" id="a7" style="visibility: hidden"></div></div>
+<div>
+<div class="slide-button" id="b1"></div>
+<div class="slide-button" id="b2"></div>
+<div class="slide-button" id="b3"></div>
+<div class="slide-button" id="b4"></div>
+<div class="slide-button" id="b5"></div>
+<div class="slide-button" id="b6"></div>
+<div class="slide-button" id="b7"></div></div>
+<div>
+<div class="slide-button" id="c1"></div>
+<div class="slide-button" id="c2"></div>
+<div class="slide-button" id="c3"></div>
+<div class="slide-button" id="c4"></div>
+<div class="slide-button" id="c5"></div>
+<div class="slide-button" id="c6"></div>
+<div class="slide-button" id="c7"></div></div>
+<div style="height:63px">
+<div class="slide-button" id="d1"></div>
+<div class="slide-button" id="d2"></div>
+<div class="slide-button" id="d3"></div>
+<div class="slide-button" id="d4"></div>
+<div class="slide-button" id="d5"></div>
+<div class="slide-button" id="d6"></div>
+<div class="slide-button" id="d7"></div></div>
+<div>
+<div class="slide-button" id="e1"></div>
+<div class="slide-button" id="e2"></div>
+<div class="slide-button" id="e3"></div>
+<div class="slide-button" id="e4"></div>
+<div class="slide-button" id="e5"></div>
+<div class="slide-button" id="e6"></div>
+<div class="slide-button" id="e7"></div></div>
+<div>
+<div class="slide-button" id="f1"></div>
+<div class="slide-button" id="f2"></div>
+<div class="slide-button" id="f3"></div>
+<div class="slide-button" id="f4"></div>
+<div class="slide-button" id="f5"></div>
+<div class="slide-button" id="f6"></div>
+<div class="slide-button" id="f7"></div></div>
+<div>
+<div class="slide-button" id="g1" style="visibility: hidden"></div>
+<div class="slide-button" id="g2"></div>
+<div class="slide-button" id="g3"></div>
+<div class="slide-button" id="g4"></div>
+<div class="slide-button" id="g5"></div>
+<div class="slide-button" id="g6"></div>
+<div class="slide-button" id="g7" style="visibility: hidden"></div></div>
+
+
+
+</div>
+
+<script type="text/javascript">
+//alert("So... you can solve a simple puzzle. Welcome to level 1. Have fun!");
+
+var first1 = true;
+var first2 = true;
+var first3 = true;
+var first4 = true;
+var first5 = true;
+var first6 = true;
+
+var alpha = ["a","b","c","d","e","f","g"]
+var TBEdge = ["a2","a3","a4","a5","a6","g2","g3","g4","g5","g6"]; //10-element array. TB for "top & bottom"
+var RLEdge = ["b1","c1","d1","e1","f1","b7","c7","d7","e7","f7"];
+
+var TB1 = TBEdge[Math.floor(Math.random()*10)]; //these variables are created based on the arrays above to randomize the puzzle
+TBEdge.splice(TBEdge.indexOf(TB1),1);
+var RL1 = RLEdge[Math.floor(Math.random()*10)];
+RLEdge.splice(RLEdge.indexOf(RL1),1);
+var ANS1 = RL1.substring(0,1) + TB1.substring(1,2);
+
+var TB2 = TBEdge[Math.floor(Math.random()*9)];
+TBEdge.splice(TBEdge.indexOf(TB2),1);
+var RL2 = RLEdge[Math.floor(Math.random()*9)];
+RLEdge.splice(RLEdge.indexOf(RL2),1);
+var ANS2 = RL2.substring(0,1) + TB2.substring(1,2);
+
+var TB3 = TBEdge[Math.floor(Math.random()*8)];
+TBEdge.splice(TBEdge.indexOf(TB3),1);
+var RL3 = RLEdge[Math.floor(Math.random()*8)];
+RLEdge.splice(RLEdge.indexOf(RL3),1);
+var ANS3 = RL3.substring(0,1) + TB3.substring(1,2);
+
+var TB4 = TBEdge[Math.floor(Math.random()*7)];
+TBEdge.splice(TBEdge.indexOf(TB4),1);
+var RL4 = RLEdge[Math.floor(Math.random()*7)];
+RLEdge.splice(RLEdge.indexOf(RL4),1);
+var ANS4 = RL4.substring(0,1) + TB4.substring(1,2);
+
+var TB5 = TBEdge[Math.floor(Math.random()*6)];
+TBEdge.splice(TBEdge.indexOf(TB5),1);
+var RL5 = RLEdge[Math.floor(Math.random()*6)];
+RLEdge.splice(RLEdge.indexOf(RL5),1);
+var ANS5 = RL5.substring(0,1) + TB5.substring(1,2);
+
+var TB6 = TBEdge[Math.floor(Math.random()*5)];
+TBEdge.splice(TBEdge.indexOf(TB6),1);
+var RL6 = RLEdge[Math.floor(Math.random()*5)];
+RLEdge.splice(RLEdge.indexOf(RL6),1);
+var ANS6 = RL6.substring(0,1) + TB6.substring(1,2);
+
+
+function trick(){
+alert("Find what the two given squares in the coordinate grid have in common (other than their color).");
+}
+
+document.getElementById("big").addEventListener("mousedown", click);
+
+function click(e){
+	
+	var targ = e.target.id;
+	
+	if(targ == "a1"){step1();}
+	else if(targ==ANS1&&first1==true){first1 = false; step2(); document.getElementById(targ).className = document.getElementById(targ).className + " green";}
+	else if(targ==ANS2&&first2==true){first2 = false; step3(); document.getElementById(targ).className = document.getElementById(targ).className + " yellow";}
+	else if(targ==ANS3&&first3==true){first3 = false; step4(); document.getElementById(targ).className = document.getElementById(targ).className + " pink";}
+	else if(targ==ANS4&&first4==true){first4 = false; step5(); document.getElementById(targ).className = document.getElementById(targ).className + " lightGray";}
+	else if(targ==ANS5&&first5==true){first5 = false; step6(); document.getElementById(targ).className = document.getElementById(targ).className + " purple";}
+	else if(targ==ANS6&&first6==true){first6 = false; document.getElementById(targ).className = document.getElementById(targ).className + " blue"; win();}
+
+	else if(targ.length=="2"){reset();}
+}
+
+function step1(){
+	
+	document.getElementById("a1").style.visibility = "hidden";
+	document.getElementById(TB1).className = document.getElementById(TB1).className + " green";
+	document.getElementById(RL1).className = document.getElementById(RL1).className + " green";
+	
+}
+
+function step2(){
+	
+	document.getElementById(TB2).className = document.getElementById(TB2).className + " yellow";
+	document.getElementById(RL2).className = document.getElementById(RL2).className + " yellow";
+
+}
+
+function step3(){
+	
+	document.getElementById(TB3).className = document.getElementById(TB3).className + " pink";
+	document.getElementById(RL3).className = document.getElementById(RL3).className + " pink";
+
+}
+
+function step4(){
+	
+	document.getElementById(TB4).className = document.getElementById(TB4).className + " lightGray";
+	document.getElementById(RL4).className = document.getElementById(RL4).className + " lightGray";
+
+}
+
+function step5(){
+	
+	document.getElementById(TB5).className = document.getElementById(TB5).className + " purple";
+	document.getElementById(RL5).className = document.getElementById(RL5).className + " purple";
+
+}
+
+function step6(){
+	
+	document.getElementById(TB6).className = document.getElementById(TB6).className + " blue";
+	document.getElementById(RL6).className = document.getElementById(RL6).className + " blue";
+
+}
+
+function win(){
+	
+	for(var x = 0;x<7;x++){
+		for(var y = 1;y<=7;y++){
+			var name = alpha[x] + y;
+			var vanilla = document.getElementById(name);
+		if(vanilla.className == "slide-button"){vanilla.style.visibility = "hidden";}
+		}
+	}
+	
+	
+	var bye = document.getElementById("bye");
+	bye.innerHTML = "PROCEED";
+	bye.className = bye.className + " blue";
+	bye.href = "http://www.raletech.com/puzzles/level2/";
+			localStorage.setItem("flag1", true);
+
+	}
+
+function reset(){
+	document.getElementById("a1").style.backgroundColor = "#a7dcf6"; 
+	document.getElementById("a1").style.visibility = "visible";
+	for(var x = 0;x<7;x++){
+		for(var y = 1;y<=7;y++){
+			var name = alpha[x] + y;
+		document.getElementById(name).className = "slide-button";
+		}
+	}
+	
+	first1 = true;
+	first2 = true;
+	first3 = true;
+	first4 = true;
+	first5 = true;
+	first6 = true;
+
+}
+
+
+</script>
+</body>
+</html>

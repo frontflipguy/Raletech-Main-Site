@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta name="viewport" content="user-scalable=0"/> <!--320-->
+
+	<link href="level5.css" rel="stylesheet" type="text/css" />
+	<title>Level 5</title>
+	
+</head>
+<body>
+<header><div class="navigation">
+<div class="icon"></div>
+<a href="#" class="navigation-button" id="bye">LOCKED</a>
+<a href="#" class="navigation-button-right" onclick="trick();">HINT</a>
+<a style="margin-left: 50px">Welcome to level 5. Have fun!</a>
+</div></header>
+
+<div align="center" style="margin-top:120px">
+<table>
+<tr>
+<td  style="padding:20px">
+<table>
+
+		<tr><td class="selected livey"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		<tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		<tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		<tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		<tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		<tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		
+</table>
+</td>
+<td  style="padding:20px">
+<table>
+
+		<tr><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td></tr>
+		<tr><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td></tr>
+		<tr><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td></tr>
+		<tr><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td></tr>
+		<tr><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td></tr>
+		<tr><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td></tr>
+		
+</table>
+</td>
+</tr>
+<tr>
+<td style="padding:20px; padding-top:5px;" align="center">
+<table class="arrowTable">
+<tr>
+<td style="visbility: hidden"></td><td class="arrowKey" onclick="up();">&#8743;</td><td style="visbility: hidden"></td>
+</tr>
+<tr>
+<td class="arrowKey" onclick="left();">&lt;</td><td class="arrowKey" onclick="down();">&#8744;</td><td class="arrowKey" onclick="right();">&gt;</td>
+</tr>
+</table>
+</td><td></td>
+</tr>
+</table>
+	
+</div>
+
+
+<script>
+var blipColor = ".blank";
+var NLi;
+var NL;
+var xpos = 0;
+var ypos = 0;
+var translated;
+var score = 0;
+var tracky = 0;
+var trackg = 0;
+var trackb = 0;
+
+var arrayNL = [];
+for(var l = 0; l < 6; l++){
+	arrayNL[l] = [];
+	}
+
+var randoArray = []; 
+for(var k = 0; k < 6; k++){ 
+	randoArray[k] = [];
+	}
+	
+var checkArray = []; 
+for(var m = 0; m < 6; m++){ 
+	checkArray[m] = [];
+	}
+
+initialize();
+
+
+function trick(){
+alert("Seeing double yet?"); 
+}
+
+function initialize(){
+
+	var NLi = document.querySelectorAll(".static"); //gets the node list of all the "static" elements
+
+	for(var j = 0; j < 6; j++){ //randomizes class names for randoArray
+		for(var i = 0; i < 6; i++){
+			var randNum = Math.random() * 100;
+			
+			if(i==0&&j==0){randNum = 50;} //the first element is hardcoded to not be yellow! (for scoring reasons)
+			if(i==5&&j==5){randNum = 1;} //the last element in the array is hardcoded to be yellow! (for solvability reasons)
+
+			
+			var a;
+			
+			if(randNum<33){a = "blipy"; b = "livey"; tracky++;}
+			else if(randNum>66){a = "blipg"; b = "liveg"; trackg++;}
+			else{a = "blipb"; b = "liveb"; trackb++;}
+
+			
+			randoArray[i][j] = a;
+			checkArray[i][j] = b;
+		}
+	}
+	console.log("yellow: " + tracky + " green: " + trackg + " blue: " + trackb);
+
+	var total = tracky*1 + trackg*2 + trackb*3;
+	var mod6 = total%6;	
+	
+	//console.log("total: " + total + " total mod 6: " + mod6);
+	
+	//console.log("mod 6: " + mod6);
+	
+	//if(mod6 != 1){randoArray[5][5] = "blipg"; checkArray[5][5] = "liveg"; trackg++; trackb--; console.log("badroll1");}
+	
+	//console.log("yellow: " + tracky + " green: " + trackg + " blue: " + trackb);
+
+	//var newmod6 = (tracky*1 + trackg*2 + trackb*3)%6;
+
+	//console.log("mod 6: " + newmod6);
+
+
+	
+	for(var j = 0; j < 6; j++){ //puts new random classNames back into an the nodelist
+		for(var i = 0; i < 6; i++){
+			var a = randoArray[i][j];
+			translated = i + j * 6;
+			NLi[translated].className = a;
+		}
+	}
+}
+
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+
+    if (e.keyCode == '38') {up();}
+    else if (e.keyCode == '40') {down();}
+    else if (e.keyCode == '37') {left();}
+    else if (e.keyCode == '39') {right();}
+
+}
+
+function up(){
+	var ypos2 = ypos - 1;
+	if(ypos > 0){cycle(xpos, ypos2);}
+}
+
+function down(){
+   	var ypos2 = ypos + 1;
+	if(ypos2 < 6){cycle(xpos, ypos2);}
+}
+	
+function left(){
+	var xpos2 = xpos - 1;
+	if(xpos2 > -1){cycle(xpos2, ypos);}
+}
+	
+function right(){
+	var xpos2 = xpos + 1;
+	if(xpos2 < 6){cycle(xpos2, ypos);}
+}
+
+function cycle(x, y){
+	
+	var NL = document.querySelectorAll(".blank, .selected, .livey, .liveb, .liveg"); //sets NL equal to a node list of all elements of the listed classes
+
+	for(var j = 0; j < 6; j++){ //puts all the nodes' classNames into an array
+		for(var i = 0; i < 6; i++){
+			translated = i + j * 6;
+			var a = NL[translated].className;
+			arrayNL[i][j] = a;
+		}
+	}
+		var breakMatch;
+		
+		arrayNL[xpos][ypos] = arrayNL[xpos][ypos].replace("selected ","");
+		
+		if(arrayNL[x][y] === checkArray[x][y]){breakMatch = true;}
+		else{breakMatch = false;}
+		
+		if(arrayNL[x][y] == "blank" || arrayNL[x][y] == "liveb"){arrayNL[x][y] = "livey";}
+		else if(arrayNL[x][y] == "livey"){arrayNL[x][y] = "liveg";}
+		else if(arrayNL[x][y] == "liveg"){arrayNL[x][y] = "liveb";}
+		
+		if(arrayNL[x][y] === checkArray[x][y]){score++; if(score==36){win();}}
+		else if(breakMatch == true){score--;}
+		
+		arrayNL[x][y] = "selected " + arrayNL[x][y];
+
+		xpos = x;
+		ypos = y;
+		
+	for(var j = 0; j < 6; j++){ //puts the classNames back into an the nodelist
+		for(var i = 0; i < 6; i++){
+			var a = arrayNL[i][j];
+			translated = i + j * 6;
+			NL[translated].className = a;
+		}
+	}
+
+
+}
+
+
+
+function win(){
+	
+	var bye = document.getElementById("bye")
+	
+	bye.innerHTML = "PROCEED";
+	bye.href = "http://www.raletech.com/puzzles/goodjob/";
+	bye.style.backgroundColor = "#aebcff";
+}
+
+
+</script>
+
+
+</body>
+</html>

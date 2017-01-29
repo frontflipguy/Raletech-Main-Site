@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta name="viewport" content="user-scalable=no" />
+	<link href="level5.css" rel="stylesheet" type="text/css" />
+	<title>Level 5</title>
+	
+</head>
+<body>
+<header><div class="navigation">
+<a href="http://www.raletech.com/" class="icon"></a>
+<a href="#" class="navigation-button" id="bye">LOCKED</a>
+<a href="#" class="navigation-button-right" onclick="trick();">HINT</a>
+<a href="http://www.raletech.com/puzzles/directory/" class="navigation-button-right">DIRECTORY</a>
+<a style="margin-left: 50px">Welcome to level 5. Have fun!</a>
+</div></header>
+
+<div align="center" style="margin-top:120px">
+<table>
+<tr>
+<td  style="padding:20px">
+<table>
+	<tr><td colspan="2"> <button onclick="reset();">RESET</button></td></tr>
+		<tr><td class="selected livey"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		<tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		<tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		<tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		<tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		<tr><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td><td class="blank"></td></tr>
+		
+</table>
+</td>
+<td  style="padding:20px">
+<table>
+		<tr><td style="visibility: hidden" colspan="2"> <button onclick="reset();" >RESET</button></td></tr>
+		<tr><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td></tr>
+		<tr><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td></tr>
+		<tr><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td></tr>
+		<tr><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td></tr>
+		<tr><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td></tr>
+		<tr><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td><td class="static"></td></tr>
+		
+</table>
+</td>
+</tr>
+<tr>
+<td style="padding:20px; padding-top:5px;" align="center">
+<table class="arrowTable">
+<tr>
+<td style="visibility: hidden"></td><td class="arrowKey" onclick="up();">&#8743;</td><td style="visibility: hidden"></td>
+</tr>
+<tr>
+<td class="arrowKey" onclick="left();">&lt;</td><td class="arrowKey" onclick="down();">&#8744;</td><td class="arrowKey" onclick="right();">&gt;</td>
+</tr>
+</table>
+</td><td></td>
+</tr>
+</table>
+	
+</div>
+
+
+<script>
+var blipColor = ".blank";
+var NLi; //Node List Initial
+var NL; //Node List
+var xpos = 0; //x position of active tile
+var ypos = 0; //y position of active tile
+var translated; //this is used later for putting elements in a 2d array into a 1d list
+var score = 0; 
+
+var arrayNL = []; //initialized as a 1d array
+for(var l = 0; l < 6; l++){ //makes it an array of arrays so it is now a 2d array
+	arrayNL[l] = [];
+	}
+
+var randoArray = []; //initialized as a 1d array
+for(var k = 0; k < 6; k++){ //makes it an array of arrays so it is now a 2d array
+	randoArray[k] = [];
+	}
+	
+var checkArray = []; //initialized as a 1d array
+for(var m = 0; m < 6; m++){ //makes it an array of arrays so it is now a 2d array
+	checkArray[m] = [];
+	}
+
+initialize();
+
+function trick(){
+alert("Match the patterns. The colors cycle through."); 
+}
+
+function initialize(){
+
+	var NLi = document.querySelectorAll(".static"); //gets the node list of all the "static" elements
+
+	for(var j = 0; j < 6; j++){ //randomizes class names for randoArray
+		for(var i = 0; i < 6; i++){
+			var randNum = Math.random() * 100;
+			
+			if(i==0&&j==0){randNum = randNum + 34;} //the first element is hardcoded to not be yellow! (for scoring reasons)
+			
+			var a;
+			var b;
+			
+			if(randNum<33){a = "blipy"; b = "livey";} //"a" and "b" are sorted into yellow, green, or blue
+			else if(randNum>66){a = "blipg"; b = "liveg";}
+			else{a = "blipb"; b = "liveb";}
+
+			
+			randoArray[i][j] = a; //"a" and "b" are loaded into the given array locations
+			checkArray[i][j] = b;
+		}
+	}
+
+	randoArray[5][0] = voiceOfReason(); //It is possible for a fully randomized board to be unsolvable, so
+	checkArray[5][0] = voiceOfReason(); //these two lines account for that by gauranteeing a solvable puzzle.
+	
+	for(var j = 0; j < 6; j++){ //puts new random classNames back into an the nodelist
+		for(var i = 0; i < 6; i++){
+			var a = randoArray[i][j];
+			translated = i + j * 6;
+			NLi[translated].className = a;
+		}
+	}
+}
+
+document.onkeydown = checkKey;
+
+function checkKey(e) { //checks for keyboard user inputs (the arrow keys)
+
+    if (e.keyCode == '38') {e.preventDefault(); up();}
+    else if (e.keyCode == '40') {e.preventDefault(); down();}
+    else if (e.keyCode == '37') {left();}
+    else if (e.keyCode == '39') {right();}
+}
+
+function up(){ //these functions are called by the checkKey function above or when the user clicks the arrow key elements
+	var ypos2 = ypos - 1;  //they check if the input move is legal, then call the "cycle" function on the cell 
+	if(ypos > 0){cycle(xpos, ypos2);} //that the selector moves to based on the direction indicated.
+}
+
+function down(){
+   	var ypos2 = ypos + 1;
+	if(ypos2 < 6){cycle(xpos, ypos2);}
+}
+	
+function left(){
+	var xpos2 = xpos - 1;
+	if(xpos2 > -1){cycle(xpos2, ypos);}
+}
+	
+function right(){
+	var xpos2 = xpos + 1;
+	if(xpos2 < 6){cycle(xpos2, ypos);}
+}
+
+function cycle(x, y){ //this function updates the play area based on the user's input. It also tracks the user's score.
+	
+	NL = document.querySelectorAll(".blank, .selected, .livey, .liveb, .liveg"); //sets NL equal to a node list of all elements of the listed classes
+
+	for(var j = 0; j < 6; j++){ //puts all the nodes' classNames into an array
+		for(var i = 0; i < 6; i++){
+			translated = i + j * 6;
+			var a = NL[translated].className;
+			arrayNL[i][j] = a;
+		}
+	}
+		var breakMatch; //whenever two corresponding cells that previously matched are changed to not match anymore, this is set true.
+		
+		arrayNL[xpos][ypos] = arrayNL[xpos][ypos].replace("selected ",""); //removes the "selected" class name from the previous cell
+		
+		if(arrayNL[x][y] === checkArray[x][y]){breakMatch = true;} //checks if this move will break a match.
+		else{breakMatch = false;}
+		
+		if(arrayNL[x][y] == "blank" || arrayNL[x][y] == "liveb"){arrayNL[x][y] = "livey";} //handles/implements the cycling between colors
+		else if(arrayNL[x][y] == "livey"){arrayNL[x][y] = "liveg";}
+		else if(arrayNL[x][y] == "liveg"){arrayNL[x][y] = "liveb";}
+		
+		if(arrayNL[x][y] === checkArray[x][y]){score++; if(score==36){win();}} //keeps track of score and calls "win()" if 36 is reached
+		else if(breakMatch == true){score--;}
+		
+		arrayNL[x][y] = "selected " + arrayNL[x][y]; //adds the "selected" class name to the current cell
+
+		xpos = x; //updates "xpos" with the new (current) x position
+		ypos = y; //updates "ypos" with the new (current) y position
+		
+	for(var j = 0; j < 6; j++){ //puts the classNames back into an the nodelist
+		for(var i = 0; i < 6; i++){
+			var a = arrayNL[i][j];
+			translated = i + j * 6;
+			NL[translated].className = a;
+		}
+	}
+}
+
+function voiceOfReason(){ //prevents unsolvable iterations
+	
+	var dArray = []; //copies the solution array into 1-dimentional array in the order the selecter moves for the solution algorithm
+	var dArrayBlank = []; //a blank array for the solution algothim to "move through"
+	var toggle = -1; //dArray must be loaded such that "i" (actually, i2) goes 0 1 2 3 4 5 5 4 3 2 1 0 0 1 2 3 4 5 5 4 3 2 1 etc.
+	var i2 = 0;
+	var iContinuing = 0; //this "i" never resets, it counts straight from 0 to 35
+	
+	for(var i = 0; i<36; i++){dArrayBlank[i] = "blank"} //loads dArrayBlank with 36 strings that say "blank"
+	
+	//one long array
+	for(var j = 0; j < 6; j++){ //makes one long array in the order you would move the selected square
+		
+		toggle = toggle * -1;
+	
+		for(var i = 0; i < 6; i++){
+			
+			dArray[iContinuing] = checkArray[j][i2];
+			
+			i2 = i2 + toggle;
+			iContinuing++;
+		}
+		i2 = i2 - toggle;
+
+	}
+	
+	for(var i = -1; i < 35; i++){ //solves the puzzle using the algorithm Sanel and I came up with
+								// that is, solving one cell at a time going down six times, right once, up six times, right once, etc.
+
+		var next = i + 1;		
+
+		dArrayBlank[next] = increment(dArrayBlank[next]); //moves the selector to the current cell
+		
+		while(dArrayBlank[i] != dArray[i]){ //checks if the current cell is correct
+		
+				dArrayBlank[next] = increment(dArrayBlank[next]); //increments the cycle position of the next cell
+				dArrayBlank[i] = increment(dArrayBlank[i]); //increments the cycle position of the current cell
+				
+		}
+		
+	} 
+	//console.log(dArrayBlank[35]); //dArrayBlank[35] is the keystone to the entire puzzle. If the upper right cell is this color, it is solvable
+	return dArrayBlank[35];
+}
+
+function increment(currentColor){ //simple function that takes input currentColor and returns which color comes next
+	
+	if(currentColor=="blank"){return "livey";}
+	else if(currentColor=="livey"){return "liveg";}
+	else if(currentColor=="liveg"){return "liveb";}
+	else if(currentColor=="liveb"){return "livey";}
+	
+}
+
+function reset(){ //resets the puzzle to it's initial state without refreshing the page. (To keep the pattern on the right the same)
+
+	xpos = 0; //resets x position, y position, and score
+	ypos = 0;
+	score = 0;
+
+ 	console.log("reset");
+	for(var j = 0; j < 6; j++){ //puts all the nodes' classNames into an array
+		for(var i = 0; i < 6; i++){
+			if(i==0&&j==0){arrayNL[i][j] = "selected livey";}
+			else{arrayNL[i][j] = "blank";}
+		}
+	}
+
+	NL = document.querySelectorAll(".blank, .selected, .livey, .liveb, .liveg");
+
+	for(var j = 0; j < 6; j++){ //puts the classNames back into an the nodelist
+		for(var i = 0; i < 6; i++){
+			var a = arrayNL[i][j];
+			translated = i + j * 6;
+			NL[translated].className = a;
+		}
+	}
+	
+	var bye = document.getElementById("bye"); //resets the state of the "bye" element in case the user resets after having solved it
+
+	bye.innerHTML = "LOCKED";
+	bye.href = "#";
+	bye.style.backgroundColor = "#A1A1A1";
+
+}
+
+function win(){ //changes the "bye" element to it's "win" state
+	var bye = document.getElementById("bye");
+	
+	bye.innerHTML = "PROCEED";
+	bye.href = "http://www.raletech.com/puzzles/level6";
+	bye.style.backgroundColor = "#aebcff";
+			localStorage.setItem("flag5", true);
+
+}
+
+</script>
+
+</body>
+</html>

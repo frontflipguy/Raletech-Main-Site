@@ -1,0 +1,262 @@
+@CHARSET "UTF-8";
+
+html {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+  line-height: 1.5;
+  font-family: 'Lato', sans-serif;
+  padding: 0px;
+	-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+body{
+	margin: 0px;
+	
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+div{
+	
+	align:right;
+}
+
+.navigation{
+font-size: 130%;
+font-weight: 700;
+margin: 0px;
+padding: 20px;
+border-bottom: 2px solid #000;
+border-top: 1px solid #000;
+background-color: #909090;
+position: fixed;
+width:100%;
+height: 31px;
+}
+
+.navigation-button{
+font-size: 100%;
+background-color: #A1A1A1;
+transition: .5s;
+border: 1px solid #000;
+padding: 14px;
+padding-top: 24px;
+padding-bottom: 24px;
+margin: -4px;
+}
+
+.navigation-button:hover{
+background-color: #DADADA;
+transition: .5s;
+}
+
+.navigation-button:active{
+	background-color: #EFEFEF;
+	transition: 0s;
+}
+
+.icon{
+	 background: transparent url('/raletechicon.png') no-repeat;
+	 background-size: 100%;
+	 width: 80px;
+	 height: 60px;
+	 position: relative;
+	 right: 4px; 
+	 top: -10px;
+	 float: left;
+	 margin-right: 16px;
+}
+
+
+.navigation-button-right{
+position: relative;
+float: right;
+bottom: 17px;
+right: 25px;
+font-size: 100%;
+background-color: #A1A1A1;
+transition: .5s;
+border: 1px solid #000;
+padding: 14px;
+padding-top: 20px;
+padding-bottom: 20px;
+margin: -4px;
+}
+
+.navigation-button-right:hover{
+background-color: #DADADA;
+transition: .5s;
+}
+
+.navigation-button-right:active{
+	background-color: #EFEFEF;
+	transition: 0s;
+}
+
+.playArea{
+	border: 4px solid #000;
+	background-color: #cdcdcd;
+	width: 350px;
+	height: 508px;
+}
+
+.stackY{
+	border: 4px solid #fffeb8;
+	background-color: #E3E3E3;
+	width: 300px;
+	height: 390px;
+	margin: 22px;
+	border-radius: 8px;
+}
+
+.stackP{
+	border: 4px solid #ffb8f1;
+	background-color: #E3E3E3;
+	width: 300px;
+	height: 390px;
+	margin: 22px;
+	border-radius: 8px;
+}
+
+.stackG{
+	border: 4px solid #beffb8;
+	background-color: #E3E3E3;
+	width: 300px;
+	height: 390px;
+	margin: 22px;
+	border-radius: 8px;
+}
+
+.stack{
+	border: 4px solid #E3E3E3;
+	background-color: #E3E3E3;
+	width: 300px;
+	height: 390px;
+	margin: 22px;
+	border-radius: 8px;
+}
+
+.yellow{
+font-size: 200%;
+padding-left: 12px;
+padding-right: 12px;
+position: relative;
+background-color: #fffeb8;
+border: 1px solid #000;
+height: 20px;
+width: 28px;
+border-radius: 6px;
+display: inline-table;
+margin-right: 14px;
+margin-left: 14px;
+}
+
+.yellow:hover{
+background-color: #FFFFD8;
+}
+.yellow:active{
+background-color: #FFFFF8;
+}
+
+.pink{
+font-size: 200%;	
+padding-left: 12px;
+padding-right: 12px;
+position: relative;
+background-color: #ffb8f1;
+border: 1px solid #000;
+height: 20px;
+width: 28px;
+border-radius: 6px;
+display: inline-table;
+margin-right: 14px;
+margin-left: 14px;
+}
+
+.pink:hover{
+background-color: #ffcbf5;
+}
+.pink:active{
+background-color: #ffe0f9;
+}
+
+.green{
+font-size: 200%;
+padding-left: 12px;
+padding-right: 12px;
+position: relative;
+background-color: #beffb8;
+border: 1px solid #000;
+height: 20px;
+width: 28px;
+border-radius: 6px;
+display: inline-table;
+margin-right: 14px;
+margin-left: 14px;
+}
+
+.green:hover{
+background-color: #d0ffcb;
+}
+.green:active{
+background-color: #e3ffe0;
+}
+
+.blipy{
+	padding: 2px;
+	background-color: #fffeb8;
+	border: 1px solid #000;
+	height: 9px;
+	width: 48px;
+	border-radius: 6px;
+}
+
+.blipp{
+	padding: 2px;
+	background-color: #ffb8f1;
+	border: 1px solid #000;
+	height: 9px;
+	width: 48px;
+	border-radius: 6px;
+}
+
+.blipg{
+	padding: 2px;
+	background-color: #beffb8;
+	border: 1px solid #000;
+	height: 9px;
+	width: 48px;
+	border-radius: 6px;
+}
+
+.blank{
+	padding: 2px;
+	border: 1px solid #cdcdcd;
+	height: 9px;
+	width: 48px;
+	border-radius: 6px;
+}
+
+.noColor{
+border: 1px solid #cdcdcd;
+text-align: center;
+font-size: 200%;
+padding-left: 8px;
+padding-right: 8px;
+margin-bottom: 322px;
+border-radius: 6px;
+width: 38px;
+margin-right: 5px;
+height: 47px;
+}
+.poop{margin-top:9px}
