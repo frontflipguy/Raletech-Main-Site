@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<MAIN>
+  <COMPANY id="Boeing">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Systems Engineer</JOBTITLE>
+    <LOCATION>Arlington, VA</LOCATION>
+    <BUZZ1>to connect, protect, explore and inspire the world through aerospace innovation</BUZZ1>
+    <BUZZ2>strives for first-time quality and continuous improvement in all that they do</BUZZ2>
+  </COMPANY>
+  <COMPANY id="metrosystems">
+    <RADIO>headhunterR</RADIO>
+    <JOBTITLE>UI developer</JOBTITLE>
+    <LOCATION>Fairfax, VA</LOCATION>
+    <BUZZ1/>
+    <BUZZ2/>
+  </COMPANY>
+  <COMPANY id="GoogleInc">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>boss man</JOBTITLE>
+    <LOCATION>Virginia</LOCATION>
+    <BUZZ1>taking over the world</BUZZ1>
+    <BUZZ2>is taking over the world</BUZZ2>
+  </COMPANY>
+  <COMPANY id="Moogle Inc.">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>the dude</JOBTITLE>
+    <LOCATION>Virginia</LOCATION>
+    <BUZZ1>of balling</BUZZ1>
+    <BUZZ2>doesn't afraid of anything</BUZZ2>
+  </COMPANY>
+  <COMPANY id="Frozenumbre Inc.">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>internet friend</JOBTITLE>
+    <LOCATION>the interwebs</LOCATION>
+    <BUZZ1>of mutual respect and support</BUZZ1>
+    <BUZZ2>makes the tough times not so tough and the good times even better</BUZZ2>
+  </COMPANY>
+  <COMPANY id="MadeUpTechGroup">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>JavaScript Ninja</JOBTITLE>
+    <LOCATION>Virginia</LOCATION>
+    <BUZZ1>of developing the next generation of online software</BUZZ1>
+    <BUZZ2>is on the cutting edge of technology</BUZZ2>
+  </COMPANY>
+  <COMPANY id="WonderSystems">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Engineer</JOBTITLE>
+    <LOCATION>Fairfax, VA</LOCATION>
+    <BUZZ1>of creating a safer internet browsing experience</BUZZ1>
+    <BUZZ2>always takes the moral high road</BUZZ2>
+  </COMPANY>
+</MAIN>

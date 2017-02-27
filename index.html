@@ -2,28 +2,63 @@
 <html>
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-	<link href="front.css" rel="stylesheet" type="text/css" />
-	<title>Now is the future! Kinda.</title>
+	<link href="covercss.css" rel="stylesheet" type="text/css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<title>Cover Letter</title>
 	
 </head>
-<body>
+
 <header><div class="navigation">
-<div class="icon"></div>
-<a href="http://www.raletech.com/about/" class="navigation-button">ABOUT</a>
-<a href="http://www.raletech.com/contact/" class="navigation-button">CONTACT</a>
-<a href="http://www.raletech.com/2p/" class="navigation-button">2-PLAYER GAMES</a>
-<a href="http://www.raletech.com/puzzles/directory/" class="navigation-button">PUZZLE CHALLENGE</a>
+<a href="http://www.raletech.com/"class="icon"></a>
+<a class="navigation-button">Cover Letter Form</a>
 
 </div></header>
+<body>
+<table class="main-table">
+	<tr>
+		<td class="left-td">
+		Fill in the following fields to complete the cover letter.<br>
+			Note to self: proofread cover letter EVERY TIME!<br>&nbsp;<br>
+			<input type="radio" name="type" value="companyR" class="radio" checked>direct to company <input type="radio" name="type" value="headhunterR" class="radio">headhunter<br>
+			<div>Job Title: <input id="jobTitle"></div>
+			<div id="zeroeth">Company: <input id="company" name="company"></div>
+			<div>Location: <input id="loc"></div>
+			<div>Buzzphrase about the company's vision: <input id="buzz1"></div>
+			<div>Buzzphrase about what the company does: <input id="buzz2"></div>
+			<div><input type="button" value="Create custom URL for" id="expButton"></div>
+			<div id="custURL"></div>
+			<div id="copy"></div>
+			<div id="msg"></div>
 
-<div align="center" style="margin-top:15px"><div class="speech"><span style="font-size: 130%">Welcome</span> to RALETECH, 
-a simple site meant for casual entertainment and amusement. Thank you for dropping in! 
-If you're unsure what to do now, I recommend the Puzzle Challenge.</div>
-<a class="big-logo"></a></div>
 
-<script type="text/javascript">
+		
+		</td>
+		<td class="mid-td">
+		<div class="speech" id="body">
+			<div><table style="border-bottom: 1px solid black; width:100%; padding-bottom: 14px"><tr><td style="border-right: 1px solid black; text-align: center">(321) 424-3252</td><td style="border-right: 1px solid black; text-align: center">7506 Stillridge Dr. Apt. A Tampa, FL, 33615</td><td style="text-align: center">bradley.a.raley@gmail.com</td></tr></table></div>
+		<br>
+		<div style="text-align:right" id="date">January 15, 2017</div><br>
+		<div>Dear Hiring Manager:</div>
+			<br>
+			<div id="first">My name is Bradley Raley and I am applying for <div class="idiv" id="aoran">a</div> <input value="job title" class="input-box1" disabled> position at <input value="company" class="input-box2" id="companyBox" disabled> in <input value="location" class="input-box" id="locBox" disabled>. After researching the goals and expectations of <input value="company" class="input-box2" id="companyBox" disabled> employees, I admire the demand for quality of character and the value placed on individual excellence to benefit the vision <input value="expanding technological horizons" class="input-box-long" id="buzz1Box" disabled>. I want to work at <input value="company" class="input-box2" id="companyBox" disabled> so that I can contribute my skills to a company that <input value="really makes a difference in the customer service industry" class="input-box-long2" id="buzz2Box" disabled>.</div>
+			<br>
+		<div id="second">In my current work as a Production Coordinator, I value clear communication when collaborating with coworkers and assisting clients. I also strive to achieve precision, accuracy, and attention to detail in everything I put my name on. For example, when a client makes a request to change some of our web content, but does not specify how they want it changed, I write to the client and begin a conversation about how we can best satisfy their needs. I would maintain this mindset in a position at <input value="company" class="input-box2" id="companyBox" disabled> not only because it contributes to customer satisfaction and excellent products, but also because I take pride in the quality of my work.</div>
+			<br>
+		<div>Alongside my career pursuits, I enjoy developing various self-taught skills and creative projects of my own. I code games and puzzles in JavaScript, draw, write, and train my body. I like learning new techniques and honing my skills to better myself as an artist. My ability to self-teach allows me to adapt quickly to new processes and concepts in both my hobbies and the workplace.</div>
+			<br>
+		<div id="fourth">I look forward to using my skills to contribute to the positive community at <input value="company" class="input-box2" id="companyBox" disabled>. Thank you for your consideration of my application. I hope to meet with you in person regarding the <input value="job title" class="input-box1" disabled> position soon. If you have any questions before then please feel free contact me at the above address.</div>
+			<br>
+		Sincerely,<br>
+		Bradley Raley
+			<br>
+			<div class="big-logo"></div>
+			</div>	
+		</td>
+		<td>
+		</td>
+	</tr>
+</table>
 
-
-</script>
+<script src="cover.js"></script>
 </body>
 </html>
