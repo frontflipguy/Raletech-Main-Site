@@ -1,64 +1,299 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-	<link href="covercss.css" rel="stylesheet" type="text/css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<title>Cover Letter</title>
-	
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<title>Cross Server File Similarity Checker</title>
 </head>
-
-<header><div class="navigation">
-<a href="http://www.raletech.com/"class="icon"></a>
-<a class="navigation-button">Cover Letter Form</a>
-
-</div></header>
 <body>
-<table class="main-table">
-	<tr>
-		<td class="left-td">
-		Fill in the following fields to complete the cover letter.<br>
-			Note to self: proofread cover letter EVERY TIME!<br>&nbsp;<br>
-			<input type="radio" name="type" value="companyR" class="radio" checked>direct to company <input type="radio" name="type" value="headhunterR" class="radio">headhunter<br>
-			<div>Job Title: <input id="jobTitle"></div>
-			<div id="zeroeth">Company: <input id="company" name="company"></div>
-			<div>Location: <input id="loc"></div>
-			<div>Buzzphrase about the company's vision: <input id="buzz1"></div>
-			<div>Buzzphrase about what the company does: <input id="buzz2"></div>
-			<div><input type="button" value="Create custom URL for" id="expButton"></div>
-			<div id="custURL"></div>
-			<div id="copy"></div>
-			<div id="msg"></div>
+<style>
 
+.border{
+background-color: #ff970f;
+padding: 5px;
+width: 990px;
+margin: 9px;
+box-shadow: 2px 3px 9px gray;
+}
 
-		
-		</td>
-		<td class="mid-td">
-		<div class="speech" id="body">
-			<div><table style="border-bottom: 1px solid black; width:100%; padding-bottom: 14px"><tr><td style="border-right: 1px solid black; text-align: center">(321) 424-3252</td><td style="border-right: 1px solid black; text-align: center">7506 Stillridge Dr. Apt. A Tampa, FL, 33615</td><td style="text-align: center">bradley.a.raley@gmail.com</td></tr></table></div>
-		<br>
-		<div style="text-align:right" id="date">January 15, 2017</div><br>
-		<div>Dear Hiring Manager:</div>
-			<br>
-			<div id="first">My name is Bradley Raley and I am applying for <div class="idiv" id="aoran">a</div> <input value="job title" class="input-box1" disabled> position at <input value="company" class="input-box2" id="companyBox" disabled> in <input value="location" class="input-box" id="locBox" disabled>. After researching the goals and expectations of <input value="company" class="input-box2" id="companyBox" disabled> employees, I admire the demand for quality of character and the value placed on individual excellence to benefit the vision <input value="expanding technological horizons" class="input-box-long" id="buzz1Box" disabled>. I want to work at <input value="company" class="input-box2" id="companyBox" disabled> so that I can contribute my skills to a company that <input value="really makes a difference in the customer service industry" class="input-box-long2" id="buzz2Box" disabled>.</div>
-			<br>
-		<div id="second">In my current work as a Production Coordinator, I value clear communication when collaborating with coworkers and assisting clients. I also strive to achieve precision, accuracy, and attention to detail in everything I put my name on. For example, when a client makes a request to change some of our web content, but does not specify how they want it changed, I write to the client and begin a conversation about how we can best satisfy their needs. I would maintain this mindset in a position at <input value="company" class="input-box2" id="companyBox" disabled> not only because it contributes to customer satisfaction and excellent products, but also because I take pride in the quality of my work.</div>
-			<br>
-		<div>Alongside my career pursuits, I enjoy developing various self-taught skills and creative projects of my own. I code games and puzzles in JavaScript, draw, write, and train my body. I like learning new techniques and honing my skills to better myself as an artist. My ability to self-teach allows me to adapt quickly to new processes and concepts in both my hobbies and the workplace.</div>
-			<br>
-		<div id="fourth">I look forward to using my skills to contribute to the positive community at <input value="company" class="input-box2" id="companyBox" disabled>. Thank you for your consideration of my application. I hope to meet with you in person regarding the <input value="job title" class="input-box1" disabled> position soon. If you have any questions before then please feel free contact me at the above address.</div>
-			<br>
-		Sincerely,<br>
-		Bradley Raley
-			<br>
-			<div class="big-logo"></div>
-			</div>	
-		</td>
-		<td>
-		</td>
-	</tr>
+.tArea{
+width: 600px;
+height: 600px;
+
+}
+
+.idiv{
+display: inline-block;
+	margin-top:0px;
+}
+
+.input{
+width: 800px;
+height: 60px;
+}
+
+.checkButton{
+width: 80px;
+height: 30px;
+font-weight: bold;
+}
+	
+.clearButton{
+width: 180px;
+height: 30px;
+font-weight: bold;
+}
+
+.table1{
+border-collapse: collapse;
+	margin-left: 9px;
+}
+
+.tcell0{
+border: 1px solid gray;
+white-space: nowrap;
+width: 30px;
+
+}
+
+.tcell1{
+border: 1px solid gray;
+width: 528px;
+white-space: nowrap;
+}
+
+.tcell2{
+border: 1px solid gray;
+width: 94px;
+white-space: nowrap;
+}
+
+</style>
+
+<div class="border"> <!--<input type="radio" name="main" value="templates" onclick="radio(true)" checked>--> Comma separated list of template IDs you want to check    
+<!--<input type="radio" name="main" value="files" onclick="radio(false)"> Any two files to compare (with rest of url if needed)--><br>
+<textarea class="input" type="text" id="templateID">nahs15ge/chap10/sect0/prob1
+nahs15ge/chap10/sect0/prob2
+nahs15ge/chap10/sect0/prob3
+nahs15ge/chap10/sect0/prob4
+nahs15ge/chap10/sect0/prob5
+nahs15ge/chap10/sect0/prob6
+nahs15ge/chap10/sect0/prob7
+nahs15ge/chap10/sect0/prob8
+nahs15ge/chap10/sect0/prob9
+nahs15ge/chap10/sect0/prob10
+nahs15ge/chap10/sect0/prob11
+nahs15ge/chap10/sect1/prob6
+nahs15ge/chap10/sect1/prob8
+nahs15ge/chap10/sect1/prob10
+nahs15ge/chap10/sect1/prob11
+nahs15ge/chap10/sect1/prob12
+nahs15ge/chap10/sect1/prob17
+nahs15ge/chap10/sect1/prob18
+nahs15ge/chap10/sect1/prob19
+nahs15ge/chap10/sect1/prob20
+nahs15ge/chap10/sect1/prob21
+nahs15ge/chap10/sect1/prob22
+nahs15ge/chap10/sect1/prob23
+nahs15ge/chap10/sect1/prob24
+nahs15ge/chap10/sect1/prob25
+nahs15ge/chap10/sect1/prob26
+nahs15ge/chap10/sect1/prob27
+nahs15ge/chap10/sect1/prob28
+nahs15ge/chap10/sect1/prob29
+nahs15ge/chap10/sect1/prob30
+nahs15ge/chap10/sect1/prob31
+nahs15ge/chap10/sect1/prob32
+nahs15ge/chap10/sect1/prob33
+nahs15ge/chap10/sect1/prob34
+nahs15ge/chap10/sect1/prob35
+nahs15ge/chap10/sect1/prob36
+nahs15ge/chap10/sect1/prob37
+nahs15ge/chap10/sect1/prob38</textarea><br>
+<!--nagm15g1/chap10/sect0/prob1, nagm15g1/chap10/sect0/prob2, nagm15g1/chap10/sect0/prob3 -->
+<input type="button" class="checkButton" value="Check" onclick="start()"></div>                    <!--CHECK BUTTON -->
+
+<div class="border">Select the two servers you want to compare:
+<select id="select1">
+	<option value="https://www-k6.thinkcentral.com/wwtb2/">https://www-k6.thinkcentral.com/wwtb2/</option>
+	<option value="https://www-review-cert-tc1.thinkcentral.com/wwtb2/">https://www-review-cert-tc1.thinkcentral.com/wwtb2/</option>
+	<option value="https://www-review-k6.thinkcentral.com/wwtb2/">https://www-review-k6.thinkcentral.com/wwtb2/</option>
+	<option value="http://my-review-cert.hrw.com/wwtb2/">http://my-review-cert.hrw.com/wwtb2/</option>
+	<option value="http://my.hrw.com/wwtb2/">http://my.hrw.com/wwtb2/</option>
+	<option value="http://my-review.hrw.com/wwtb2/">http://my-review.hrw.com/wwtb2/</option>
+	<option value="http://content.link-systems.com/~tbern/" selected>http://content.link-systems.com/~tbern/</option>
+	<option value="http://content.link-systems.com/~dbern/">http://content.link-systems.com/~dbern/</option>
+	<option value="http://content.link-systems.com/~ibern/">http://content.link-systems.com/~ibern/</option>
+	<!--<option value="http://127.0.0.1/">http://127.0.0.1/</option>-->
+
+</select> 
+<select id="select2">
+	<option value="https://www-k6.thinkcentral.com/wwtb2/">https://www-k6.thinkcentral.com/wwtb2/</option>
+	<option value="https://www-review-cert-tc1.thinkcentral.com/wwtb2/">https://www-review-cert-tc1.thinkcentral.com/wwtb2/</option>
+	<option value="https://www-review-k6.thinkcentral.com/wwtb2/">https://www-review-k6.thinkcentral.com/wwtb2/</option>
+	<option value="https://my-review-cert.hrw.com/wwtb2/" selected>https://my-review-cert.hrw.com/wwtb2/</option>
+	<option value="https://my.hrw.com/wwtb2/">https://my.hrw.com/wwtb2/</option>
+	<option value="https://my-review.hrw.com/wwtb2/">https://my-review.hrw.com/wwtb2/</option>
+	<option value="http://content.link-systems.com/~tbern/">http://content.link-systems.com/~tbern/</option>
+	<option value="http://content.link-systems.com/~dbern/">http://content.link-systems.com/~dbern/</option>
+	<option value="http://content.link-systems.com/~ibern/">http://content.link-systems.com/~ibern/</option>
+	<!--<option value="http://127.0.0.1/">http://127.0.0.1/</option>-->
+
+</select>
+</div>
+
+<div class="border idiv">Select the file you want to compare:
+<select id="file">
+	<option value=""></option>
+	<option value="/index.txt" selected>index.txt</option>
+	<option value="/meta.txt">meta.txt</option>
+	<option value="/fprob.html">fprob.html</option>
+	<option value="/version.txt">version.txt</option>
+</select> 
+</div> <input type="button" value="Clear Results" class="clearButton" onclick="deleteTable()" disabled> <!--CLEAR BUTTON-->
+
+<table class="table1">
+<tbody id="table1">
+<tr>
+<td class="tcell0"></td>
+<td class="tcell1" id="serv1"></td>
+<td class="tcell1" id="serv2"></td>
+<td class="tcell2"></td></tr>
+</tbody>
 </table>
+<div id="notable"></div>
 
-<script src="cover.js"></script>
+
+<script type="text/javascript">
+
+var counter = 0;
+var j = 0;
+var tempArray = [];
+var urlArray1 = [];
+var urlArray2 = [];
+var server1;
+var server2;
+var file;
+var iterations;
+var radioState = "templates"; //this is hardcoded while I test with the radio buttons removed and the option to compare two files removed
+
+
+function start(){ //gets the user inputs and calls the next function
+	
+$(".checkButton").prop('disabled', true); //disable the button after a click in case there is lag in response and the user thinks they need to click it again
+
+var tempID = document.getElementById("templateID").value;
+
+server1 = document.getElementById("select1").value;
+server2 = document.getElementById("select2").value;
+
+file = document.getElementById("file").value;
+
+//radioState = $('input[name=main]:checked').val();
+
+if(radioState=="templates"){userInputToArray(tempID);}
+else{userInputFiles(tempID);}
+
+passToPHP();
+
+}
+
+function radio(active){
+
+if(active){document.getElementById("file").disabled = "";}
+else{document.getElementById("file").value = ""; document.getElementById("file").disabled = "disabled";}
+
+}
+
+function userInputToArray(templates){ //cleans the user inputted template list, constructs the URLs, and stores them in arrays
+
+templates = templates.replace(/\n+/g, ",");
+templates = templates.replace(/\s+/g, "");	
+tempArray = templates.split(","); //array of template IDs
+
+iterations = tempArray.length;
+
+	for(var n = 0; n < iterations; n++){
+
+	var temp = tempArray[n].replace(/\./, '/chap').replace(/\./, '/sect').replace(/\./, '/prob');
+	temp = tempArray[n].replace(/-chap/, '/chap').replace(/-sect/, '/sect').replace(/-prob/, '/prob');
+
+	urlArray1[n] = server1 + temp + file;
+	urlArray2[n] = server2 + temp + file;
+	
+	}
+}
+
+/** DEPRACATED
+function userInputFiles(files){
+
+files = files.replace(/ /g, "");	
+tempArray = files.split(","); //array of template IDs
+
+iterations = 1;
+
+urlArray1[0] = server1 + tempArray[0];
+urlArray2[0] = server2 + tempArray[1];
+
+}
+	**/
+
+function passToPHP(){
+
+//ajax nonsense
+for(var n = 0; n < iterations; n++){
+	$.ajax({
+	  method: "POST",
+	  url: "thatsSoFetch.php",
+	  data: { URL1: urlArray1[n], URL2: urlArray2[n]},
+	  async: true //if you want the templates to appear in order you can set this to false
+	})
+	  .done(function( encodedVal ) {
+	  
+	 //TODO: write the code to parse url1, url2, and result into three variable that can be passed to populateTable
+	   var obj = JSON.parse(encodedVal);
+	   
+	   var url1 = obj.url1;
+	   var url2 = obj.url2;
+	   var result = obj.result;
+	   
+	   result = result.replace(/&/g, "&amp;");
+	   result = result.replace(/</g, "&lt;");
+	   result = result.replace(/>/g, "&gt;");
+	   
+	   populateTable(url1, url2, result);
+	   
+	  });
+	}
+	
+	
+
+}
+
+function populateTable(url1, url2, result){ 
+
+//display stuff
+document.getElementById("serv1").innerHTML = server1;
+document.getElementById("serv2").innerHTML = server2;
+
+
+//document.getElementById("notable").innerHTML = document.getElementById("notable").innerHTML + "<br>" + (j+1) + " " + urlArray1[j] + " " + urlArray2[j] + " " + result;
+
+document.getElementById("table1").innerHTML = document.getElementById("table1").innerHTML 
+	+ "<tr><td class=\"tcell0\">" + (j+1) + "</td><td class=\"tcell1\"><a target=\"_blank\" href='" + url1 + "'>" + url1 
+	+ "</a></td><td class=\"tcell1\"><a target=\"_blank\" href='" + url2 + "'>" + url2 + "</a></td><td class=\"tcell2\">" + result + "</td></tr>";
+	
+j++;
+	
+	if(j==iterations){ $(".checkButton").prop('disabled', false); $(".clearButton").prop('disabled', false);}
+}
+	
+	function deleteTable(){
+	j=0;
+	$(".table1").html('<tbody id="table1"><tr><td class="tcell0"></td><td class="tcell1" id="serv1"></td><td class="tcell1" id="serv2"></td><td class="tcell2"></td></tr></tbody>');
+	$(".clearButton").prop('disabled', true);
+	}
+
+</script>
 </body>
 </html>
