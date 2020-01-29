@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link href="splat.css" rel="stylesheet" type="text/css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<title>Splatoon if it was made on Atari</title>
+	
+</head>
+<body>
+<header><div class="navigation">
+<a class="icon" href="http://www.raletech.com/"></a>
+<a href="http://www.raletech.com/splatari/" class="navigation-button" id="bye">Splatari</a>
+<!--<a href="#" class="navigation-button-right" onclick="trick();">HINT</a>-->
+<a href="http://www.raletech.com/2p" class="navigation-button-right">DIRECTORY</a>
+
+</div></header>
+
+
+<div class="container" align="center">
+	<div class="narrow">
+		<div class="high-z" id="hiz">
+			<div>You control the Blue character.</div>
+			<div>Click this button to start/stop: <input type="button" id="btn" value = "Start" onclick="toggleButton()"></div> 
+			<div id="score">Score: blue: 0 pink: 0 green: 0 orange: 0</div>
+			<div id="setAI">NPC's movement:  
+	pink: <select id="pinkSelect"> <option value="rand">Random</option><option value="AI">AI</option></select> 
+	green: <select id="greenSelect"> <option value="rand">Random</option><option value="AI">AI</option></select>
+	orange: <select id="orangeSelect"> <option value="rand">Random</option><option value="AI">AI</option></select>
+			</div>
+			<div id="timer">timer: <input id="timerBox" type="text" value="60" style="width:60px"></div>
+		</div>
+
+		<div class="table-wrap">
+
+			<div><table class="controls"><tr><td class="controltd" id="mUp"></td><td class="controltd" id="mRight"></td></tr><tr><td class="controltd" id="mDown"></td><td class="controltd" id="mLeft"></td></tr></table></div>
+
+	<table id="playArea" class="blank">
+		<tr><td class="circle" id="0"></td><td class="circle" id="1"></td><td class="circle" id="2"></td><td class="circle" id="3"></td><td class="circle" id="4"></td><td class="circle" id="5"></td><td class="circle" id="6"></td><td class="circle" id="7"></td><td class="circle" id="8"></td><td class="circle" id="9"></td><td class="circle" id="10"></td><td class="circle" id="11"></td><td class="circle" id="12"></td><td class="circle" id="13"></td><td class="circle" id="14"></td><td class="circle" id="15"></td><td class="circle" id="16"></td><td class="circle" id="17"></td><td class="circle" id="18"></td><td class="circle" id="19"></td></tr>
+		<tr><td class="circle" id="20"></td><td class="circle" id="21"></td><td class="circle" id="22"></td><td class="circle" id="23"></td><td class="circle" id="24"></td><td class="circle" id="25"></td><td class="circle" id="26"></td><td class="circle" id="27"></td><td class="circle" id="28"></td><td class="circle" id="29"></td><td class="circle" id="30"></td><td class="circle" id="31"></td><td class="circle" id="32"></td><td class="circle" id="33"></td><td class="circle" id="34"></td><td class="circle" id="35"></td><td class="circle" id="36"></td><td class="circle" id="37"></td><td class="circle" id="38"></td><td class="circle" id="39"></td></tr>
+		<tr><td class="circle" id="40"></td><td class="circle" id="41"></td><td class="circle" id="42"></td><td class="circle" id="43"></td><td class="circle" id="44"></td><td class="circle" id="45"></td><td class="circle" id="46"></td><td class="circle" id="47"></td><td class="circle" id="48"></td><td class="circle" id="49"></td><td class="circle" id="50"></td><td class="circle" id="51"></td><td class="circle" id="52"></td><td class="circle" id="53"></td><td class="circle" id="54"></td><td class="circle" id="55"></td><td class="circle" id="56"></td><td class="circle" id="57"></td><td class="circle" id="58"></td><td class="circle" id="59"></td></tr>
+		<tr><td class="circle" id="60"></td><td class="circle" id="61"></td><td class="circle" id="62"></td><td class="circle" id="63"></td><td class="circle" id="64"></td><td class="circle" id="65"></td><td class="circle" id="66"></td><td class="circle" id="67"></td><td class="circle" id="68"></td><td class="circle" id="69"></td><td class="circle" id="70"></td><td class="circle" id="71"></td><td class="circle" id="72"></td><td class="circle" id="73"></td><td class="circle" id="74"></td><td class="circle" id="75"></td><td class="circle" id="76"></td><td class="circle" id="77"></td><td class="circle" id="78"></td><td class="circle" id="79"></td></tr>
+		<tr><td class="circle" id="80"></td><td class="circle" id="81"></td><td class="circle" id="82"></td><td class="circle" id="83"></td><td class="circle" id="84"></td><td class="circle" id="85"></td><td class="circle" id="86"></td><td class="circle" id="87"></td><td class="circle" id="88"></td><td class="circle" id="89"></td><td class="circle" id="90"></td><td class="circle" id="91"></td><td class="circle" id="92"></td><td class="circle" id="93"></td><td class="circle" id="94"></td><td class="circle" id="95"></td><td class="circle" id="96"></td><td class="circle" id="97"></td><td class="circle" id="98"></td><td class="circle" id="99"></td></tr>
+		<tr><td class="circle" id="100"></td><td class="circle" id="101"></td><td class="circle" id="102"></td><td class="circle" id="103"></td><td class="circle" id="104"></td><td class="circle" id="105"></td><td class="circle" id="106"></td><td class="circle" id="107"></td><td class="circle" id="108"></td><td class="circle" id="109"></td><td class="circle" id="110"></td><td class="circle" id="111"></td><td class="circle" id="112"></td><td class="circle" id="113"></td><td class="circle" id="114"></td><td class="circle" id="115"></td><td class="circle" id="116"></td><td class="circle" id="117"></td><td class="circle" id="118"></td><td class="circle" id="119"></td></tr>
+		<tr><td class="circle" id="120"></td><td class="circle" id="121"></td><td class="circle" id="122"></td><td class="circle" id="123"></td><td class="circle" id="124"></td><td class="circle" id="125"></td><td class="circle" id="126"></td><td class="circle" id="127"></td><td class="circle" id="128"></td><td class="circle" id="129"></td><td class="circle" id="130"></td><td class="circle" id="131"></td><td class="circle" id="132"></td><td class="circle" id="133"></td><td class="circle" id="134"></td><td class="circle" id="135"></td><td class="circle" id="136"></td><td class="circle" id="137"></td><td class="circle" id="138"></td><td class="circle" id="139"></td></tr>
+		<tr><td class="circle" id="140"></td><td class="circle" id="141"></td><td class="circle" id="142"></td><td class="circle" id="143"></td><td class="circle" id="144"></td><td class="circle" id="145"></td><td class="circle" id="146"></td><td class="circle" id="147"></td><td class="circle" id="148"></td><td class="circle" id="149"></td><td class="circle" id="150"></td><td class="circle" id="151"></td><td class="circle" id="152"></td><td class="circle" id="153"></td><td class="circle" id="154"></td><td class="circle" id="155"></td><td class="circle" id="156"></td><td class="circle" id="157"></td><td class="circle" id="158"></td><td class="circle" id="159"></td></tr>
+		<tr><td class="circle" id="160"></td><td class="circle" id="161"></td><td class="circle" id="162"></td><td class="circle" id="163"></td><td class="circle" id="164"></td><td class="circle" id="165"></td><td class="circle" id="166"></td><td class="circle" id="167"></td><td class="circle" id="168"></td><td class="circle" id="169"></td><td class="circle" id="170"></td><td class="circle" id="171"></td><td class="circle" id="172"></td><td class="circle" id="173"></td><td class="circle" id="174"></td><td class="circle" id="175"></td><td class="circle" id="176"></td><td class="circle" id="177"></td><td class="circle" id="178"></td><td class="circle" id="179"></td></tr>
+		<tr><td class="circle" id="180"></td><td class="circle" id="181"></td><td class="circle" id="182"></td><td class="circle" id="183"></td><td class="circle" id="184"></td><td class="circle" id="185"></td><td class="circle" id="186"></td><td class="circle" id="187"></td><td class="circle" id="188"></td><td class="circle" id="189"></td><td class="circle" id="190"></td><td class="circle" id="191"></td><td class="circle" id="192"></td><td class="circle" id="193"></td><td class="circle" id="194"></td><td class="circle" id="195"></td><td class="circle" id="196"></td><td class="circle" id="197"></td><td class="circle" id="198"></td><td class="circle" id="199"></td></tr>
+		<tr><td class="circle" id="200"></td><td class="circle" id="201"></td><td class="circle" id="202"></td><td class="circle" id="203"></td><td class="circle" id="204"></td><td class="circle" id="205"></td><td class="circle" id="206"></td><td class="circle" id="207"></td><td class="circle" id="208"></td><td class="circle" id="209"></td><td class="circle" id="210"></td><td class="circle" id="211"></td><td class="circle" id="212"></td><td class="circle" id="213"></td><td class="circle" id="214"></td><td class="circle" id="215"></td><td class="circle" id="216"></td><td class="circle" id="217"></td><td class="circle" id="218"></td><td class="circle" id="219"></td></tr>
+		<tr><td class="circle" id="220"></td><td class="circle" id="221"></td><td class="circle" id="222"></td><td class="circle" id="223"></td><td class="circle" id="224"></td><td class="circle" id="225"></td><td class="circle" id="226"></td><td class="circle" id="227"></td><td class="circle" id="228"></td><td class="circle" id="229"></td><td class="circle" id="230"></td><td class="circle" id="231"></td><td class="circle" id="232"></td><td class="circle" id="233"></td><td class="circle" id="234"></td><td class="circle" id="235"></td><td class="circle" id="236"></td><td class="circle" id="237"></td><td class="circle" id="238"></td><td class="circle" id="239"></td></tr>
+		<tr><td class="circle" id="240"></td><td class="circle" id="241"></td><td class="circle" id="242"></td><td class="circle" id="243"></td><td class="circle" id="244"></td><td class="circle" id="245"></td><td class="circle" id="246"></td><td class="circle" id="247"></td><td class="circle" id="248"></td><td class="circle" id="249"></td><td class="circle" id="250"></td><td class="circle" id="251"></td><td class="circle" id="252"></td><td class="circle" id="253"></td><td class="circle" id="254"></td><td class="circle" id="255"></td><td class="circle" id="256"></td><td class="circle" id="257"></td><td class="circle" id="258"></td><td class="circle" id="259"></td></tr>
+		<tr><td class="circle" id="260"></td><td class="circle" id="261"></td><td class="circle" id="262"></td><td class="circle" id="263"></td><td class="circle" id="264"></td><td class="circle" id="265"></td><td class="circle" id="266"></td><td class="circle" id="267"></td><td class="circle" id="268"></td><td class="circle" id="269"></td><td class="circle" id="270"></td><td class="circle" id="271"></td><td class="circle" id="272"></td><td class="circle" id="273"></td><td class="circle" id="274"></td><td class="circle" id="275"></td><td class="circle" id="276"></td><td class="circle" id="277"></td><td class="circle" id="278"></td><td class="circle" id="279"></td></tr>
+		<tr><td class="circle" id="280"></td><td class="circle" id="281"></td><td class="circle" id="282"></td><td class="circle" id="283"></td><td class="circle" id="284"></td><td class="circle" id="285"></td><td class="circle" id="286"></td><td class="circle" id="287"></td><td class="circle" id="288"></td><td class="circle" id="289"></td><td class="circle" id="290"></td><td class="circle" id="291"></td><td class="circle" id="292"></td><td class="circle" id="293"></td><td class="circle" id="294"></td><td class="circle" id="295"></td><td class="circle" id="296"></td><td class="circle" id="297"></td><td class="circle" id="298"></td><td class="circle" id="299"></td></tr>
+		<tr><td class="circle" id="300"></td><td class="circle" id="301"></td><td class="circle" id="302"></td><td class="circle" id="303"></td><td class="circle" id="304"></td><td class="circle" id="305"></td><td class="circle" id="306"></td><td class="circle" id="307"></td><td class="circle" id="308"></td><td class="circle" id="309"></td><td class="circle" id="310"></td><td class="circle" id="311"></td><td class="circle" id="312"></td><td class="circle" id="313"></td><td class="circle" id="314"></td><td class="circle" id="315"></td><td class="circle" id="316"></td><td class="circle" id="317"></td><td class="circle" id="318"></td><td class="circle" id="319"></td></tr>
+		<tr><td class="circle" id="320"></td><td class="circle" id="321"></td><td class="circle" id="322"></td><td class="circle" id="323"></td><td class="circle" id="324"></td><td class="circle" id="325"></td><td class="circle" id="326"></td><td class="circle" id="327"></td><td class="circle" id="328"></td><td class="circle" id="329"></td><td class="circle" id="330"></td><td class="circle" id="331"></td><td class="circle" id="332"></td><td class="circle" id="333"></td><td class="circle" id="334"></td><td class="circle" id="335"></td><td class="circle" id="336"></td><td class="circle" id="337"></td><td class="circle" id="338"></td><td class="circle" id="339"></td></tr>
+		<tr><td class="circle" id="340"></td><td class="circle" id="341"></td><td class="circle" id="342"></td><td class="circle" id="343"></td><td class="circle" id="344"></td><td class="circle" id="345"></td><td class="circle" id="346"></td><td class="circle" id="347"></td><td class="circle" id="348"></td><td class="circle" id="349"></td><td class="circle" id="350"></td><td class="circle" id="351"></td><td class="circle" id="352"></td><td class="circle" id="353"></td><td class="circle" id="354"></td><td class="circle" id="355"></td><td class="circle" id="356"></td><td class="circle" id="357"></td><td class="circle" id="358"></td><td class="circle" id="359"></td></tr>
+		<tr><td class="circle" id="360"></td><td class="circle" id="361"></td><td class="circle" id="362"></td><td class="circle" id="363"></td><td class="circle" id="364"></td><td class="circle" id="365"></td><td class="circle" id="366"></td><td class="circle" id="367"></td><td class="circle" id="368"></td><td class="circle" id="369"></td><td class="circle" id="370"></td><td class="circle" id="371"></td><td class="circle" id="372"></td><td class="circle" id="373"></td><td class="circle" id="374"></td><td class="circle" id="375"></td><td class="circle" id="376"></td><td class="circle" id="377"></td><td class="circle" id="378"></td><td class="circle" id="379"></td></tr>
+		<tr><td class="circle" id="380"></td><td class="circle" id="381"></td><td class="circle" id="382"></td><td class="circle" id="383"></td><td class="circle" id="384"></td><td class="circle" id="385"></td><td class="circle" id="386"></td><td class="circle" id="387"></td><td class="circle" id="388"></td><td class="circle" id="389"></td><td class="circle" id="390"></td><td class="circle" id="391"></td><td class="circle" id="392"></td><td class="circle" id="393"></td><td class="circle" id="394"></td><td class="circle" id="395"></td><td class="circle" id="396"></td><td class="circle" id="397"></td><td class="circle" id="398"></td><td class="circle" id="399"></td></tr>
+
+		</table>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	"use strict";
+	
+	var go = false;
+	var initialize = true;
+	var keys = [];
+	var oPink; 
+	var oBlue;
+	var oGreen;
+	var oOrange;
+	var time = 60;
+	var gameOver = false;
+	var dir1;
+	var dir2;
+	var dir3;
+	var dir4;
+	
+	class Dot{
+		
+		constructor(location, color, score, dir){
+		this.location = location;
+		this.color = color;
+		this.score = 0;
+		this.dir = 1;
+		}
+		
+		move(direction){ //0 = up, 1 = down, 2 = left, 3 = right
+
+			document.getElementById(this.location).className = "circle " + this.color;
+			if(direction==0){
+				if(this.location<20){this.location = this.location + 380;}
+				else{this.location = this.location - 20;}
+			}
+			else if(direction==1){
+				if(this.location>=380){this.location = this.location - 380;}
+				else{this.location = this.location + 20;}
+			}
+			else if(direction==2){   //case for left
+                if(this.location%20==0){
+                    this.location+=19;}  //wrap to the right if the player is at the left
+                else{
+                    this.location = this.location - 1;}  //move left
+            }
+            else if(direction==3){   //case for right
+                if(this.location%20==19){
+                    this.location-=19;}  //wrap to the left if the player is at the right
+                else{
+                    this.location = this.location + 1;}   //move right
+            } 
+			document.getElementById(this.location).className = "circle black";
+
+			
+		}
+		
+		getScore(){
+		
+		this.score = 0;
+	
+		for(var a = 0; a < 400; a++){
+			var check = document.getElementById(a).className;
+			if(check == "circle " + this.color){this.score++;}
+			}
+			
+			return this.score;
+		}
+	}
+	
+	
+	
+	
+	
+	function toggleButton(){
+	
+	if(initialize){
+	
+	var timeBox = document.getElementById("timerBox").value;
+	timeBox = parseInt(timeBox, 10);
+	if(!isNaN(timeBox)){time = timeBox;}
+	
+	initialize = false; 
+	oPink = new Dot(336, "pink"); 
+	oBlue = new Dot(83, "blue");
+	oGreen = new Dot(303, "green");
+	oOrange = new Dot(96, "orange");
+	}
+	
+	if($(btn).val() == "Reset"){location.reload(true);}
+	else if(go==false&&gameOver==false){
+	go = true;
+	timer();
+	$(btn).val("Pause");
+	movement();
+	}
+	else{go = false; $(btn).val("Continue");}
+	
+	
+	}
+	
+	
+	///
+	
+	
+	$(document).keydown(function(e){
+	if(go){e.preventDefault();}
+	if ((e.keyCode==38&&keys[0]==0)||(e.keyCode==40&&keys[0]==1)||(e.keyCode==37&&keys[0]==2)||(e.keyCode==39&&keys[0]==3)) { return; }
+
+	  switch(e.keyCode){
+		case 38: keys.unshift(0);
+		  break;
+		case 40: keys.unshift(1);
+		  break;
+		 case 37: keys.unshift(2);
+		  break;
+		 case 39: keys.unshift(3);
+		  break;
+	  }
+	 
+	});
+
+	// keyup handler
+	$(document).keyup(function(e){ 
+	var bit;
+	switch(e.keyCode){
+		case 38: bit = 0;
+		  break;
+		case 40: bit = 1;
+		  break;
+		 case 37: bit = 2;
+		  break;
+		 case 39: bit = 3;
+		  break;
+	  }
+	
+	var notPressed = keys.indexOf(bit);
+	
+	keys.splice(notPressed, 1)
+	
+	});
+	
+	
+	
+	///
+	
+	
+	///Touchscreen controls for mobile users since they don't have arrow keys
+	$(mUp).on("touchstart", function(){keys.unshift(0);});
+	$(mLeft).on("touchstart", function(){keys.unshift(1);});
+	$(mDown).on("touchstart", function(){keys.unshift(2);});
+	$(mRight).on("touchstart", function(){keys.unshift(3);});
+	$(document).on("touchend", function(){keys.shift();});
+	
+	$(mUp).on("mousedown", function(){keys.unshift(0);});
+	$(mLeft).on("mousedown", function(){keys.unshift(1);});
+	$(mDown).on("mousedown", function(){keys.unshift(2);});
+	$(mRight).on("mousedown", function(){keys.unshift(3);});
+	$(document).on("mouseup", function(){keys.shift();});
+	
+	
+	function movement(){
+	
+		checkScore();
+		
+		//console.log(keys);
+		
+		if(keys[0]!=0&&keys[0]!=1&&keys[0]!=2&&keys[0]!=3){dir1 = Math.floor(Math.random() * 4);}
+		else{
+		 dir1 = keys[0]; //dir1 = runAI(oBlue);
+		}	
+		
+		oBlue.move(dir1);  //four possible directions. 0 = up, 1 = down, 2 = left, 3 = right
+		
+		dir2 = Math.floor(Math.random() * 4);
+		if($(pinkSelect).val()=="AI"){dir2 = runAI(oPink);}
+		oPink.move(dir2);
+		
+		dir3 = Math.floor(Math.random() * 4);
+		if($(greenSelect).val()=="AI"){dir3 = runAI(oGreen);}
+		oGreen.move(dir3);
+		
+		//if(keys[65]||keys[68]||keys[83]||keys[87]){dir4 = oOrange.dir;}
+		dir4 = Math.floor(Math.random() * 4)
+		if($(orangeSelect).val()=="AI"){dir4 = runAI(oOrange);}
+		oOrange.move(dir4);
+		
+		setTimeout(function(){if(go){movement();}} , 90);
+		
+	}
+	
+	function timer(){
+	time--;
+	if(time==0){gameOver=true; toggleButton(); $(btn).val("Reset"); winner();}
+	document.getElementById("timer").innerHTML = "Timer: " + time;
+	setTimeout(function(){if(go){timer();}} , 1000);
+	}
+	
+	function checkScore(){
+	
+	document.getElementById("score").innerHTML = "blue: " + oBlue.getScore() + " pink: " + oPink.getScore() + " green: " + oGreen.getScore() + " orange: " + oOrange.getScore();	
+	
+	}
+
+	function runAI(object){
+	
+	var className;
+	
+	var lookAhead0; //up
+	var lookAhead1; //down
+	var lookAhead2; //left
+	var lookAhead3; //right
+	
+		if(object.location%20==19){lookAhead3 = object.location-19;}
+		else{lookAhead3 = object.location + 1;}
+		className = document.getElementById(lookAhead3).className;
+		if(className=="circle " + object.color){lookAhead3=0;}
+		else{lookAhead3=1;}
+			
+				
+		if(object.location%20==0){lookAhead2 = object.location+19;}
+		else{lookAhead2 = object.location - 1;}
+		className = document.getElementById(lookAhead2).className;
+		if(className=="circle " + object.color){lookAhead2=0;}
+		else{lookAhead2=1;}
+		
+		
+		if(object.location>=380){lookAhead1 = object.location-380;}
+		else{lookAhead1 = object.location + 20;}
+		className = document.getElementById(lookAhead1).className;
+		if(className=="circle " + object.color){lookAhead1=0;}
+		else{lookAhead1=1;}
+		
+		if(object.location<20){lookAhead0 = object.location+380;}
+		else{lookAhead0 = object.location - 20;}
+		className = document.getElementById(lookAhead0).className;
+		if(className=="circle " + object.color){lookAhead0=0;}
+		else{lookAhead0=1;}
+		
+		var dir = [];
+		
+		if(lookAhead3==1){dir.push(3);}
+		if(lookAhead2==1){dir.push(2);}
+		if(lookAhead1==1){dir.push(1);}
+		if(lookAhead0==1){dir.push(0);}
+		if(lookAhead3==0&&lookAhead2==0&&lookAhead1==0&&lookAhead0==0){dir.push(0);}
+		
+	return dir[Math.floor(Math.random() * dir.length)];
+	
+	}
+	
+	function winner(){
+		
+		var scores = [oBlue.getScore(),oPink.getScore(),oGreen.getScore(),oOrange.getScore()];
+		console.log(scores);
+		var winner;
+		if(scores[0]>scores[1]&&scores[0]>scores[2]&&scores[0]>scores[3]){winner = "Blue";}
+		else if(scores[1]>scores[2]&&scores[1]>scores[3]){winner = "Pink";}
+		else if(scores[2]>scores[3]){winner = "Green";}
+		else{winner = "Orange";}
+		
+		console.log(winner);
+		$(hiz).append('<div class="win">The winner is:<br>' + winner + '!</div>');
+	}
+	
+</script>
+</body>
+</html>

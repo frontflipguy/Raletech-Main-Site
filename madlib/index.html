@@ -8,7 +8,7 @@
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<link href="maldib.css" rel="stylesheet" type="text/css" />
 	<title>Write your own mad lib, then share it with fiends!</title>
-	
+	<script src="/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 <header><div class="navigation">
@@ -23,33 +23,61 @@
 
 <!-- Since I'm designing this with a "left" and "right" dichotomy, I'm using the naming convention such 
 	that "mad" is for everthing on the left and "lib" is for everthing on the right.-->
-	
-	<table class="madLibTable">
-		<tr>
-			<td style="text-align: right;" colspan="2">
-				<input type="button" onClick="retrieve()" value = "Enter Code">	<input type="button" onClick="reload()" value = "Reset">
-
-			</td>
-		</tr>
-		<tr>
-			<td class="madtd">
-				<div align="center" class="mad"><div id="mad">Write your mad lib:</div>
-				<textarea class="madInput">The [adjective] brown fox [verb]s over the lazy [noun].</textarea>
-				<input type="button" value="Save as..." onClick="save()"> <input id="madButton" type="button" value="Done!" onClick="stageOne()">
-				</div>
-			</td>
-			<td class="libtd" style="display: none">
-				<div  align="center" class="lib">Fill in your words:
-				<div class="libArea"></div>
-				<input id="libButton" type="button" value="Ready!" onClick="stageTwo()" class="libButton"></div>
-			</td>
-		</tr>
-	</table>
-	
+	<div class="bufferDiv">
+		<table class="madLibTable">
+			<tbody id="mainTBody">
+				<tr>
+					<td>Welcome to the madlib creator!</td>
+				</tr>
+				<tr>
+					<td>What would you like to do?</td>
+				</tr>
+				<tr>
+					<td class="madSelection" id="create">Create My Own Madlib!</td>
+				</tr>
+				<tr>
+					<td class="madSelection" id="play">Play an Already Made Madlib!</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>
 
 
 <script>
+	
+$(document).ready(function(){
+	//bind a click listener to the crate and play buttons
+	$("#create").click(function(){
+		populateHowTo();
+	});
+	
+	$("#play").click(function(){
+	
+	});
+});
+	
+function populateHowTo(){
+	$("#mainTBody").html(
+		"<tr><td style='width: 340px'>Write your own short story, and replace some key words in the story with brackets and the type of word.</td></tr>"
+		+"<tr><td style='width: 340px' align='center'>For example:</td></tr>"
+		+"<tr><td style='width: 340px'><textarea style='width: 340px'>The quick brown fox jumps over the lazy dog.</textarea></td></tr>"
+		+"<tr><td style='width: 340px'>becomes</td></tr>"
+		+"<tr><td style='width: 340px'><textarea style='width: 340px'>The [adjective] brown fox [verb]s over the lazy [noun].</textarea></td></tr>"
+		+"<tr><td  style='width: 340px' class='madSelection' onClick='okay()'>Okay!</td></tr>"
+	);
+}
+	
+function okay(){
+	$("#mainTBody").html(
+		"<tr><td><textarea class='madInput'></textarea></td></tr>"
+		+'<tr><td align="center"><input type="button" value="Save as..." onClick="save()"> <input id="madButton" type="button" value="Done!" onClick="stageOne()"></td></tr>'
+	);
+	$(".madInput").focus();
+}
+	
+	
+	
 	
 	
 

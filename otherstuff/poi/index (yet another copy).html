@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<title>Upward Spiral</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+	<link href="poiMobile.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<header>
+	<div class="navigation">
+	<a href="http://www.raletech.com/" class="icon"></a>
+	<a href="#" class="navigation-button" id="bye">SPIROGRAPH</a>
+	<a style="margin-left: 50px">For the modern human</a>
+	</div>
+</header>
+
+<div id="greatDiv" align="center" style="height:100vh; margin-top:81px">
+	
+<!--HTML here-->
+	<div class="whole-screen relative">
+		<div id="bdiv" class="bdiv" align="center">
+			<canvas id="canv" class="canvClass"></canvas>
+		</div>
+		<div id="adiv" class="adiv relative">
+			
+			<div id="start" class="little-button idiv relative">start/stop</div> | 
+			<div id="trace" class="little-button idiv relative" style="background-color: #888;">Trace</div> | 
+			Background: <input type="color" id="colorPickerBG" value="#ffffff" name="bg"> |
+			<div id="bSpeed" class="idiv">Base Speed: <div class="little-button idiv relative" id="slower">&lt;</div> <input type="text" class="speed-element" id="speedElement" value="5" disabled/> <div class="little-button idiv relative" id="faster">&gt;</div></div>
+
+
+			<table id="table1" class="table1 relative">
+				<tr style="z-index: 1;">
+					<td></td>
+					<td colspan="3" style="white-space: nowrap;">
+						<div class="idiv tab selected-tab" id="looks">LOOKS</div>
+						<div class="idiv tab" id="behavior">BEHAVIOR</div>
+						<div class="idiv tab" id="endpoints">ENDPOINTS</div>
+					</td>
+					
+				</tr>
+				<tr class="shadow">
+					<td class="tds column">
+						<select id="armDropdown" name="arm">
+							<option value="arm1" selected>Arm1</option>
+							<option value="subArm1">SubArm1</option>
+							<option value="subSubArm1">SubSubArm1</option>
+							<option value="arm2">Arm2</option>
+							<option value="subArm2">SubArm2</option>
+							<option value="subSubArm2">SubSubArm2</option>
+							<option value="arm3">Arm3</option>
+							<option value="subArm3">SubArm3</option>
+							<option value="subSubArm3">SubSubArm3</option>
+						</select>
+					</td>
+					<td class="tds group1">
+						<div id="radiusOn" class="little-button idiv relative onOff">On</div>
+					</td>
+					<td class="tds group1">
+						Color: <input type="color" id="color" value="#000000" name="">
+					</td>
+					<td class="tds group1">Lgth: <input id="radius" type="number" class="text-input" value="120"/> </td>
+					
+					<td class="tds group2" hidden>Spd: <input type="number" class="speed-element" id="speed" value="4" step=".1"/></td>
+					<td class="tds clockwise group2" hidden><div class="little-button idiv relative" id="direction">CW</div></td>
+					<td class="tds group2" hidden>Offset: <input type="number" class="speed-element" id="offset" value="0"/>&deg;</td>
+					
+					<td class="tds group3" hidden>Type: <div id="endpointDecor" class="little-button endpoint idiv relative">Off</div></td>
+					<td class="tds group3" hidden>Color: <input type="color" id="endColor" value="#000000"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+
+<script>
+
+	var i = 0;
+	var trace = true;
+	var midx = $(canv).width()/2;
+	var midy = $(canv).height()/2;
+	var start = true;
+	var bgColor = "#FFF";
+	var mobile = false;
+
+document.getElementById("canv").getContext("2d").canvas.width = $(canv).width();
+document.getElementById("canv").getContext("2d").canvas.height = $(canv).height();
+
+	var ctx = document.getElementById("canv").getContext("2d");
+	
+
+	
+class playObj{
+
+		constructor(xloc,yloc,radiusxloc,radiusyloc,color,radius,direction,speed,radiusOn,offset,endpointDecor,endColor,oldradiusxloc,oldradiusyloc){
+			this.xloc = xloc;
+			this.yloc = yloc;
+			this.radiusxloc = radiusxloc;
+			this.radiusyloc = radiusyloc;
+			this.color = color;
+			this.radius = radius;
+			this.direction = direction;
+			this.speed = speed;
+			this.radiusOn = radiusOn;
+			this.offset = offset;
+			this.endpointDecor = endpointDecor;
+			this.endColor = endColor;
+			this.oldradiusxloc = oldradiusxloc;
+			this.oldradiusyloc = oldradiusyloc;
+		}
+
+		spin(i){
+			
+			this.radiusxloc = this.xloc + (this.radius*Math.sin(i*(Math.PI/180)));
+			this.radiusyloc = this.yloc + (this.radius*Math.sin((i+270)*(Math.PI/180)));
+		
+		}
+	
+		futureSpin(i){
+			
+			this.oldradiusxloc = this.xloc + (this.radius*Math.sin(i*(Math.PI/180)));
+			this.oldradiusyloc = this.yloc + (this.radius*Math.sin((i+270)*(Math.PI/180)));
+		
+		}
+	
+		draw(color, width){
+			ctx.strokeStyle=color;
+			ctx.lineWidth=width;
+			ctx.beginPath();
+			ctx.moveTo(parseInt(this.xloc),parseInt(this.yloc));
+			ctx.lineTo(parseInt(this.radiusxloc),parseInt(this.radiusyloc));
+			ctx.stroke();
+		}
+	
+		drawBall(color, radius){
+			ctx.fillStyle=color;
+			ctx.beginPath();
+    		ctx.arc(parseInt(this.radiusxloc), parseInt(this.radiusyloc), radius, 0, 2 * Math.PI);
+    		ctx.fill();
+		}
+	
+		drawLine(color, width){
+			ctx.strokeStyle=color;
+			ctx.lineWidth=width;
+			ctx.beginPath();
+			
+			ctx.moveTo(parseInt(this.oldradiusxloc),parseInt(this.oldradiusyloc));
+			ctx.lineTo(parseInt(this.radiusxloc),parseInt(this.radiusyloc));
+			ctx.stroke();
+		}
+}
+	
+	bg = new playObj(midx,midy,midx,midy-180,"#FFFFFF",120,1,5,false,0,"Off","#FFFFFF",midx,midy-180);
+
+	arm1 = new playObj(midx,midy,midx,midy-180,"#000000",120,1,5,true,0,"Off","#000000",midx,midy-180);
+	subArm1 = new playObj(midx,midy-arm1.radius,midx,midy-arm1.radius-60,"#000000",90,-1,4,true,0,"Off","#000000",midx,midy-180);
+	subSubArm1 = new playObj(midx,midy-arm1.radius,midx,midy-arm1.radius-60,"#000000",60,1,4,false,0,"Off","#000000",midx,midy-180);
+	
+	arm2 = new playObj(midx,midy,midx,midy-180,"#000000",120,-1,5,false,0,false,false,"#000000",midx,midy-180);
+	subArm2 = new playObj(midx,midy-arm2.radius,midx,midy-arm2.radius-60,"#000000",90,1,4,false,0,"Off","#000000",midx,midy-180);
+	subSubArm2 = new playObj(midx,midy-arm1.radius,midx,midy-arm1.radius-60,"#000000",60,-1,4,false,0,"Off","#000000",midx,midy-180);
+
+	arm3 = new playObj(midx,midy,midx,midy-180,"#000000",120,-1,5,false,90,"Off","#000000",midx,midy-180);
+	subArm3 = new playObj(midx,midy-arm2.radius,midx,midy-arm2.radius-60,"#000000",90,1,4,false,90,"Off","#000000",midx,midy-180);
+	subSubArm3 = new playObj(midx,midy-arm1.radius,midx,midy-arm1.radius-60,"#000000",60,-1,4,false,0,"Off","#000000",midx,midy-180);
+
+	
+	var objArray = [arm1,subArm1,subSubArm1,arm2,subArm2,subSubArm2,arm3,subArm3,subSubArm3];
+	
+//stuff for mouse input
+
+//beautiful. I love me
+$("#start").on("click", function(){
+	if(start){
+		start = false; 
+		$("#start").css("background-color","#888888");
+	} else {
+		start = true; $("#start").css("background-color","#FFFFFF"); running();
+	}
+});
+$("#trace").on("click", function(e){
+	if(trace){
+		trace = false; 
+		$("#trace").css("background-color","#FFFFFF");
+	} else {
+		trace = true; $("#trace").css("background-color","#888888");
+	}
+}).mousedown(function(e){ e.preventDefault();});
+
+$("#colorPickerBG").change(function(){
+	var obj = toObj($(this).attr("name"));
+	obj.color = $(this).val();
+	drawBkgd();
+});
+	
+var sped = 5;
+$(slower).click(function(){
+	if(arm1.speed==0){$(faster).css("background-color","#FFFFFF");}
+	arm1.speed++;
+	arm2.speed++;
+	sped=10-arm1.speed;
+	$("#speedElement").val(sped);
+}).mousedown(function(e){ e.preventDefault(); });
+$(faster).click(function(){
+	if(arm1.speed>0){arm1.speed--;}
+	if(arm1.speed==0){$(faster).css("background-color","#888888");}
+	sped=10-arm1.speed;
+	$("#speedElement").val(sped);
+}).mousedown(function(e){ e.preventDefault(); });
+
+//handles selecting the different tabs
+$("#looks, #behavior, #endpoints").on("click", function(){
+	$("#looks, #behavior, #endpoints").removeClass("selected-tab");
+	$(this).addClass("selected-tab");
+	
+	$(".group1, .group2, .group3").hide();
+	if(this.id=="looks"){
+		$(".group1").show();
+	} else if(this.id=="behavior"){
+		$(".group2").show();
+	} else if(this.id=="endpoints"){
+		$(".group3").show();
+	} 
+});
+	
+	//Time for the mobile check!
+	screenCheck();
+	
+//master input handling function
+$("#radiusOn, #color, #radius, #direction, #speed, #offset, #endpointDecor, #endColor").on("change keyup mouseup",function(){
+	
+	var obj = toObj($("#armDropdown")[0].value);
+	
+	switch(this.id){
+		case "radiusOn":
+			if($(this).html()=="On"){obj.radiusOn = false;} else {obj.radiusOn = true;}
+		break;
+		case "color":
+			obj.color = $(this).val();
+		break;
+		case "radius":
+			obj.radius = $(this).val();
+		break;
+		case "direction":
+			if($(this).html()=="CW"){obj.direction = 1;} else {obj.direction = -1;}
+		break;
+		case "speed":
+			obj.speed = $(this).val();
+		break;
+		case "offset":
+			obj.offset = $(this).val();
+		break;
+		case "endpointDecor":
+			obj.endpointDecor = $(this).html();
+		break;
+		case "endColor":
+			obj.endColor = $(this).val();
+		break;
+	}
+	
+});
+	
+//handles setting on/off of an arm
+$(".onOff").click(function(){
+
+	if($(this).html()=="On"){
+		$(this).html("Off"); 
+	} else {
+		$(this).html("On"); 
+	}
+	
+});
+	
+//handles setting CW/CCW of an arm
+$("#direction").click(function(){
+
+	if($(this).html()=="CW"){
+		$(this).html("CCW"); 
+	} else {
+		$(this).html("CW"); 
+	}
+	
+});
+	
+//handles type of endpoint selector toggle
+$("#endpointDecor").on("mousedown", function(){
+	if($(this).html()=="Off"){
+		$(this).html("Ball"); 
+	} else if($(this).html()=="Ball"){
+		$(this).html("Line"); 
+	} else if($(this).html()=="Line"){
+		$(this).html("Off"); 
+	}
+});
+	
+	var onoffMap = {true:"On",false:"Off"};
+	var ccwMap = {"1":"CW","-1":"CCW"};
+	
+//handles updating the attributes shown in the HTML when a new arm is selected from the dropdown
+	$("#armDropdown").on("change", function(){
+		
+		var obj = toObj($("#armDropdown")[0].value);
+		
+		$("#radiusOn").html(onoffMap[obj.radiusOn]);
+		$("#color").val(obj.color);
+		$("#radius").val(obj.radius);
+		$("#direction").html(ccwMap[obj.direction]);
+		$("#speed").val(obj.speed);
+		$("#offset").val(obj.offset);
+		$("#endpointDecor").html(obj.endpointDecor);
+		$("#endColor").val(obj.endColor);
+	});
+	
+	//this is to fix how it overwrites an old pattern--it should start anew everytime a change is made.
+	
+	$("#radius, #offset, #speed, #color, #endColor").on("change", function(){setTimeout(function(){drawBkgd();}, 100);});
+	
+	$("#radiusOn, #direction, #endpointDecor").click(function(){setTimeout(function(){drawBkgd();}, 100);});
+	
+	setTimeout(function(){drawBkgd();}, 100);
+///////////////////////////////////////////////////////////////////////////////////////////
+
+	
+//main function loop
+
+running();
+
+function running(){
+	
+	i++;
+	if(!trace){
+		drawBkgd();
+	}else{
+		for(j=0; j<objArray.length; j++){
+			if(objArray[j].radiusOn){objArray[j].draw(bg.color,2);}
+			if(objArray[j].endpointDecor=="Ball"){objArray[j].drawBall(bg.color,6);}
+			if(objArray[j].endpointDecor=="Line"){objArray[j].drawLine(bg.color,2);}
+		}
+
+	}
+	
+	for(k=0; k<objArray.length; k+=3){
+		
+		objArray[k].oldradiusxloc = objArray[k].radiusxloc;
+		objArray[k].oldradiusyloc = objArray[k].radiusyloc;
+		
+		objArray[k].spin(objArray[k].direction*(i+parseInt(objArray[k].offset)));
+
+		
+		objArray[k+1].xloc = objArray[k].radiusxloc; //setting the x and y center locations of the sub arm
+		objArray[k+1].yloc = objArray[k].radiusyloc;
+		
+		objArray[k+1].oldradiusxloc = objArray[k+1].radiusxloc; //setting the oldradiusxloc of the sub arm
+		objArray[k+1].oldradiusyloc = objArray[k+1].radiusyloc;
+		
+		objArray[k+1].spin(objArray[k+1].speed*objArray[k+1].direction*(i+parseInt(objArray[k+1].offset))); //calling the spin method on the subarm
+		
+		objArray[k+2].xloc = objArray[k+1].radiusxloc; //setting the x and y center locations of the subSubArm
+		objArray[k+2].yloc = objArray[k+1].radiusyloc;
+		
+		objArray[k+2].oldradiusxloc = objArray[k+2].radiusxloc; //setting the oldradiusxloc of the subSubArm
+		objArray[k+2].oldradiusyloc = objArray[k+2].radiusyloc;
+		
+		objArray[k+2].spin(objArray[k+2].speed*objArray[k+2].direction*(i+parseInt(objArray[k+2].offset))); //calling the spin method on the subSubArm
+	}
+	
+	for(m=0; m<objArray.length; m++){
+		if(objArray[m].radiusOn){
+		objArray[m].draw(objArray[m].color,4);
+		}
+		
+		if(objArray[m].endpointDecor=="Ball"){
+		objArray[m].drawBall(objArray[m].endColor,8);
+		}
+		
+		if(objArray[m].endpointDecor=="Line"){
+		objArray[m].drawLine(objArray[m].endColor,4);
+		}
+
+	}
+
+	setTimeout(function(){if(start){running();}}, arm1.speed);
+}
+
+function drawBkgd(){
+			ctx.fillStyle = bg.color;
+			ctx.fillRect(0,0,666,666);
+		}
+
+function toObj(objName){
+	
+	switch(objName){
+		case "bg":
+		return bg;
+		break;
+		case "arm1":
+		return arm1;
+		break;			
+		case "subArm1":
+		return subArm1;
+		break;
+		case "subSubArm1":
+		return subSubArm1;
+		break;
+		case "arm2":
+		return arm2;
+		break;			
+		case "subArm2":
+		return subArm2;
+		break;
+		case "subSubArm2":
+		return subSubArm2;
+		break;
+		case "arm3":
+		return arm3;
+		break;			
+		case "subArm3":
+		return subArm3;
+		break;
+		case "subSubArm3":
+		return subSubArm3;
+		break;
+	}
+}
+	
+	//stuff for making it work better on mobile
+	
+	function screenCheck(){
+		var scrWidth = window.screen.width;
+		var scrHeight = window.screen.height;
+		
+		console.log(scrWidth + " x " + scrHeight);
+		
+		if(scrWidth<500){
+			console.log("mobile sized screeb. SpLUrT!");
+			mobile = true;
+			
+			$(".navigation").children()[2].remove();
+			
+			//change bdiv, canv, and table1 dimensions
+			$("#bdiv").css({"width": scrWidth-5,"height": scrWidth-5});
+			$("#canv").css({"width": scrWidth-9,"height": scrWidth-9});
+			$("#table1").css({"width": scrWidth-5});
+			$("#greatDiv").css("margin-top","7px");
+			
+			$("#bSpeed").remove();
+
+		} else {
+			$("#table1").css({"width": 522});
+		}
+
+	}
+	
+	//mobooooolshit complete!
+	//next: quantum entanglement
+	//url detecting and saving
+	
+</script>
+
+
+</body>
+</html>

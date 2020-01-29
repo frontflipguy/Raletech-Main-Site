@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link href="knoxo.css" rel="stylesheet" type="text/css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<title>Knoxo. Crappy knock-off Quixo.</title>
+	
+</head>
+<body>
+<header><div class="navigation">
+<a class="icon" href="http://www.raletech.com/"></a>
+<a href="#" class="navigation-button" id="bye">GAME</a>
+<a href="#" class="navigation-button-right" onclick="trick();">HINT</a>
+<a href="http://www.raletech.com/2p" class="navigation-button-right">DIRECTORY</a>
+<a style="margin-left: 50px">Welcome to Knoxo. Have fun!</a>
+</div></header>
+
+<div align="center" style="margin-top:90px">
+
+	<div style="margin-bottom:10px; font-weight: bold;" id="banner">Whose turn: <div id="turn" class="turn ohi"></div></div>
+
+	<!-- table td id's naming convention
+		_  |h0|h1|h2|h3|h4|  _          h is for header
+	 	_al|a0|a1|a2|a3|a4|ar_          l is for left, r is for right
+		_bl|b0|b1|b2|b3|b4|br_
+		_cl|c0|c1|c2|c3|c4|cr_
+		_dl|d0|d1|d2|d3|d4|dr_
+		_el|e0|e1|e2|e3|e4|er_
+		_  |f0|f1|f2|f3|f4|  _          f is for footer
+
+
+	-->
+	
+	
+	<table id="playArea" class="scooch oh">
+		<tr><td class="tdo"></td><td class="tdo" id="h0"></td><td class="tdo" id="h1"></td><td class="tdo" id="h2"></td><td class="tdo" id="h3"></td><td class="tdo" id="h4"></td><td class="tdo"></td></tr>
+		<tr>
+			<td class="tdo" id="al"></td>
+			<td colspan=5 rowspan=5>
+				<table class="scooch hand">
+				<tr><td class="tdclass" id="a0"></td><td class="tdclass" id="a1"></td><td class="tdclass" id="a2"></td><td class="tdclass" id="a3"></td><td class="tdclass" id="a4"></td></tr>
+				<tr><td class="tdclass" id="b0"></td><td class="tdclass" id="b1"></td><td class="tdclass" id="b2"></td><td class="tdclass" id="b3"></td><td class="tdclass" id="b4"></td></tr>
+				<tr><td class="tdclass" id="c0"></td><td class="tdclass" id="c1"></td><td class="tdclass" id="c2"></td><td class="tdclass" id="c3"></td><td class="tdclass" id="c4"></td></tr>
+				<tr><td class="tdclass" id="d0"></td><td class="tdclass" id="d1"></td><td class="tdclass" id="d2"></td><td class="tdclass" id="d3"></td><td class="tdclass" id="d4"></td></tr>
+				<tr><td class="tdclass" id="e0"></td><td class="tdclass" id="e1"></td><td class="tdclass" id="e2"></td><td class="tdclass" id="e3"></td><td class="tdclass" id="e4"></td></tr>
+				</table>
+			</td>
+			<td class="tdo" id="ar"></td>
+		</tr>
+		<tr><td class="tdo" id="bl"></td><td class="tdo" id="br"></td></tr>
+		<tr><td class="tdo" id="cl"></td><td class="tdo" id="cr"></td></tr>
+		<tr><td class="tdo" id="dl"></td><td class="tdo" id="dr"></td></tr>
+		<tr><td class="tdo" id="el"></td><td class="tdo" id="er"></td></tr>
+		<tr><td class="tdo"></td><td class="tdo" id="f0"></td><td class="tdo" id="f1"></td><td class="tdo" id="f2"></td><td class="tdo" id="f3"></td><td class="tdo" id="f4"></td><td class="tdo"></td></tr>
+	</table
+</div>
+
+<script>
+
+var cursorToggle = false;
+var clickedCell;
+var oldLetter;
+var oldNumber;
+var stage = 1;
+var letter;
+var number;
+var alpha = ["a","b","c","d","e"];
+	
+function trick(){
+	alert("Classic X versus O. You can only move one of your own tiles or a blank tile. Shove a row or column over to fill the hole created by moving your tile."); 
+	}
+	
+$(document).ready(function(){
+		//bind click listener to play area
+	$("#playArea").on("click", function(e){
+		clickedCell = e.target.id;
+		letter = clickedCell.substr(0,1);
+		number = clickedCell.substr(1,1);
+		var wrongSymbol = false;
+		if(cursorToggle==false&&$("#" + clickedCell).hasClass("exi")){wrongSymbol=true;}
+		if(cursorToggle==true&&$("#" + clickedCell).hasClass("ohi")){wrongSymbol=true;}
+		
+		//stage 1: selecting the cell to move
+		if(stage==1&&(clickedCell.includes("a")||clickedCell.includes("e")||clickedCell.includes("0")||clickedCell.includes("4"))
+		   &&!clickedCell.includes("h")&&!clickedCell.includes("f")&&!clickedCell.includes("l")&&!clickedCell.includes("r")
+		   &&!wrongSymbol){ //check if it is stage 1 and an outer cell and not an outer table cell and not the other player's tile
+			stage1();
+			stage=2;
+		}
+		else if(stage==2){		
+			//check if the clicked cell is one of the viable move locations.
+			var isRed = $("#"+clickedCell).hasClass("red");
+			$(".tdo").removeClass("red");
+			$(".tdclass").removeClass("grey");
+			if(isRed){
+				stage=1;
+				stage2();
+			} else if(!wrongSymbol){
+				stage1();
+			}
+		}
+		
+		//hang on to old clicked cell
+		oldLetter = letter;
+		oldNumber = number;
+	})
+});
+	
+	function stage1(){
+		//highlights the selected cell.			
+		$("#" + clickedCell).addClass("grey");
+
+		//indicates viable move locations
+		possibleMoves(letter, number);
+	}
+	
+	function stage2(){
+		var symbol = cursorToggle ? "exi" : "ohi";
+		//shove stuff and place new symbol
+		//if you clicked an h shove down, f shove up, l shove right, r shove left
+		if(letter=="h"){
+			if(oldLetter=="e"){$("#e"+number).attr("class", $("#d"+number).attr("class"));} //move d into e
+			if(oldLetter=="d"||oldLetter=="e"){$("#d"+number).attr("class", $("#c"+number).attr("class"));} //c into d
+			if(oldLetter=="c"||oldLetter=="d"||oldLetter=="e"){$("#c"+number).attr("class", $("#b"+number).attr("class"));} //b into c
+			if(oldLetter=="b"||oldLetter=="c"||oldLetter=="d"||oldLetter=="e"){$("#b"+number).attr("class", $("#a"+number).attr("class"));} //a into b
+			$("#a"+number).attr("class", "tdclass " + symbol); 
+		}
+		else if(letter=="f"){
+			if(oldLetter=="a"){$("#a"+number).attr("class", $("#b"+number).attr("class"));} //move b into a
+			if(oldLetter=="b"||oldLetter=="a"){$("#b"+number).attr("class", $("#c"+number).attr("class"));} //c into b
+			if(oldLetter=="c"||oldLetter=="b"||oldLetter=="a"){$("#c"+number).attr("class", $("#d"+number).attr("class"));} //d into c
+			if(oldLetter=="d"||oldLetter=="c"||oldLetter=="b"||oldLetter=="a"){$("#d"+number).attr("class", $("#e"+number).attr("class"));} //e into d
+			$("#e"+number).attr("class", "tdclass " + symbol); 
+		}
+		else if(number=="l"){
+			if(oldNumber=="4"){$("#"+letter+"4").attr("class", $("#"+letter+"3").attr("class"));} //move 3 into 4
+			if(oldNumber=="3"||oldNumber=="4"){$("#"+letter+"3").attr("class", $("#"+letter+"2").attr("class"));} //2 into 3
+			if(oldNumber=="2"||oldNumber=="3"||oldNumber=="4"){$("#"+letter+"2").attr("class", $("#"+letter+"1").attr("class"));} //1 into 2
+			if(oldNumber=="1"||oldNumber=="2"||oldNumber=="3"||oldNumber=="4"){$("#"+letter+"1").attr("class", $("#"+letter+"0").attr("class"));} //0 into 1
+			$("#"+letter+"0").attr("class", "tdclass " + symbol); 
+		}
+		else if(number=="r"){
+			if(oldNumber=="0"){$("#"+letter+"0").attr("class", $("#"+letter+"1").attr("class"));} //move 1 into 0
+			if(oldNumber=="1"||oldNumber=="0"){$("#"+letter+"1").attr("class", $("#"+letter+"2").attr("class"));} //2 into 1
+			if(oldNumber=="2"||oldNumber=="1"||oldNumber=="0"){$("#"+letter+"2").attr("class", $("#"+letter+"3").attr("class"));} //3 into 2
+			if(oldNumber=="3"||oldNumber=="2"||oldNumber=="1"||oldNumber=="0"){$("#"+letter+"3").attr("class", $("#"+letter+"4").attr("class"));} //4 into 3
+			$("#"+letter+"4").attr("class", "tdclass " + symbol); 
+		}
+				
+		//indicate next players turn
+		if(cursorToggle){cursorToggle=false; $("#turn").attr("class", "turn ohi"); $("#playArea").attr("class", "scooch oh");}
+		else{cursorToggle=true; $("#turn").attr("class", "turn exi"); $("#playArea").attr("class", "scooch ex");}
+		
+		//check if a win-condition has been achieved
+		winCheck();
+	}
+
+	function possibleMoves(){
+		
+		//highlights outer table cells all four directions
+		$("#" + letter + "l, #" + letter + "r, #h" + number + ", #f" + number).addClass("red"); //haha gross
+		
+		//unhighlights near outer table cell
+		//if a delete h, if e delete f, if 0 delete l, if 4 delete r
+		if(letter=="a"){$("#h"+number).removeClass("red");}
+		if(letter=="e"){$("#f"+number).removeClass("red");}
+		if(number=="0"){$("#"+letter+"l").removeClass("red");}
+		if(number=="4"){$("#"+letter+"r").removeClass("red");}
+	}
+	
+	function winCheck(){
+		var trackx = 0;
+		var tracky = 0;
+		//checks all vertical win possibilities
+		for(y=0; y<5; y++){
+			trackx = 0;
+			for(x=0; x<4; x++){
+				var thisClass = $("#"+alpha[x]+y).attr("class");
+				if(thisClass.includes("exi")||thisClass.includes("ohi")){
+					if(thisClass==$("#"+alpha[x+1]+y).attr("class")){trackx++;}
+				}
+			}
+			console.log("trackx: " + trackx);
+			if(trackx==4){weHaveAWinner();}
+		}
+		
+		//checks all horizontal win possibilities
+		for(x=0; x<5; x++){
+			tracky = 0;
+			for(y=0; y<4; y++){
+				var thisClass = $("#"+alpha[x]+y).attr("class");
+				if(thisClass.includes("exi")||thisClass.includes("ohi")){
+					if(thisClass==$("#"+alpha[x]+(y+1)).attr("class")){tracky++;}
+				}
+			}
+			console.log("tracky: " + tracky);
+			if(tracky==4){weHaveAWinner();}
+		}
+		
+		//checks diagonals
+		var trackd1 = 0;
+		var trackd2 = 0;
+			for(z=0; z<4; z++){
+				var thisClass = $("#"+alpha[z]+z).attr("class");
+				if(thisClass.includes("exi")||thisClass.includes("ohi")){
+					if(thisClass==$("#"+alpha[z+1]+(z+1)).attr("class")){trackd1++;}
+				}
+			}
+			for(z=0; z<4; z++){
+				var thisClass = $("#"+alpha[4-z]+z).attr("class");
+				if(thisClass.includes("exi")||thisClass.includes("ohi")){
+					if(thisClass==$("#"+alpha[3-z]+(z+1)).attr("class")){trackd2++;}
+				}
+			}
+			console.log("trackd1: " + trackd1 + ", trackd2: " + trackd2);
+			if(trackd1==4||trackd2==4){weHaveAWinner();}
+	}
+	
+	
+	function weHaveAWinner(){
+		var symb = cursorToggle ? "O" : "X";
+		stage=3;
+		$("#banner").html("Player \"" + symb + "\" Wins!");
+	}
+	
+
+</script>
+
+</body>
+</html>

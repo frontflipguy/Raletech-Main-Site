@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+<title>Book Units</title>
+</head>
+<body>
+<style>
+
+.border{
+background-color: #ff970f;
+padding: 5px;
+width: 980px;
+textAlign: center;
+margin: 13px;
+margin-left: 0px;
+border-radius: 2px;
+box-shadow: 1px 4px 4px grey;
+}
+
+.tArea{
+width: 600px;
+height: 600px;
+
+}
+
+.idiv{
+display: inline-block;
+}
+
+.input{
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+.checkButton{
+width: 80px;
+height: 30px;
+font-weight: bold;
+}
+
+.copButton{
+width: 180px;
+height: 30px;
+font-weight: bold;
+}
+
+.table1{
+border-collapse: collapse;
+font-family: monospace;
+}
+
+.td1{
+border: 0px solid black;
+padding-left: 4px;
+padding-right: 4px;
+height: 18px;
+}
+
+.ta{
+width: 860px;
+height: 200px;
+}
+
+.idiv{
+display: inline-block;
+}
+
+
+</style>
+
+<div class="border"> 
+<div>Copy and paste in the TOC:
+<br><textarea class="ta" id="inputText"></textarea>
+
+<div><input type="button" class="checkButton" value="Check" onclick="start()"> <input id="cop" type="button" class="copButton" value="Copy result to Clipboard" onclick="copy()" disabled> <div class="idiv" id="message"></div></div>
+</div> 
+</div>
+
+<div id="output"></div>
+
+
+
+<script type="text/javascript">
+
+
+
+
+
+
+function start() {
+
+	$(output).html("");
+				
+	var inText = $(inputText).val();
+	
+	inText = inText.substring(0, inText.search(/\n  /));
+
+	var Maurice = inText.split(/\n/);
+	var newline = "";
+	
+	for(v = 0; v < Maurice.length; v++){
+	
+		if(Maurice[v].substr(1,2)==0){ //if is a "10", "20", etc.
+		
+			//add the title line e.g. "1,Unit 1. Addition and Subtraction with Fractions"
+			$(output).append(newline + Maurice[v].substring(0,1) + ",Unit " + Maurice[v].substring(4,Maurice[v].search(/ - Homework/)) + "<br>");
+		
+		}
+		newline = "<br>"
+		$(output).append("chap" + Maurice[v].substring(0,2) + "<br>");
+	
+	}
+	document.getElementById("cop").disabled = "";
+}
+
+function copy(){
+
+	var range = document.createRange();
+    range.selectNode(document.getElementById("output"));
+    window.getSelection().addRange(range);
+    
+	document.execCommand("copy");
+
+	$(message).html("Copied to clipboard!");
+	setTimeout(function() {$(message).html("");},2000);
+}
+
+
+</script>
+</body>
+</html>

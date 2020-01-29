@@ -1,0 +1,275 @@
+@CHARSET "UTF-8";
+
+html {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+  line-height: 1.5;
+  font-family: 'Lato', sans-serif;
+  padding: 0px;
+}
+
+body{
+	margin: 0px;
+	
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.big-logo {
+ text-align: center; 
+ height: 250px;
+ width: 100%;
+ background: transparent url('/raletech.png') no-repeat center;
+ background-size: contain;
+}
+
+
+.navigation{
+box-shadow: 0px 5px 9px #0b1119;
+padding: 20px;
+border-bottom: 2px solid #000;
+border-top: 1px solid #000;
+background-color: #909090;
+background: -webkit-linear-gradient(#5d96d6, #0b1119); /* For Safari 5.1 to 6.0 */
+background: -o-linear-gradient(#5d96d6, #0b1119); /* For Opera 11.1 to 12.0 */
+background: -moz-linear-gradient(#5d96d6, #0b1119); /* For Firefox 3.6 to 15 */
+background: linear-gradient(#3b5e87, #0b1119); /* Standard syntax (must be last) */
+width:90%;
+height: 70px;
+margin: auto;
+margin-bottom: 30px;
+border-radius: 0px 0px 20px 20px;
+color: #4ec8de;
+font-family: Book Antiqua,Palatino,Palatino Linotype,Palatino LT STD,Georgia,serif; font-size: 170%;
+font-weight: 100;
+text-align: center;
+font-size: 300%;
+-webkit-transition: -webkit-transform 1s ease-in-out;
+
+}
+
+
+
+
+.icon{
+	 background: transparent url('/raletechicon.png') no-repeat;
+	 background-size: 100%;
+	 width: 80px;
+	 height: 60px;
+	 position: relative;
+	 right: 4px; 
+	 top: -10px;
+	 float: left;
+	 margin-right: 16px;
+}
+
+
+
+
+.main-table{
+
+	margin-top:115px; 
+	width:100%;
+	
+
+}
+
+.speech{
+font-size: 130%;
+font-weight: 700;
+padding: 20px;
+border-top: 1px solid #000;
+border-bottom: 1px solid #000;
+
+text-align: left;
+}
+
+.mid-td{
+width: 60%;
+
+}
+
+.left-td{
+width: 30%;
+padding-left: 15px;
+vertical-align: top;
+font-size: 100%;
+font-weight: 700;
+	
+}
+
+.input-box{
+width: 100px;
+
+}
+
+.input-box1{
+width: 100px;
+
+}
+
+.input-box2{
+width: 100px;
+
+}
+
+.input-box-long{
+width: 210px;
+
+}
+.input-box-long2{
+width: 360px;
+
+}
+
+.radio{}
+
+.idiv{
+display: inline-block;
+}
+
+.page{
+margin: 0px;
+//vertical-align: center;
+width: 100%;
+height: 1080px;
+background-color: #243a53;
+}
+
+
+.date{
+margin-left: 30px;
+}
+
+.center{
+position:fixed; 
+-webkit-transition: -webkit-transform 1s ease-in-out;
+vertical-align: center;
+width: 100%;
+background-color: #243a53;
+z-index: -2;
+height: 100vh;
+	-webkit-transition: 0.5s ease-in-out;
+
+}
+
+.title{
+width: 100%;
+display:inline-block;
+transform:scale(1.2,1); 
+-webkit-transform:scale(1.2,1); 
+white-space: nowrap;
+}
+
+.up{
+	-webkit-transform:translate(0px,-88px);
+}
+
+.navigation:hover{
+	-webkit-transform:translate(0px,0px);
+}
+
+.bg{
+	width: 70%;
+	height: 500px;
+	margin:auto;
+	margin-top: 50px;
+	background-color: #1c2d40;
+	border-radius: 40px;
+    box-shadow: 0px 0px 25px #0b1119, inset 0px 0px 25px #0b1119;
+	z-index: 3;
+	-webkit-transition: 0.5s ease-in-out;
+
+}
+
+.yellow{
+	width: 100px;
+	height: 100px;
+	border: 9px solid #fbbb20;
+	background-color: #e39320;
+	border-radius: 20px;
+	position: absolute;
+	box-shadow: 0px 0px 25px #0b1119, inset 0px 0px 25px #0b1119;
+	cursor: pointer;
+	-webkit-transition: 0.5s linear;
+}
+
+.yellow:hover{
+background-color: #fbd986;
+
+}
+-webkit-transition: 2s linear;
+
+}
+
+
+.yellow:active{}
+
+.dummy{}
+
+.move{
+
+left: 1000px;
+
+}
+
+
+
+
+
+.footer{
+width: 100%;
+height: 70px;
+position: fixed;
+bottom: 0px;
+padding-top: 40px;	
+text-align: center;
+color: #989898;
+background: white; /* For browsers that do not support gradients */
+background: -webkit-linear-gradient(white, gray); /* For Safari 5.1 to 6.0 */
+background: -o-linear-gradient(white, gray); /* For Opera 11.1 to 12.0 */
+background: -moz-linear-gradient(white, gray); /* For Firefox 3.6 to 15 */
+background: linear-gradient(#243a53, #0b1119); /* Standard syntax */
+}
+
+.white{
+color: #989898;
+}
+
+.c-gray{
+color: #919191;
+}
+
+.init{
+width: 20%;
+height: 500px;
+background-color: #a4003e;
+box-shadow: 0px 0px 25px #0b1119, inset 0px 0px 25px #0b1119;
+
+}
+
+.first{
+	width: 19%;
+border-radius: 40px 0px 0px 40px;
+}
+
+.last{
+	width: 19.5%;
+border-radius: 0px 40px 40px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+

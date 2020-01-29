@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<MAIN>
+  <TAG id="test">There was once a [animal] who loved [a food] so much that it traveled [number] miles to find this most [adjective] of all foods.</TAG>
+  <TAG id="gross">One time I [past tense verb] my own [body part].</TAG>
+  <TAG id="superl">Sanel is my [superlative] friend!</TAG>
+  <TAG id="test1">I like to surround myself with [adjective] people; take [name] for example!</TAG>
+  <TAG id="kazookid">I like to sing, dance, [verb], aaaaand I like to have fun, [write fun like ten times].</TAG>
+  <TAG id="hill">Jack and [name] ran up the hill to fetch a pail of [liquid]. Jack fell down and broke his [body part] and [same name again] came [ing verb] after him.</TAG>
+  <TAG id="salesmeeting">Next week is the international [any word ending in s] meeting. The meeting is all about [plural noun] and ["ing" businessism]. All the important business people will be there, talking about their [plural body part].</TAG>
+</MAIN>

@@ -1,0 +1,359 @@
+@CHARSET "UTF-8";
+
+html {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+  line-height: 1.5;
+  font-family: 'Lato', sans-serif;
+  padding: 0px;
+}
+
+body{
+	margin: 0px;
+	
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+div{
+	
+	align:right;
+}
+
+.idiv{
+	display: inline-block;
+}
+
+.idiv2{
+	display: inline-block;
+	position: relative;
+	bottom: 35px;
+	left: 72px;
+}
+
+.block{
+	display: block;
+}
+
+.relative{
+	position: relative;
+	height: 74px;
+	top: 10px;
+}
+
+.word{
+text-align: center;
+width: 62px;
+}
+
+.navigation{
+font-size: 130%;
+font-weight: 700;
+margin: 0px;
+padding: 20px;
+border-bottom: 2px solid #000;
+border-top: 1px solid #000;
+background-color: #909090;
+position: fixed;
+width:100%;
+height: 31px;
+z-index: 5;
+}
+
+.navigation-button{
+font-size: 100%;
+background-color: #A1A1A1;
+transition: .5s;
+border: 1px solid #000;
+padding: 14px;
+padding-top: 24px;
+padding-bottom: 24px;
+margin: -4px;
+}
+
+.navigation-button:hover{
+background-color: #DADADA;
+transition: .5s;
+}
+
+.navigation-button:active{
+	background-color: #EFEFEF;
+	transition: 0s;
+}
+
+.icon{
+	 background: transparent url('/raletechicon.png') no-repeat;
+	 background-size: 100%;
+	 width: 80px;
+	 height: 60px;
+	 position: relative;
+	 right: 4px; 
+	 top: -10px;
+	 float: left;
+	 margin-right: 16px;
+}
+
+
+.navigation-button-right{
+position: relative;
+float: right;
+bottom: 17px;
+right: 25px;
+font-size: 100%;
+background-color: #A1A1A1;
+transition: .5s;
+border: 1px solid #000;
+padding: 14px;
+padding-top: 20px;
+padding-bottom: 20px;
+margin: -4px;
+}
+
+.navigation-button-right:hover{
+background-color: #DADADA;
+transition: .5s;
+}
+
+.navigation-button-right:active{
+	background-color: #EFEFEF;
+	transition: 0s;
+}
+
+.poem{
+font-size: 130%;
+font-weight: 700;
+margin-top: 140px;
+padding: 20px;
+border-bottom: 5px solid #000;
+border-top: 5px solid #000;
+border-left: 2px solid #000;
+border-right: 2px solid #000;
+background-color: #909090;
+width:400px;
+align: center;
+}
+
+.answerbox{
+border-bottom: 2px solid #000;
+//border-top: 2px solid #000;
+width:520px;
+
+}
+
+.purp{
+	background-color: #eb7ff9;
+}
+
+.clue{
+	border: 2px solid #000;
+	margin: 4px;
+	height: 55px;
+	width: 55px;
+	z-index: -2;
+}
+
+#clueTable{
+width:920px;
+}
+
+.circ{
+	border: 2px solid #000;
+	margin: 4px;
+	height: 55px;
+	width: 55px;
+	border-radius: 50%;
+}
+
+.swatch{
+	width: 7px; 
+	height: 16px; 
+	margin: 0px;
+	
+}
+
+
+.q1{border-right: 2px solid #000; border-top: 2px solid #000; background-color: #e9e9e9; width: 68px; height: 68px; 
+	position: absolute; 
+	transform: translateY(-34px); 
+	z-index: 5;}
+.q1:hover{background-color: #fffdf1;}
+.q1round{border-top-right-radius: 100%;}
+.q1round50{border-top-right-radius: 50%;}
+#q1angle50{	border-left: 2px solid #000;
+	transform: translateX(-26px) translateY(-5px) rotate(-45deg);
+	position: absolute;
+	height: 39px;
+	width: 10px;
+	background-color: #fff;}
+
+.q2{border-top: 2px solid #000; border-left: 2px solid #000; background-color: #e9e9e9; width: 68px; height: 68px;
+	position: absolute; 
+	transform: translateY(-34px); 
+	z-index: 5;}
+.q2:hover{background-color: #fffdf1;}
+.q2round{border-top-left-radius: 100%;}
+.q2round50{border-top-left-radius: 50%;}
+#q2angle50{	border-left: 2px solid #000;
+	transform: translateX(-62px) translateY(-5px) rotate(-135deg);
+	position: absolute;
+	height: 39px;
+	width: 10px;
+	background-color: #fff;}
+
+.q3{border-bottom: 2px solid #000; border-left: 2px solid #000; background-color: #e9e9e9; width: 68px; height: 68px;
+	position: absolute; 
+	transform: translateY(-34px); 
+	z-index: 5;}
+.q3:hover{background-color: #fffdf1;}
+.q3round{border-bottom-left-radius: 100%;}
+.q3round50{border-bottom-left-radius: 50%;}
+#q3angle50{	border-left: 2px solid #000;
+	transform: translateX(-62px) translateY(32px) rotate(135deg);
+	position: absolute;
+	height: 39px;
+	width: 10px;
+	background-color: #fff;}
+
+.q4{border-bottom: 2px solid #000; border-right: 2px solid #000; background-color: #e9e9e9; width: 68px; height: 68px;
+	position: absolute; 
+	transform: translateY(-34px); 
+	z-index: 5;}
+.q4:hover{background-color: #fffdf1;}
+.q4round{border-bottom-right-radius: 100%;}
+.q4round50{border-bottom-right-radius: 50%;}
+#q4angle50{	border-left: 2px solid #000;
+	transform: translateX(-25px) translateY(32px) rotate(45deg);
+	position: absolute;
+	height: 39px;
+	width: 10px;
+	background-color: #fff;}
+
+.color1{background-color:#ff8080;}
+.color2{background-color:#ffac80;}
+.color3{background-color:#ffd980;}
+.color4{background-color:#f9ff80;}
+.color5{background-color:#ccff80;}
+.color6{background-color:#9fff80;}
+.color7{background-color:#80ffb9;}
+.color8{background-color:#80ffe6;}
+.color9{background-color:#80ecff;}
+.color10{background-color:#80bfff;}
+.color11{background-color:#8093ff;}
+.color12{background-color:#9980ff;}
+.color13{background-color:#c680ff;}
+.color14{background-color:#f280ff;}
+.color15{background-color:#ff80df;}
+.color16{background-color:#ff80b2;}
+
+#container1{border-top: 1px solid #000; border-bottom: 1px solid #000; height: 80px; width: 140px; font-size: 400%;}
+#container2{border-top: 1px solid #000; border-bottom: 1px solid #000; height: 80px; width: 140px; font-size: 400%;}
+
+.lattice1{
+	background-image: url('/plusLattice.png');
+	background-repeat: round;
+}
+
+.lattice2{
+	background-image: url('/dotLattice.png');
+	background-repeat: round;
+}
+
+.lattice3{
+	background-image: url('/slantLattice3.png');
+	background-repeat: round;
+}
+
+.lattice4{
+	background-image: url('/thatchLattice.png');
+	background-repeat: round;
+}
+
+.q1angle{
+	width: 96px;
+	height: 48px;
+	border-top: 2px solid black;
+	border-right: 0px solid black;
+	transform: translateX(-30px) translateY(-7px) rotate(45deg);
+	background-color: #e9e9e9;
+	position: absolute;
+	z-index: 4;
+	}
+
+.q1angle:hover{
+	background-color: #fffdf1;
+	}
+	
+.q2angle{
+	width: 96px;
+	height: 48px;
+	border-top: 2px solid black;
+	border-left: 0px solid black;
+	transform: translateX(4px) translateY(-7px) rotate(-45deg);
+	background-color: #e9e9e9;
+	position: absolute;
+	z-index: 3;
+	}
+
+	.q2angle:hover{
+	background-color: #fffdf1;
+	}
+	
+	.q3angle{
+	width: 96px;
+	height: 48px;
+	border-bottom: 2px solid black;
+	border-left: 0px solid black;
+	transform: translateX(4px) translateY(-41px) rotate(45deg);
+	background-color: #e9e9e9;
+	position: absolute;
+	z-index: 2;
+	}
+
+	.q3angle:hover{
+	background-color: #fffdf1;
+	}
+	
+	.q4angle{
+	width: 96px;
+	height: 48px;
+	border-bottom: 2px solid black;
+	border-right: 0px solid black;
+	transform: translateX(-30px) translateY(-41px) rotate(-45deg);
+	background-color: #e9e9e9;
+	position: absolute;
+	z-index: 1;
+	}
+
+	.q4angle:hover{
+	background-color: #fffdf1;
+	}
+
+.butt{
+	height: 25px;
+	width: 25px;
+}
+
+.butt1{
+	background-color: #fff;
+}
+
+.butt2{
+	background: transparent url('/plusLattice.png');
+}
+
+.butt3{
+	background: transparent url('/dotLattice.png');
+}
+
+.butt4{
+	background: transparent url('/slantLattice3.png');
+}
+
+.butt5{
+	background: transparent url('/thatchLattice.png');
+}

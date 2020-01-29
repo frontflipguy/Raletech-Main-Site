@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+<MAIN>
+  <COMPANY id="Boeing">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Systems Engineer</JOBTITLE>
+    <LOCATION>Arlington, VA</LOCATION>
+    <BUZZ1>to connect, protect, explore and inspire the world through aerospace innovation</BUZZ1>
+    <BUZZ2>strives for first-time quality and continuous improvement in all that they do</BUZZ2>
+  </COMPANY>
+  <COMPANY id="metrosystems">
+    <RADIO>headhunterR</RADIO>
+    <JOBTITLE>UI developer</JOBTITLE>
+    <LOCATION>Fairfax, VA</LOCATION>
+    <BUZZ1/>
+    <BUZZ2/>
+  </COMPANY>
+  <COMPANY id="GoogleInc">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>boss man</JOBTITLE>
+    <LOCATION>Virginia</LOCATION>
+    <BUZZ1>taking over the world</BUZZ1>
+    <BUZZ2>is taking over the world</BUZZ2>
+  </COMPANY>
+  <COMPANY id="Moogle Inc.">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>the dude</JOBTITLE>
+    <LOCATION>Virginia</LOCATION>
+    <BUZZ1>of balling</BUZZ1>
+    <BUZZ2>doesn't afraid of anything</BUZZ2>
+  </COMPANY>
+  <COMPANY id="Frozenumbre Inc.">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>internet friend</JOBTITLE>
+    <LOCATION>the interwebs</LOCATION>
+    <BUZZ1>of mutual respect and support</BUZZ1>
+    <BUZZ2>makes the tough times not so tough and the good times even better</BUZZ2>
+  </COMPANY>
+  <COMPANY id="MadeUpTechGroup">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>JavaScript Ninja</JOBTITLE>
+    <LOCATION>Virginia</LOCATION>
+    <BUZZ1>of developing the next generation of online software</BUZZ1>
+    <BUZZ2>is on the cutting edge of technology</BUZZ2>
+  </COMPANY>
+  <COMPANY id="WonderSystems">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Engineer</JOBTITLE>
+    <LOCATION>Fairfax, VA</LOCATION>
+    <BUZZ1>of creating a safer internet browsing experience</BUZZ1>
+    <BUZZ2>always takes the moral high road</BUZZ2>
+  </COMPANY>
+  <COMPANY id="mlg inc.">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>noscoper</JOBTITLE>
+    <LOCATION>u wot m8</LOCATION>
+    <BUZZ1>of pwning nubs</BUZZ1>
+    <BUZZ2>has the highest K/D</BUZZ2>
+  </COMPANY>
+  <COMPANY id="Raytheon">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Integration Engineer</JOBTITLE>
+    <LOCATION>Alice Springs, AUS</LOCATION>
+    <BUZZ1>seeing beyond the horizon</BUZZ1>
+    <BUZZ2>innovates beyond imagination</BUZZ2>
+  </COMPANY>
+  <COMPANY id="RaytheonAUS">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Integration Engineer</JOBTITLE>
+    <LOCATION>Alice Springs, AUS</LOCATION>
+    <BUZZ1>seeing beyond the horizon</BUZZ1>
+    <BUZZ2>innovates beyond imagination</BUZZ2>
+  </COMPANY>
+  <COMPANY id="Envision">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Front End Developer</JOBTITLE>
+    <LOCATION>Vienna, VA</LOCATION>
+    <BUZZ1>of enabling students to discover their passion, try out a future career, and positively impact the world around them</BUZZ1>
+    <BUZZ2>helps students turn their career and life aspirations into reality</BUZZ2>
+  </COMPANY>
+  <COMPANY id="Prudent Technology LLC">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Junior UI Developer</JOBTITLE>
+    <LOCATION>Alexandria, VA</LOCATION>
+    <BUZZ1>of providing effective solutions to technology challenges</BUZZ1>
+    <BUZZ2>provides innovative and technology solutions and management consulting services with the highest level of knowledge and quality</BUZZ2>
+  </COMPANY>
+  <COMPANY id="Mental Health America">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Web Developer</JOBTITLE>
+    <LOCATION>Alexandria, VA</LOCATION>
+    <BUZZ1>of addressing mental illness before Stage 4</BUZZ1>
+    <BUZZ2>promotes mental health as a critical part of overall wellness, including prevention services for all; early identification and intervention for those at risk; integrated care, services, and supports for those who need it; with recovery as the goal</BUZZ2>
+  </COMPANY>
+  <COMPANY id="Gartner">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>UI Designer</JOBTITLE>
+    <LOCATION>Arlington, VA</LOCATION>
+    <BUZZ1>of delivering the technology-related insight necessary for their clients to make the right decisions, every day</BUZZ1>
+    <BUZZ2>is the world's leading information technology research and advisory company</BUZZ2>
+  </COMPANY>
+  <COMPANY id="American Institutes for Research">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Junior Test Automation Engineer</JOBTITLE>
+    <LOCATION>Washington, DC</LOCATION>
+    <BUZZ1>of providing tools to improve education both in the US and internationally, particularly in disadvantaged areas</BUZZ1>
+    <BUZZ2>lives and breathes to enhance human performance</BUZZ2>
+  </COMPANY>
+  <COMPANY id="Example Inc.">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Web Guru</JOBTITLE>
+    <LOCATION>Alexandria, VA</LOCATION>
+    <BUZZ1>of furthering science and technology</BUZZ1>
+    <BUZZ2>is changing the world for the better</BUZZ2>
+  </COMPANY>
+  <COMPANY id="Robert Half Technology">
+    <RADIO>headhunterR</RADIO>
+    <JOBTITLE>Web Developer</JOBTITLE>
+    <LOCATION>Washington, DC</LOCATION>
+    <BUZZ1>of driving and coding solutions using creative solutions</BUZZ1>
+    <BUZZ2>collaborates with key partners to deliver on time, tested, and reusable code in a rapidly changing environment</BUZZ2>
+  </COMPANY>
+  <COMPANY id="AAJ Interactive Technologies">
+    <RADIO>headhunterR</RADIO>
+    <JOBTITLE>PHP Web Developer</JOBTITLE>
+    <LOCATION>Washington, DC</LOCATION>
+    <BUZZ1>of provoking their visitors to think, question, care, and, ultimately, take action</BUZZ1>
+    <BUZZ2>makes the past relevant today</BUZZ2>
+  </COMPANY>
+  <COMPANY id="IJM">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Helpdesk Engineer</JOBTITLE>
+    <LOCATION>Washington, DC</LOCATION>
+    <BUZZ1>of rescuing people trapped in slavery</BUZZ1>
+    <BUZZ2>puts effort into a lasting and meaningful counteroperation against injustice worldwide</BUZZ2>
+  </COMPANY>
+  <COMPANY id="Penny Appeal USA">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Full-Stack JavaScript Developer</JOBTITLE>
+    <LOCATION>Alexandria, VA</LOCATION>
+    <BUZZ1>of bringing about an equitable world by tackling the root causes of poverty, while bridging the gap between funders and poor communities in order to work together on long-term solutions that can help end intergenerational poverty</BUZZ1>
+    <BUZZ2>works to alleviate poverty through sustainable programs</BUZZ2>
+  </COMPANY>
+  <COMPANY id="SaleCycle Inc">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>JavaScript Developer</JOBTITLE>
+    <LOCATION>Sterling, VA</LOCATION>
+    <BUZZ1>of activating new clients as well as supporting existing campaigns and services</BUZZ1>
+    <BUZZ2>integrates their software service with their clients&#x2019; websites</BUZZ2>
+  </COMPANY>
+  <COMPANY id="WETA">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Front-End Designer</JOBTITLE>
+    <LOCATION>Arlington, VA</LOCATION>
+    <BUZZ1>of designing and building PBS NewsHour products</BUZZ1>
+    <BUZZ2>contributes to the overall creative direction of the brand</BUZZ2>
+  </COMPANY>
+  <COMPANY id="Ignyte">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Junior UI/UX Developer</JOBTITLE>
+    <LOCATION>Washington, DC</LOCATION>
+    <BUZZ1>blending deep technical and industry expertise with a progressive start-up culture</BUZZ1>
+    <BUZZ2>shakes up what people think is possible from a consulting company</BUZZ2>
+  </COMPANY>
+  <COMPANY id="Planet3 Inc">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Javascript Programmer </JOBTITLE>
+    <LOCATION>Washington, DC</LOCATION>
+    <BUZZ1>of using exploration-based learning to present the entire Earth as a living laboratory</BUZZ1>
+    <BUZZ2>has a digital learning platform that uniquely combines immersive game-based environments, real-world context, and standards-based curriculum to promote better learning outcomes</BUZZ2>
+  </COMPANY>
+  <COMPANY id="EpicGrafix">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Javascript Web Developer</JOBTITLE>
+    <LOCATION>Alexandria, VA</LOCATION>
+    <BUZZ1>the vision of providing fast, effective, rebranding and consulting solutions</BUZZ1>
+    <BUZZ2>practices what it preaches, maintains an efficient and streamlined work structure, and reaps the benefits</BUZZ2>
+  </COMPANY>
+  <COMPANY id="Smart Synergies">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>Web Engineer</JOBTITLE>
+    <LOCATION>Arlington, VA</LOCATION>
+    <BUZZ1>that it is a minority woman owned business enterprise</BUZZ1>
+    <BUZZ2>is driven by the belief that success comes only when they have created a self-sustaining solution</BUZZ2>
+  </COMPANY>
+  <COMPANY id="Swagmans">
+    <RADIO>companyR</RADIO>
+    <JOBTITLE>swag expert</JOBTITLE>
+    <LOCATION>Springfield</LOCATION>
+    <BUZZ1>being the greatest swag dealer on the eastern seaboard</BUZZ1>
+    <BUZZ2>is on the cutting edge of swag technology</BUZZ2>
+  </COMPANY>
+</MAIN>

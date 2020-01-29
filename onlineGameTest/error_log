@@ -1,0 +1,25 @@
+[08-Feb-2017 09:07:59 America/New_York] PHP Parse error:  syntax error, unexpected 'chromelogger' (T_STRING) in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 9
+[08-Feb-2017 09:11:58 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:31:05 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:31:47 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:33:11 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:34:05 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:34:17 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:34:17 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:34:19 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:34:23 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:34:24 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:34:26 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:34:26 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:34:27 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:34:27 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:44:24 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:44:27 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:44:30 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:50:21 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 14
+[08-Feb-2017 19:51:12 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 13
+[08-Feb-2017 19:52:01 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 12
+[08-Feb-2017 19:52:04 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 12
+[08-Feb-2017 19:52:09 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 12
+[08-Feb-2017 19:52:12 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 12
+[08-Feb-2017 19:52:24 America/New_York] PHP Fatal error:  Class 'ChromePhp' not found in /home/raledmbg/public_html/onlineGameTest/userEntryHandler.php on line 12

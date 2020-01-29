@@ -1,0 +1,137 @@
+<td class="relative">
+			<div class="q1round50 q3round50 color7 idiv clue"></div>             
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- dont -->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q2round50 q3round50 q4round50 lattice4 color2 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- toil -->
+			<div id="q2angle50" class="idiv2" style="visibility: visible"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q1round50 color1 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- this -->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q3round50 q2round50 color3 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- life -->
+			<div id="q2angle50" class="idiv2" style="visibility: visible"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q1round50 q2round50 q3round50  lattice1 color11 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: visible"></div>               <!-- away -->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q1round50 q2round50  lattice2 color6 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: visible"></div>               <!-- till -->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q1round50 q2round50 color5 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- your -->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q1round50 q2round50 lattice3 color12 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: visible"></div>               <!-- last -->
+			<div id="q2angle50" class="idiv2" style="visibility: visible"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q1round50 q2round50 lattice1 color14 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- hour -->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q1round50 q3round50 q4round50 lattice4 color16 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- ends -->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: visible"></div>
+			</td>
+			<td class="relative">
+			<div class="q1round50 q2round50 q3round50 q4round50 color16 idiv clue"></div>             
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- dear 16|44 16l0|1122 -->
+			<div id="q2angle50" class="idiv2" style="visibility: visible"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q2round50 q3round50 q1round50 color12 idiv clue" style="z-index:-1; position:relative"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: visible"></div>               <!-- mother 12|27 12l0|0222 -->
+			<div id="q2angle50" class="idiv2" style="visibility: visible"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: visible"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			<div class="q4round50 q1round50 idiv clue" style="margin-left:-10px; z-index:3; position:relative"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- er |27 |1001 -->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q2round50 q3round50 color14 lattice1 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- hope 30|25 14l1|0220 -->
+			<div id="q2angle50" class="idiv2" style="visibility: visible"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: visible"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q1round50 q2round50 color5 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- your -->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q3round50 q4round50 color10 lattice2 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- birt 42|64 10l2|2100-->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: visible"></div>
+			<div class="q3round50 q2round50 q1round50 color15 lattice4 idiv clue" style="margin-left:-10px; z-index:3; position:relative"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: visible; bottom:27px; left:0px; z-index:3; position:relative"></div>               <!-- hday 79|15 15l4|0112-->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q1round50 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- is |2 |0001-->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q1round50 q2round50  lattice3 color10 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: visible"></div>               <!-- fill 58|6  10l3|0012-->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			<div class="q4round50 q1round50 q2round50 q3round50 idiv clue" style="margin-left:-10px; z-index:3; position:relative"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: visible; bottom:35px; left:130px; z-index:4;"></div>               <!-- ed |78 |2212 -->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: visible; bottom:35px; left:130px; z-index:3; border-bottom-right-radius: 90%;"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: visible; bottom:35px; left:130px; z-index:4;"></div>
+			</td><td class="relative">
+			<div class="q1round50 q2round50 q3round50 color2 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: visible"></div>               <!-- with 2|27 2l0|0222 -->
+			<div id="q2angle50" class="idiv2" style="visibility: visible"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: visible"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q1round50 q2round50 q3round50 q4round50 color13 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- good 13|41 13l0|1111-->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q1round50 q2round50 q3round50 q4round50 lattice4 color14 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- food 78|41 14l4|1111-->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td>

@@ -7,4 +7,9 @@
   <TAG id="kazookid">I like to sing, dance, [verb], aaaaand I like to have fun, [write fun like ten times].</TAG>
   <TAG id="hill">Jack and [name] ran up the hill to fetch a pail of [liquid]. Jack fell down and broke his [body part] and [same name again] came [ing verb] after him.</TAG>
   <TAG id="salesmeeting">Next week is the international [any word ending in s] meeting. The meeting is all about [plural noun] and ["ing" businessism]. All the important business people will be there, talking about their [plural body part].</TAG>
+  <TAG id="null">The [adjecdtive] brown fox [verb]s over the lazy [noun].</TAG>
+  <TAG id="null">The [adjective] brown fox [verb]s over the lazy [noun].</TAG>
+  <TAG id="del">When [name] crossed the Delaware River and [adverb] fell in, [name] was there to help, but she didn't because there was no [noun]</TAG>
+  <TAG id="null">The [adjective] brown fox [verb]s over the lazy [noun].</TAG>
+  <TAG id="smth">this is a [adjective] lib.</TAG>
 </MAIN>

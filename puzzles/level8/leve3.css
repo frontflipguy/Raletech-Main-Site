@@ -27,7 +27,30 @@ div{
 
 .idiv{
 	display: inline-block;
-	
+}
+
+.idiv2{
+	display: inline-block;
+	position: relative;
+	bottom: 35px;
+	left: 72px;
+}
+
+.block{
+	display: block;
+}
+
+.relative{
+	position: relative;
+	height: 74px;
+	top: 10px;
+}
+
+.word{
+text-align: center;
+width: 62px;
+margin-left: 1%;
+margin-right: 1%;
 }
 
 .navigation{
@@ -118,7 +141,6 @@ align: center;
 }
 
 .answerbox{
-margin-top: 15px;
 border-bottom: 2px solid #000;
 //border-top: 2px solid #000;
 width:520px;
@@ -134,6 +156,7 @@ width:520px;
 	margin: 4px;
 	height: 55px;
 	width: 55px;
+	z-index: -2;
 }
 
 .circ{

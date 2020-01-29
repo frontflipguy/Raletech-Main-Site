@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+<title>Workflows</title>
+</head>
+<body>
+<style>
+
+.border{
+background-color: #ff970f;
+padding: 5px;
+width: 980px;
+textAlign: center;
+margin: 13px;
+margin-left: 0px;
+border-radius: 2px;
+box-shadow: 1px 4px 4px grey;
+}
+
+.tArea{
+width: 600px;
+height: 600px;
+
+}
+
+.idiv{
+display: inline-block;
+}
+
+.input{
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+.checkButton{
+width: 80px;
+height: 30px;
+font-weight: bold;
+}
+
+.table1{
+border-collapse: collapse;
+font-family: monospace;
+}
+
+.td1{
+border: 0px solid black;
+padding-left: 4px;
+padding-right: 4px;
+height: 18px;
+}
+
+
+</style>
+
+<div class="border"> 
+<div style="margin-bottom: 4px">Select a CSV file to read in.  Enter the template prefix: <input type="text" id="pref"> (e.g. name18gra1)</div>
+<div>Which set of workflows are you creating? 
+
+<select id="select1">
+<option value="hwk" selected>Homework</option>
+<option value="taq">Tests and Quizzes</option>
+<option value="all">All</option>
+</select>
+
+<select id="select2">
+<option value="prt" selected>Pre-test</option>
+<option value="pst">Post-Test</option>
+<option value="bi" >Big Idea Quick Quiz</option>
+<option value="chk" id="swap">Check</option>
+
+</select></div>
+
+<!--Pre-Test
+Post-Test
+Big Idea Quick Quiz
+Check-->
+
+<div><input type="file" id="browser" class="input" accept=".csv" ></div>
+<div><input type="button" class="checkButton" value="Check" onclick="upload()"></div>
+</div> 
+<table class="table1">
+<tbody id="results">
+<tr><td class="td1">Table</td></tr>
+</tbody>
+</table>
+
+
+
+<script type="text/javascript">
+
+var wftype = 21;
+
+var prefix;
+$(pref).on("keyup", function(){
+prefix = this.value;
+console.log(prefix);
+});
+
+
+
+var WFSuperSet = "hwk";
+$(select1).on("change", function(){
+WFSuperSet = this.value;
+if(this.value=="all"){
+$(select2).css("display", "none");
+}
+else if(this.value=="hwk"){
+wftype = 21; 
+$(swap).css("display", "inline");
+$(select2).css("display", "inline");
+}
+else{
+wftype = 23; 
+$(select2).css("display", "inline"); 
+$(swap).css("display", "none");
+}
+console.log(WFSuperSet);
+});
+
+
+
+var WFName = "prt";
+$(select2).on("change", function(){
+WFName = this.value;
+console.log(WFName);
+});
+
+
+var data;
+var file;
+var reader;
+var csvData;
+var tableRow;
+var flag = true;
+
+var widPref;
+
+
+
+
+function upload() {   
+				
+            data = null;
+            file = document.getElementById("browser").files[0];
+            reader = new FileReader();
+            reader.readAsText(file);
+			
+            reader.onload = function(event) {
+                csvData = event.target.result;
+                data = $.csv.toArrays(csvData); //
+				start();
+            };
+       
+}
+
+function makeWID(a){ 
+
+	var unit = data[a][0];
+	var lesson = data[a][1];
+	var module = data[a][7].substring(0,data[a][7].search(/[.]/));
+	
+	var builtSuffix;
+	
+	if(WFName=="chk"){builtSuffix = lesson + WFName;}
+	else if(WFName=="bi"){builtSuffix = "0" + WFName + lesson;}
+	else{builtSuffix = "0" + WFName;}
+
+	
+	var WID = prefix + WFSuperSet + "u" + unit + "m" + module + "l" + builtSuffix;
+	
+	return WID;
+	}
+
+/////////////////////////////////////////////////////////////////////
+
+	function start(){
+
+		$(results).html('<tr><td class="td1">Table</td></tr>');
+		
+		var a = 0;
+		var b = 0;
+		var oldLesson = 1000;
+		var oldUnit = 1000;
+			if(WFSuperSet!="all"){
+			
+				while(a < data.length){
+			
+					var unit = data[a][0];
+					var lesson = data[a][1];
+					var basedOnFull = data[a][3];
+					var basedOn = basedOnFull.substring(0,2);
+					var select = data[a][5];
+					var path = data[a][7];
+
+					var WID = makeWID(a);
+				
+					var title;
+					
+					//TODO: flesh this out
+					
+					
+					if(WFName=="chk"){title = "Lesson " + unit + "." + lesson + " Check";}
+					else if(WFName=="prt"){title = "Unit " + unit + " Pre-Test";}
+					else if(WFName=="pst"){title = "Unit " + unit + " Post-Test";}
+					else if(WFName=="bi"){title = "Unit " + unit + " Big Idea " + lesson + " Quick Quiz";} //Unit 1 Big Idea 1 Quick Quiz
+					
+					if(WFName=="chk"){type1(unit,lesson,basedOn,select,path,WID,title);}
+					else if(WFName=="bi"){type2(unit,lesson,basedOn,select,path,WID,title);}	
+					else{type3(unit,lesson,basedOn,select,path,WID,title);}
+					
+					a++;
+				}
+			}
+			else {					
+			console.log("test1");
+				while(b < 7){
+				
+					if(b==0){WFSuperSet = "hwk";}
+					else if(b==4){WFSuperSet = "taq";}
+					if(b==0){wftype = "21";}
+					else if(b==4){wftype = "23";}					
+					if(b==0){WFName = "prt";}
+					else if(b==1){WFName = "chk";}
+					else if(b==2){WFName = "pst";}
+					else if(b==3){WFName = "bi";}
+					else if(b==4){WFName = "prt";}
+					else if(b==5){WFName = "pst";}
+					else if(b==6){WFName = "bi";}
+					
+						while(a < data.length){
+				
+						var unit = data[a][0];
+						var lesson = data[a][1];
+						var basedOnFull = data[a][3];
+						var basedOn = basedOnFull.substring(0,2);
+						var select = data[a][5];
+						var path = data[a][7];
+						var WID = makeWID(a);
+					
+						var title;
+						
+						//TODO: flesh this out
+						
+						
+						if(WFName=="chk"){title = "Lesson " + unit + "." + lesson + " Check";}
+						else if(WFName=="prt"){title = "Unit " + unit + " Pre-Test";}
+						else if(WFName=="pst"){title = "Unit " + unit + " Post-Test";}
+						else if(WFName=="bi"){title = "Unit " + unit + " Big Idea " + lesson + " Quick Quiz";} //Unit 1 Big Idea 1 Quick Quiz
+						
+						if(WFName=="chk"){type1(unit,lesson,basedOn,select,path,WID,title);}
+						else if(WFName=="bi"){type2(unit,lesson,basedOn,select,path,WID,title);}	
+						else{type3(unit,lesson,basedOn,select,path,WID,title);}
+						
+						a++;
+						}
+								console.log("test" + b);
+				a = 0;
+				b++;
+				}
+			WFSuperSet = "all";
+			}
+				
+		
+		
+	///////////////////////////////////////////////////////////////////////////////////////
+		
+		
+		function type1(unit,lesson,basedOn,select,path,WID,title){
+		
+		if(select=="on"&&basedOn!="ur"&&basedOn!="qz"&&lesson!="S"){
+				
+					if(flag&&(lesson!=oldLesson||unit!=oldUnit)){
+					flag = false;
+					$(results).append('<tr><td class="td1" td></td></tr>'
+					+ '<tr><td class="td1" >' + WID + '</td><td class="td1" >' + title + '</td><td class="td1" >' + wftype + '</td></tr>');
+					a--;
+					}
+					else{
+					
+					$(results).append('<tr><td class="td1" td>' + path + '</td><td></td><td></td></tr>');
+					
+					flag = true;
+					
+					}
+					oldLesson = lesson;
+					oldUnit = unit;
+				}
+		
+		
+		}
+		
+		
+		
+		
+	///////////////////////////////////////////////////////////////////////////////////////
+		
+		
+		function type2(unit,lesson,basedOn,select,path,WID,title){
+		
+		if(select=="on"&&basedOn=="qz"){
+				
+					if(flag&&(lesson!=oldLesson||unit!=oldUnit)){
+					flag = false;
+					$(results).append('<tr><td class="td1" td></td></tr>'
+					+ '<tr><td class="td1" >' + WID + '</td><td class="td1" >' + title + '</td><td class="td1" >' + wftype + '</td></tr>');
+					a--;
+					}
+					else{
+					
+					$(results).append('<tr><td class="td1" td>' + path + '</td><td></td><td></td></tr>');
+					
+					flag = true;
+					
+					}
+					oldLesson = lesson;
+					oldUnit = unit;
+				}
+		
+		
+		}
+
+		
+		
+	//////////////////////////////////////////////////////////////////
+		
+		
+		
+		function type3(unit,lesson,basedOn,select,path,WID,title){
+		
+		if(select=="on"&&basedOn=="ur"){
+				
+					if(flag&&(lesson!=oldLesson||unit!=oldUnit)){
+					flag = false;
+					$(results).append('<tr><td class="td1" td></td></tr>'
+					+ '<tr><td class="td1" >' + WID + '</td><td class="td1" >' + title + '</td><td class="td1" >' + wftype + '</td></tr>');
+					a--;
+					}
+					else{
+					
+					$(results).append('<tr><td class="td1" td>' + path + '</td><td></td><td></td></tr>');
+					
+					flag = true;
+					
+					}
+					oldLesson = lesson;
+					oldUnit = unit;
+				}
+		
+		
+		}
+	}
+</script>
+</body>
+</html>

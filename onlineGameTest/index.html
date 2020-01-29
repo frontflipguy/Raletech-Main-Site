@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+	
+<html>
+	
+
+	
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link href="mmo.css" rel="stylesheet" type="text/css" />
+	<title>test page</title>
+	
+</head>
+<body>
+<header><div class="navigation">
+<a href="http://www.raletech.com/" class="icon"></a>
+<a href="http://www.raletech.com/" class="navigation-button" id="bye">RALETECH</a>
+<a href="http://www.raletech.com/2p" class="navigation-button-right">DIRECTORY</a>
+<a style="margin-left: 50px">online game!?</a>
+</div></header>
+
+<div align="center" style="height:80vh; margin-top:120px">
+
+	<div id="thatDiv"><input type="button" value="Player 1" id="button1" onclick="start('p1')"><input type="button" value="Player 2" id="button2" onclick="start('p2')"></div>
+	<table>
+		<tr>	<td class="cell" id="1"></td><td class="cell" id="2"></td><td class="cell" id="3"></td><td class="cell" id="4"></td><td class="cell" id="5"></td></tr>
+		<tr>	<td class="cell" id="6"></td><td class="cell" id="7"></td><td class="cell" id="8"></td><td class="cell" id="9"></td><td class="cell" id="10"></td></tr>
+		<tr>	<td class="cell" id="11"></td><td class="cell" id="12"></td><td class="cell" id="13"></td><td class="cell" id="14"></td><td class="cell" id="15"></td></tr>
+		<tr>	<td class="cell" id="16"></td><td class="cell" id="17"></td><td class="cell" id="18"></td><td class="cell" id="19"></td><td class="cell" id="20"></td></tr>
+		<tr>	<td class="cell" id="21"></td><td class="cell" id="22"></td><td class="cell" id="23"></td><td class="cell" id="24"></td><td class="cell" id="25"></td></tr>
+		
+	</table>
+	<div id="thisDiv"><input type="button" value="Update" id="button2" onclick="update()"></div>
+
+	
+</div>
+
+
+<script>
+	
+	var position;
+	var myTurn;
+	
+	function start(player){
+		document.getElementById("thatDiv").innerHTML = "Button click success. Game active.";
+		
+		if(player=='p1'){myTurn=true; document.getElementById("1").className = "cell blue"; position = 1;}
+		else{myTurn=false;}
+	}
+
+	document.addEventListener("keydown", handleKeys, false);
+
+	function handleKeys(e){
+		if(myTurn){
+			if(e.keyCode==38&&position>5){position-=5;} //up
+			else if(e.keyCode==40&&position<21){position+=5;} //down
+			else if(e.keyCode==37&&position%5!=1){position-=1;} //left
+			else if(e.keyCode==39&&position%5!=0){position+=1;} //right
+			update();
+			myTurn = false;
+			movement();
+		}
+	}
+	
+	function movement(){
+
+			for(var n = 1; n<=25; n++){document.getElementById(n).className = "cell";}
+			//console.log('movement position:' + position);
+			document.getElementById(position).className = "cell blue";
+
+
+	}
+	
+	
+	
+			
+	function update(){
+
+		if(myTurn){ //it was my turn, so I'm sending the move I just made to the php to save to the txt
+			$.ajax({
+			  method: "POST",
+			  url: "writeToTXT.php",
+			  data: { pos: position }
+			})
+			  .done(function( pos ) { //not really necessary, but I'm still keeping it
+				 
+			  });
+		}
+		else{ //it's not my turn so I'm recieving the updated gameboard
+			$.ajax({
+			  method: "POST",
+			  url: "readFromTXT.php",
+			  data: { pos: 0 }
+			})
+			  .done(function( pos ) {
+				position = pos; 
+				movement();
+				myTurn=true;
+			  });
+		}
+		
+		
+	}
+
+	
+	
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,519 @@
+	<!DOCTYPE html>
+	<html>
+	<!--Special thanks to Sanel for all his help with the creative process-->
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<link href="leve3.css" rel="stylesheet" type="text/css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<title>Level 8</title>
+
+	</head>
+	<body>
+	<header><div class="navigation">
+	<a href="http://www.raletech.com/" class="icon"></a>
+	<a href="#" class="navigation-button" id="bye">LOCKED</a>
+	<a href="#" class="navigation-button-right" onclick="trick();">HINT</a>
+	<a href="http://www.raletech.com/puzzles/directory/" class="navigation-button-right">DIRECTORY</a>
+	<a style="margin-left: 50px">Welcome to level 8. Have fun!</a>
+	</div></header>
+
+	<div align="center" style="height:100vh; margin-top:70px">
+	<div style="margin-top: 90px">
+
+	<!--were here only once then were gone-->
+	<!--look into eyes like deep seas-->
+	<!--dont toil this life away till your last hour ends-->
+	<!--dear mother hope your birthday is filled with good food!-->
+	<table id="clueTable">
+		<tr>
+			<td class="relative">
+			<div class="q1round50 q2round50 q3round50 q4round50 color16 idiv clue"></div>             
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- dear 16|44 16l0|1122 -->
+			<div id="q2angle50" class="idiv2" style="visibility: visible"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q2round50 q3round50 q1round50 color12 idiv clue" style="z-index:-1; position:relative"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: visible"></div>               <!-- mother 12|27 12l0|0222 -->
+			<div id="q2angle50" class="idiv2" style="visibility: visible"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: visible"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			<div class="q4round50 q1round50 idiv clue" style="margin-left:-10px; z-index:3; position:relative"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- er |27 |1001 -->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q2round50 q3round50 color14 lattice1 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- hope 30|25 14l1|0220 -->
+			<div id="q2angle50" class="idiv2" style="visibility: visible"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: visible"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q1round50 q2round50 color5 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- your -->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q3round50 q4round50 color10 lattice2 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- birt 42|64 10l2|2100-->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: visible"></div>
+			<div class="q3round50 q2round50 q1round50 color15 lattice4 idiv clue" style="margin-left:-10px; z-index:3; position:relative"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: visible; bottom:27px; left:0px; z-index:3; position:relative"></div>               <!-- hday 79|15 15l4|0112-->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q1round50 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- is |2 |0001-->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q1round50 q2round50  lattice3 color10 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: visible"></div>               <!-- fill 58|6  10l3|0012-->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			<div class="q4round50 q1round50 q2round50 q3round50 idiv clue" style="margin-left:-10px; z-index:3; position:relative"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: visible; bottom:35px; left:130px; z-index:4;"></div>               <!-- ed |78 |2212 -->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: visible; bottom:35px; left:130px; z-index:3; border-bottom-right-radius: 90%;"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: visible; bottom:35px; left:130px; z-index:4;"></div>
+			</td><td class="relative">
+			<div class="q1round50 q2round50 q3round50 color2 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: visible"></div>               <!-- with 2|27 2l0|0222 -->
+			<div id="q2angle50" class="idiv2" style="visibility: visible"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: visible"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q1round50 q2round50 q3round50 q4round50 color13 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- good 13|41 13l0|1111-->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td><td class="relative">
+			<div class="q1round50 q2round50 q3round50 q4round50 lattice4 color14 idiv clue"></div>
+			<div id="q1angle50" class="idiv2" style="visibility: hidden"></div>               <!-- food 78|41 14l4|1111-->
+			<div id="q2angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q3angle50" class="idiv2" style="visibility: hidden"></div>
+			<div id="q4angle50" class="idiv2" style="visibility: hidden"></div>
+			</td>
+		</tr>
+		<tr>
+			<td align=center><input id="i1" class="word" disabled/></td> 
+			<td align=center><input id="i2" class="word" disabled/></td>
+			<td align=center><input id="i3" class="word" disabled/></td>
+			<td align=center><input id="i4" class="word" disabled/></td>
+			<td align=center><input id="i5" class="word" disabled/></td>
+			<td align=center><input id="i6" class="word" disabled/></td>
+			<td align=center><input id="i7" class="word" disabled/></td>
+			<td align=center><input id="i8" class="word" disabled/></td>
+			<td align=center><input id="i9" class="word" disabled/></td>
+			<td align=center><input id="i10" class="word" disabled/></td>
+		</tr>
+	</table>
+		
+	<div class="answerbox"></div>
+	<!-- <div><button id="submit" style="margin-top:10px" onclick="submit();">Submit</button></div>
+	<div id="showSol" style="font-weight: bold; visibility: visible">&nbsp;</div> -->
+
+	<table style="margin-top:3px;" id="playfield"> 
+	<tr><td colspan="6" style="font-weight: bold"> KEY:</td></tr>
+	<tr>
+	<td>
+	<div><input class="butt butt1" type="button" onclick="latticeSwap('blank');"/></div>
+	<div><input class="butt butt2" type="button" onclick="latticeSwap('plus');"/></div>
+	<div><input class="butt butt3" type="button" onclick="latticeSwap('dot');"/></div>
+	<div><input class="butt butt4" type="button" onclick="latticeSwap('slant');"/></div>
+	<div><input class="butt butt5" type="button" onclick="latticeSwap('thatch');"/></div>
+	</td> <!-- buttons for morph -->
+	<td>
+		<table id="shape" style="border-collapse: collapse; width: 144px; height: 144px;">
+		<tr><td><div id="q2" class="q2" value=0></div></td><td><div id="q1" class="q1" value=0></div></td></tr>
+		<tr><td><div id="q3" class="q3" value=0></div></td><td><div id="q4" class="q4" value=0></div></td></tr>
+		</table>
+	</td>
+	<td style="width: 30px"></td>
+	</tr>
+	<tr>
+	<td colspan="2" style="padding-left: 20px">
+		<table id="playArea" style="border-collapse: collapse;"><tr>
+		<td id="0" class="swatch" style="background-color:#ffffff;"></td>
+		<td id="1" class="swatch" style="background-color:#ff8080;"></td>
+		<td id="2" class="swatch" style="background-color:#ffac80;"></td>
+		<td id="3" class="swatch" style="background-color:#ffd980;"></td>
+		<td id="4" class="swatch" style="background-color:#f9ff80;"></td>
+		<td id="5" class="swatch" style="background-color:#ccff80;"></td>
+		<td id="6" class="swatch" style="background-color:#9fff80;"></td>
+		<td id="7" class="swatch" style="background-color:#80ffb9;"></td>
+		<td id="8" class="swatch" style="background-color:#80ffe6;"></td>
+		<td id="9" class="swatch" style="background-color:#80ecff;"></td>
+		<td id="10" class="swatch" style="background-color:#80bfff;"></td>
+		<td id="11" class="swatch" style="background-color:#8093ff;"></td>
+		<td id="12" class="swatch" style="background-color:#9980ff;"></td>
+		<td id="13" class="swatch" style="background-color:#c680ff;"></td>
+		<td id="14" class="swatch" style="background-color:#f280ff;"></td>
+		<td id="15" class="swatch" style="background-color:#ff80df;"></td>
+		<td id="16" class="swatch" style="background-color:#ff80b2;"></td>
+		</tr>
+		</table>
+	<div><input id="rangeInput" type="range" min="0" max="16" value="0" style="width: 153px; margin-left:0px" onchange="showValue(this.value)" /></div>
+	</td>
+	<td></td>
+	<td></td>
+	</tr>
+	<tr><td colspan="3"><span id="container1"></span><span id="container2"></span></td></tr>
+	</table></div>
+
+	</div>
+
+
+	<script>
+	var vq1 = 0;
+	var vq2 = 0;
+	var vq3 = 0;
+	var vq4 = 0;
+	var colorNumber;
+	var targ = "0";
+	var latticeType;
+	var firstHalf;
+	var secondHalf;
+
+
+	function trick(){
+	alert("Color + Shape = Word. Use the key below to translate the colorful shapes above and find the hidden message!");
+	}
+
+	function enter(){
+		var key = event.keyCode;
+		if(key == "13"){
+			submit();
+		}
+	}
+
+	//TODO: Make it so that when a shape is completed, it's word appears in the box below the given shape.
+		
+	
+		
+		
+	function submit(){
+		var userInput = document.getElementById("answer").value;
+		console.log(userInput);
+
+		userInput = userInput.toUpperCase();
+		userInput = userInput.replace(/ /g,"");
+		userInput = userInput.replace(/'/g,"");
+		userInput = userInput.replace(/,/g,"");
+		userInput = userInput.replace(/\./g,"");
+
+		console.log(userInput);
+
+		if(userInput==="DONTTOILTHISLIFEAWAYTILLYOURLASTHOURENDS"){
+			document.getElementById("bye").innerHTML = "PROCEED";
+			document.getElementById("bye").style.backgroundColor = "#80ffb9";
+			document.getElementById("bye").href = "http://www.raletech.com/puzzles/directory/";
+			document.getElementById("showSol").innerHTML = "Don't toil this life away till your last hour ends.";
+			document.getElementById("showSol").style.visibility = "visible";
+
+			localStorage.setItem("flag8", true);
+
+		}
+		else{
+			document.getElementById("showSol").style.visibility = "visible";
+			document.getElementById("showSol").innerHTML = "Incorrect.";
+			setTimeout(function() {document.getElementById("showSol").innerHTML = "&nbsp;";},2000);
+			}
+
+	}
+
+	function showValue(newValue){
+		
+		targ = newValue;
+
+		colorNumber = parseInt(newValue);
+
+		var whichColor = document.getElementById(newValue).style.backgroundColor;
+
+		console.log(typeof colorNumber);
+
+		if(latticeType=='lattice1'){colorNumber = colorNumber + 16;}
+		else if(latticeType=='lattice2'){colorNumber = colorNumber + 32;}
+		else if(latticeType=='lattice3'){colorNumber = colorNumber + 48;}
+		else if(latticeType=='lattice4'){colorNumber = colorNumber + 64;}
+		
+		if(newValue==0){colorNumber=0;}
+		
+		$("#q1, #q2, #q3, #q4").css("background-color", whichColor);
+
+		
+
+		switch(colorNumber){
+			case 0:firstHalf="";break;
+			case 1:firstHalf="th";break;
+			case 2:firstHalf="wi";break;
+			case 3:firstHalf="li";break;
+			case 4:firstHalf="we";break;
+			case 5:firstHalf="Yo";break;
+			case 6:firstHalf="wa";break;
+			case 7:firstHalf="Do";break;
+			case 8:firstHalf="bo";break; //was "lo", swapped with "bo"
+			case 9:firstHalf="so";break;
+			case 10:firstHalf="sa";break;
+			case 11:firstHalf="ev";break;
+			case 12:firstHalf="mo";break;
+			case 13:firstHalf="go";break;
+			case 14:firstHalf="ma";break;
+			case 15:firstHalf="wh";break;
+			case 16:firstHalf="de";break;
+			case 17:firstHalf="on";break;
+			case 18:firstHalf="da";break;
+			case 19:firstHalf="Br";break;
+			case 20:firstHalf="ha";break;
+			case 21:firstHalf="TR";break;
+			case 22:firstHalf="se";break;
+			case 23:firstHalf="gi";break;
+			case 24:firstHalf="he";break;
+			case 25:firstHalf="pa";break;
+			case 26:firstHalf="ca";break;
+			case 27:firstHalf="aw";break;
+			case 28:firstHalf="du";break;
+			case 29:firstHalf="mi";break;
+			case 30:firstHalf="ho";break;
+			case 31:firstHalf="fe";break;
+			case 32:firstHalf="fa";break;
+			case 33:firstHalf="co";break;
+			case 34:firstHalf="kn";break;
+			case 35:firstHalf="ey";break;
+			case 36:firstHalf="ki";break;
+			case 37:firstHalf="ov";break;
+			case 38:firstHalf="ti";break;
+			case 39:firstHalf="be";break;
+			case 40:firstHalf="an";break;
+			case 41:firstHalf="ru";break;
+			case 42:firstHalf="bi";break;
+			case 43:firstHalf="ga";break;
+			case 44:firstHalf="Sl";break;
+			case 45:firstHalf="up";break;
+			case 46:firstHalf="fr";break;
+			case 47:firstHalf="No";break;
+			case 48:firstHalf="lo";break; //swap
+			case 49:firstHalf="sh";break;
+			case 50:firstHalf="tw";break;
+			case 51:firstHalf="Tu";break;
+			case 52:firstHalf="Ni";break;
+			case 53:firstHalf="ok";break;
+			case 54:firstHalf="hi";break;
+			case 55:firstHalf="gr";break;
+			case 56:firstHalf="po";break;
+			case 57:firstHalf="wo";break;
+			case 58:firstHalf="fi";break;
+			case 59:firstHalf="fu";break;
+			case 60:firstHalf="la";break;
+			case 61:firstHalf="ju";break;
+			case 62:firstHalf="is";break;
+			case 63:firstHalf="ye";break;
+			case 64:firstHalf="bu";break;
+			case 65:firstHalf="ou";break;
+			case 66:firstHalf="to";break; //case 66:firstHalf="Ps";break;
+			case 67:firstHalf="Su";break;
+			case 68:firstHalf="gu";break;
+			case 69:firstHalf="pu";break;
+			case 70:firstHalf="pl";break;
+			case 71:firstHalf="by";break;
+			case 72:firstHalf="Ag";break;
+			case 73:firstHalf="Le";break;
+			case 74:firstHalf="me";break;
+			case 75:firstHalf="in";break;
+			case 76:firstHalf="nu";break;
+			case 77:firstHalf="Ve";break;
+			case 78:firstHalf="fo";break; //case 78:firstHalf="Ta";break;
+			case 79:firstHalf="hd";break; //case 79:firstHalf="mu";break;
+			case 80:firstHalf="en";break; //case 80:firstHalf="hu";break;
+			default: firstHalf = "";
+
+		}
+
+		firstHalf = firstHalf.toUpperCase();
+		$(container1).html(firstHalf);
+		wordCheck();
+	}
+
+	document.getElementById("playArea").addEventListener("click", clickCheck);
+
+	function clickCheck(e){
+
+		targ = e.target.id;
+		document.getElementById("rangeInput").value = targ;
+		showValue(targ);
+	}
+
+		$("#q1,#q2,#q3,#q4").click(function(){
+		  	if($(this).hasClass(this.id + "round")){$(this).addClass(this.id + "angle").removeClass(this.id + "round"); $(this).attr("value",2);}
+			else if($(this).hasClass(this.id + "angle")){$(this).removeClass(this.id + "angle"); $(this).attr("value",0);}
+			else{$(this).addClass(this.id + "round"); $(this).attr("value",1);}
+		  });
+		
+		
+	$(shape).click(function(){
+
+		vq1 = $(q1).attr("value");
+		vq2 = $(q2).attr("value");
+		vq3 = $(q3).attr("value");
+		vq4 = $(q4).attr("value");
+		
+		console.log(vq4 + "" + vq3 + "" + vq2 + "" + vq1);
+
+		var shape = parseInt(vq4)*27 + parseInt(vq3)*9 + parseInt(vq2)*3 + parseInt(vq1); //a ternary converter? I don't know, man!
+		console.log(shape);
+		shape = shape + 1;
+
+
+		
+		switch(shape){
+			case 1: secondHalf = "re"; break;
+			case 2: secondHalf = "is"; break;
+			case 3: secondHalf = "es"; break;
+			case 4: secondHalf = "ke"; break;
+			case 5: secondHalf = "ur"; break;
+			case 6: secondHalf = "ll"; break;
+			case 7: secondHalf = "en"; break;
+			case 8: secondHalf = "ey"; break;
+			case 9: secondHalf = "st"; break;
+			case 10: secondHalf = "ad"; break;
+			case 11: secondHalf = "nt"; break;
+			case 12: secondHalf = "ep"; break; // was "ve" swapped with "ep"
+			case 13: secondHalf = "me"; break;
+			case 14: secondHalf = "ys"; break;
+			case 15: secondHalf = "ay"; break;
+			case 16: secondHalf = "fe"; break;
+			case 17: secondHalf = "de"; break;
+			case 18: secondHalf = "nd"; break;
+			case 19: secondHalf = "at"; break;
+			case 20: secondHalf = "ce"; break;
+			case 21: secondHalf = "UE"; break;
+			case 22: secondHalf = "sh"; break;
+			case 23: secondHalf = "rd"; break;
+			case 24: secondHalf = "ld"; break;
+			case 25: secondHalf = "pe"; break;
+			case 26: secondHalf = "ow"; break;
+			case 27: secondHalf = "th"; break;
+			case 28: secondHalf = "ng"; break;
+			case 29: secondHalf = "er"; break;
+			case 30: secondHalf = "rs"; break;
+			case 31: secondHalf = "em"; break;
+			case 32: secondHalf = "ns"; break;
+			case 33: secondHalf = "as"; break;
+			case 34: secondHalf = "id"; break;
+			case 35: secondHalf = "an"; break;
+			case 36: secondHalf = "rn"; break;
+			case 37: secondHalf = "rl"; break;
+			case 38: secondHalf = "ne"; break;
+			case 39: secondHalf = "ge"; break;
+			case 40: secondHalf = "el"; break;
+			case 41: secondHalf = "od"; break;
+			case 42: secondHalf = "ss"; break;
+			case 43: secondHalf = "il"; break;
+			case 44: secondHalf = "ar"; break;
+			case 45: secondHalf = "te"; break;
+			case 46: secondHalf = "ah"; break;
+			case 47: secondHalf = "im"; break;
+			case 48: secondHalf = "on"; break;
+			case 49: secondHalf = "rk"; break;
+			case 50: secondHalf = "om"; break;
+			case 51: secondHalf = "ft"; break;
+			case 52: secondHalf = "in"; break;
+			case 53: secondHalf = "ul"; break;
+			case 54: secondHalf = "ti"; break;
+			case 55: secondHalf = "ok"; break;
+			case 56: secondHalf = "se"; break;
+			case 57: secondHalf = "lf"; break;
+			case 58: secondHalf = "mb"; break;
+			case 59: secondHalf = "ry"; break;
+			case 60: secondHalf = "gh"; break;
+			case 61: secondHalf = "ew"; break;
+			case 62: secondHalf = "or"; break;
+			case 63: secondHalf = "ch"; break;
+			case 64: secondHalf = "rt"; break;
+			case 65: secondHalf = "ds"; break;
+			case 66: secondHalf = "nk"; break;
+			case 67: secondHalf = "lk"; break;
+			case 68: secondHalf = "ly"; break;
+			case 69: secondHalf = "dy"; break;
+			case 70: secondHalf = "ak"; break;
+			case 71: secondHalf = "it"; break;
+			case 72: secondHalf = "hh"; break;
+			case 73: secondHalf = "lo"; break;
+			case 74: secondHalf = "ts"; break;
+			case 75: secondHalf = "et"; break;
+			case 76: secondHalf = "to"; break;
+			case 77: secondHalf = "ve"; break; //to make "LOVE" heart shaped, swapped with "ep"
+			case 78: secondHalf = "ed"; break;
+			case 79: secondHalf = "wn"; break;
+			case 80: secondHalf = "ee"; break;
+			case 81: secondHalf = "ny"; break;
+			case 82: secondHalf = "lm"; break;
+			case 83: secondHalf = "os"; break;
+			case 84: secondHalf = "ct"; break;
+			case 85: secondHalf = "ol"; break;
+			case 86: secondHalf = "ug"; break;
+			case 87: secondHalf = "sy"; break;
+			case 88: secondHalf = "nn"; break;
+			case 89: secondHalf = "rp"; break;
+			case 90: secondHalf = "by"; break;
+			case 91: secondHalf = "lp"; break;
+			case 92: secondHalf = "ps"; break;
+			case 93: secondHalf = "ck"; break;
+			default: secondHalf = "";
+		}
+		secondHalf = secondHalf.toUpperCase();
+		$(container2).html(secondHalf);
+		wordCheck();
+	});
+
+		function latticeSwap(latType){
+			
+			switch(latType){
+			case "blank": $("#q1, #q2, #q3, #q4").removeClass("lattice1 lattice2 lattice3 lattice4"); latticeType = "lattice0"; break;
+			case "plus": $("#q1, #q2, #q3, #q4").removeClass("lattice1 lattice2 lattice3 lattice4").addClass("lattice1"); latticeType = "lattice1"; break;
+			case "dot": $("#q1, #q2, #q3, #q4").removeClass("lattice1 lattice2 lattice3 lattice4").addClass("lattice2"); latticeType = "lattice2"; break;
+			case "slant": $("#q1, #q2, #q3, #q4").removeClass("lattice1 lattice2 lattice3 lattice4").addClass("lattice3"); latticeType = "lattice3"; break;
+			case "thatch": $("#q1, #q2, #q3, #q4").removeClass("lattice1 lattice2 lattice3 lattice4").addClass("lattice4"); latticeType = "lattice4"; break;
+			default: $("#q1, #q2, #q3, #q4").removeClass("lattice1 lattice2 lattice3 lattice4");
+			}
+
+
+			showValue(targ);
+
+		}
+		
+		function wordCheck(){
+			
+			var whole = firstHalf + secondHalf;
+			
+			
+			if(whole=="DEAR"){$(i1).val("Dear");}
+			if(whole=="MOTH"){$(i2).val("moth...");}
+			if(whole=="ER"&&$(i2).val()=="moth..."){$(i2).val("mother");}
+			if(whole=="HOPE"){$(i3).val("hope");}
+			if(whole=="YOUR"){$(i4).val("your");}
+			if(whole=="BIRT"){$(i5).val("birt...");}
+			if(whole=="HDAY"&&$(i5).val()=="birt..."){$(i5).val("birthday");}
+			if(whole=="IS"){$(i6).val("is");}
+			if(whole=="FILL"){$(i7).val("fill...");}
+			if(whole=="ED"&&$(i7).val()=="fill..."){$(i7).val("filled");}
+			if(whole=="WITH"){$(i8).val("with");}
+			if(whole=="GOOD"){$(i9).val("good");}
+			if(whole=="FOOD"){$(i10).val("food!");}
+		}
+		
+		
+
+	</script>
+
+
+	</body>
+	</html>

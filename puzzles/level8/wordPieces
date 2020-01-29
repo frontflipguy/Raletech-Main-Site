@@ -75,8 +75,8 @@ case 74:firstHalf="me";break;
 case 75:firstHalf="in";break;
 case 76:firstHalf="nu";break;
 case 77:firstHalf="Ve";break;
-case 78:firstHalf="Ta";break;
-case 79:firstHalf="mu";break;
+case 78:firstHalf="fo";break; //case 78:firstHalf="Ta";break;
+case 79:firstHalf="hd";break; //case 79:firstHalf="mu";break;
 case 80:firstHalf="hu";break;
 case 81:firstHalf="fl";break;
 case 82:firstHalf="ra";break;
@@ -94,7 +94,7 @@ case 93:firstHalf="st";break;
 case 94:firstHalf="ea";break;
 case 95:firstHalf="Vi";break;
 case 96:firstHalf="te";break;
-case 97:firstHalf="Ko";break;
+case 97:firstHalf="hd";break; //changed from "ko"
 case 98:firstHalf="ba";break;
 
 case 1: secondHalf = "re"; break;

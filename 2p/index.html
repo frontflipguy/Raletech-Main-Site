@@ -19,104 +19,30 @@
 </table>
 	
 	
-<table>
+<table class="tabl">
 <tr><td class="speechtd" id="game0"><a href="http://www.raletech.com/fractactoe" class="speech">Fractactoe</a></td></tr>
-<tr><td class="speechtd" id="game1"><a href="http://www.raletech.com//ZGC4" class="speech">Zero Gravity Connet Four</a></td></tr>
+<tr><td class="speechtd" id="game1"><a href="http://www.raletech.com//ZGC4" class="speech">Zero Gravity Connect Four</a></td></tr>
 <tr><td class="speechtd" id="game2"><a href="http://www.raletech.com/madlib" class="speech">Mad Lib Creator</a></td></tr>
-<tr><td class="speechtd" id="game3" style="visibility:hidden"><a href="http://www.raletech.com/PLVTO" class="speech">PLVTO</a></td></tr>
-<tr><td class="speechtd" id="game4" style="visibility:hidden"><a href="http://www.raletech.com/nuxDatingSim" class="speech">Warboys in Love</a></td></tr>
+<tr><td class="speechtd" id="game3"><a href="http://www.raletech.com/splatari" class="speech">Splatari</a></td></tr>
+<tr><td class="speechtd" id="game4"><a href="http://www.raletech.com/knoxo" class="speech">Knoxo</a></td></tr>
+<tr><td class="speechtd" id="game5" style="visibility:hidden"><a href="http://www.raletech.com/nuxDatingSim" class="speech">Warboys in Love</a></td></tr>
 
 	
 </table>
 
-	
+	<div class="footer"> 
+		<div><a href="http://www.raletech.com/" class="white">Home</a> | <a href="http://www.raletech.com/about" class="white">About</a> | <a href="http://www.raletech.com/contact" class="white">Contact</a> | 
+			<a href="http://www.raletech.com/2p" class="white">2-Player Games</a> | 
+	 		<a href="http://www.raletech.com/puzzles/directory" class="white">Puzzle Challenge</a> | <a href="https://www.linkedin.com/in/bradley-raley-0847a065/" class="white">LinkedIn</a> | 
+			<a href="https://github.com/frontflipguy" class="white">GitHub</a> | <a href="http://www.raletech.com/otherstuff" class="white">Other Stuff</a>
+		</div>
+		<div class="c-gray">
+			&copy;Raletech 2017
+		</div>
+	</div> 
 	
 <script type="text/javascript">
-
-var compPerc = 0; //completion percentage
-var numPuzzles = 9; //number of puzzles
-var firstComplete = true;
-	
-update();
-	
-if(compPerc==100&&localStorage.getItem("startTime")>0&&localStorage.getItem("endTime")>0){
-	
-	var record = localStorage.getItem("endTime") - localStorage.getItem("startTime");
-	record = Math.floor(record/1000);
-	var recordMin = Math.floor(record/60);
-	var recordSec = record%60;
-
-	document.getElementById("timer").style = "visibility:visible";
-	document.getElementById("time").innerHTML = "Your time: " + recordMin + "." + recordSec + " min.";
-	
-	localStorage.setItem("record", record);
-}
-
-	function update(){
-		compPerc = 0;
-		console.log(localStorage.getItem("flag0"));
-		console.log(localStorage.getItem("flag1"));
-		console.log(localStorage.getItem("flag2"));
-		console.log(localStorage.getItem("flag3"));
-		console.log(localStorage.getItem("flag4"));
-		console.log(localStorage.getItem("flag5"));
-		console.log(localStorage.getItem("flag6"));
-
-		if(localStorage.getItem("flag0")=="true"){compPerc = compPerc + 100/numPuzzles; document.getElementById("level0").className = "speechtd done";}
-		else{document.getElementById("level0").className = "speechtd";}
-		if(localStorage.getItem("flag1")=="true"){compPerc = compPerc + 100/numPuzzles; document.getElementById("level1").className = "speechtd done";}
-		else{document.getElementById("level1").className = "speechtd";}
-		if(localStorage.getItem("flag2")=="true"){compPerc = compPerc + 100/numPuzzles; document.getElementById("level2").className = "speechtd done";}
-		else{document.getElementById("level2").className = "speechtd";}
-		if(localStorage.getItem("flag3")=="true"){compPerc = compPerc + 100/numPuzzles; document.getElementById("level3").className = "speechtd done";}
-		else{document.getElementById("level3").className = "speechtd";}
-		if(localStorage.getItem("flag4")=="true"){compPerc = compPerc + 100/numPuzzles; document.getElementById("level4").className = "speechtd done";}
-		else{document.getElementById("level4").className = "speechtd";}
-		if(localStorage.getItem("flag5")=="true"){compPerc = compPerc + 100/numPuzzles; document.getElementById("level5").className = "speechtd done";}
-		else{document.getElementById("level5").className = "speechtd";}
-		if(localStorage.getItem("flag6")=="true"){compPerc = compPerc + 100/numPuzzles; document.getElementById("level6").className = "speechtd done";}
-		else{document.getElementById("level6").className = "speechtd";}
-		if(localStorage.getItem("flag7")=="true"){compPerc = compPerc + 100/numPuzzles; document.getElementById("level7").className = "speechtd done";}
-		else{document.getElementById("level7").className = "speechtd";}
-		if(localStorage.getItem("flag8")=="true"){compPerc = compPerc + 100/numPuzzles; document.getElementById("level8").className = "speechtd done";}
-		else{document.getElementById("level8").className = "speechtd";}
-		
-		compPerc = Math.round(compPerc*100)/100;
-
-		document.getElementById("percent").innerHTML = compPerc + "%";
-		
-		if(compPerc==100){
-			document.getElementById("percent").innerHTML = compPerc + "%" + " Congratulations!"; 
-			document.getElementById("winner").style = "visibility:visible";
-			localStorage.setItem("flagSpeedrun", true);
-			if(firstComplete){localStorage.setItem("endTime", Date.now()); firstComplete = false;}
-		}
-	}
-
-	function resetPrompt(){
-	
-		var yesNo = prompt("Are you sure you wish to reset all of your progress? Y or N");
-		if(yesNo=="Y"||yesNo=="y"){reset();}
-	}
-	
-	function reset(){
-		localStorage.setItem("flag0", false);
-		localStorage.setItem("flag1", false);
-		localStorage.setItem("flag2", false);
-		localStorage.setItem("flag3", false);
-		localStorage.setItem("flag4", false);
-		localStorage.setItem("flag5", false);
-		localStorage.setItem("flag6", false);
-		localStorage.setItem("flag7", false);
-		localStorage.setItem("flag8", false);
-		
-		localStorage.setItem("startTime", "");
-		localStorage.setItem("endTime", "");
-
-		compPerc = 0;
-		update();
-	}
-
+//360 no-script
 </script>
 </body>
 </html>

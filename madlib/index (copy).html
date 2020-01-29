@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+	
+<html>
+	
+
+	
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<link href="maldib.css" rel="stylesheet" type="text/css" />
+	<title>Write your own mad lib, then share it with fiends!</title>
+	
+</head>
+<body>
+<header><div class="navigation">
+<a href="http://www.raletech.com/" class="icon"></a>
+<a href="http://www.raletech.com/" class="navigation-button" id="bye">RALETECH</a>
+<a href="http://www.raletech.com/madlib/help/" class="navigation-button-right">HELP PAGE</a>
+<a href="http://www.raletech.com/2p" class="navigation-button-right">DIRECTORY</a>
+<a style="margin-left: 50px">Mad Lib Creator</a>
+</div></header>
+
+<div align="center" style="height:100vh; margin-top:120px">
+
+<!-- Since I'm designing this with a "left" and "right" dichotomy, I'm using the naming convention such 
+	that "mad" is for everthing on the left and "lib" is for everthing on the right.-->
+	
+	<table class="madLibTable">
+		<tr>
+			<td style="text-align: right;" colspan="2">
+				<input type="button" onClick="retrieve()" value = "Enter Code">	<input type="button" onClick="reload()" value = "Reset">
+
+			</td>
+		</tr>
+		<tr>
+			<td class="madtd">
+				<div align="center" class="mad"><div id="mad">Write your mad lib:</div>
+				<textarea class="madInput">The [adjective] brown fox [verb]s over the lazy [noun].</textarea>
+				<input type="button" value="Save as..." onClick="save()"> <input id="madButton" type="button" value="Done!" onClick="stageOne()">
+				</div>
+			</td>
+			<td class="libtd" style="display: none">
+				<div  align="center" class="lib">Fill in your words:
+				<div class="libArea"></div>
+				<input id="libButton" type="button" value="Ready!" onClick="stageTwo()" class="libButton"></div>
+			</td>
+		</tr>
+	</table>
+	
+</div>
+
+
+<script>
+	
+	
+
+var hintArray = [];
+var loopNum;
+var string;
+
+function stageOne(){
+		
+	string = document.querySelector(".madInput").value;
+	
+	displayStuff();
+	
+	console.log(string);
+	
+	//strip it of the bracketed words and replace them all with flag1, flag2, etc...
+	
+	loopNum = (string.match(/]/g) || []).length; //this is the number of loops I need to make to grab all words. Doge.
+	
+	var loop = loopNum
+	
+	console.log(loop);
+	
+	counter = 0;
+		
+	while(loop>0){
+		
+		var openBracket = string.search(/[[]/); //I screamed a lot of obsceneties before figuring out that this is how this works. Just saying.
+		
+		var closeBracket = string.search("]");
+		
+		console.log(openBracket + " " + closeBracket);
+	
+		var chunk = string.slice(openBracket, closeBracket+1); //get rid of the bracketed word
+		string = string.replace(chunk, "");
+		console.log(chunk);
+		
+		string = string.substring(0,openBracket) + "flag" + counter + string.substring(openBracket) //replace the bracketed word with a flag
+		
+		console.log(string);
+		
+		hintArray[counter] = chunk;
+		
+		loop--;
+		counter++;
+	} //damn, I'm good!
+	
+	console.log(hintArray);
+	
+	populateLib();
+	
+}
+
+function displayStuff(){
+	
+	document.querySelector(".madtd").style.display = "none";
+	document.querySelector(".libtd").style.display = "";
+
+
+}
+
+
+function populateLib() {
+	
+	var pop = 0;
+	
+	document.querySelector(".libArea").innerHTML = "";
+	
+	console.log(pop + " " + loopNum)
+	while(pop<loopNum){
+		var countID = loopNum + 1;
+		document.querySelector(".libArea").innerHTML = document.querySelector(".libArea").innerHTML 
+			+ "<div>" + hintArray[pop] + ": " + '<input type="text" style="width: 130px" autocorrect="off" autocapitalize="off" id="f' + pop + '"></input>' + "</div>"; //I've already prayed that God turns His back on me
+		pop++;
+		
+	}
+	
+}
+
+
+function stageTwo(){
+	
+	var idToCheck;
+	var doop = 0;
+	
+	while(doop<loopNum){
+	
+		idToCheck = "f" + doop;
+		console.log(idToCheck);
+	
+		var userWord = document.getElementById(idToCheck).value;
+		
+		var file = "flag" + doop;
+		
+		string = string.replace(file, userWord);
+		
+		console.log(userWord);
+		doop++;
+	}
+	
+	displayStuff2();
+}
+
+function displayStuff2(){
+	
+	document.querySelector(".madInput").value = string;
+	document.querySelector(".madtd").style.display = "";
+	document.querySelector(".libtd").style.display = "none";
+	document.getElementById("madButton").style.visibility = "hidden";
+	document.getElementById("mad").innerHTML = "Your mad lib:";
+
+
+
+}
+
+function reload(){location.reload(true);}
+	
+	//new stuff that has to do with saving. Also this forced me to learn PHP and XML which brings to mind the saying,
+	//that which doesn't kill me will make me stronger
+	
+		
+	var code;
+	
+	function retrieve(){
+	code = prompt("What is the code name for the Mad Lib you would like to play?");
+	console.log(code);
+	
+	var xhttp = new XMLHttpRequest();
+				
+	xhttp.open("GET", "madlibs.xml", true);
+	xhttp.setRequestHeader('Cache-Control', 'no-cache');
+	xhttp.send();
+		
+	xhttp.onreadystatechange = function() {
+    	if(this.readyState == 4 && this.status == 200) {
+			retrieveXML(this);
+		}
+	}
+
+	}
+	
+	function retrieveXML(xml) {
+		var xmlDoc = xml.responseXML;
+		console.log(xmlDoc);
+		var madLibFromDatabase = xmlDoc.getElementById(code).innerHTML;
+		
+		document.querySelector(".madInput").value = madLibFromDatabase;
+
+		stageOne();
+		
+	}
+	
+	//
+	
+	function save(){
+	
+	var codeName = prompt("Save your mad lib by using a unique code name. Then you can send that code name to your friends and they can use it to view the mad lib you've written.");
+		
+	var userText = document.querySelector(".madInput").value;
+	console.log(userText);
+	var httpRequest = new XMLHttpRequest();
+
+    httpRequest.open('POST', 'userEntryHandler.php');
+    httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    httpRequest.send("codeName=" + encodeURIComponent(codeName) + "&userText=" + encodeURIComponent(userText));
+
+	
+		
+	}
+	
+
+</script>
+
+
+</body>
+</html>

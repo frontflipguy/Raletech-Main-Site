@@ -105,8 +105,11 @@ transition: .5s;
 }
 
 .madLibTable{
+	margin: 10px;
 	border-collapse: separate;
-    border-spacing: 0px 5px;}
+    border-spacing: 0px 5px;
+	font-size: 15pt;
+}
 
 .madtd{
 	border: 1px solid black;
@@ -120,8 +123,8 @@ transition: .5s;
 }
 
 .madInput{
+	width: 340px;
 	height: 420px;
-	width: 300px;
 	margin: 2px;
 	}
 
@@ -150,4 +153,26 @@ transition: .5s;
 .libButton{
 	margin-top: 6px;
 	
+}
+
+.madSelection{
+	border: 1px solid black;
+	border-radius: 5px;
+	background: #fffeb8;
+	text-align: center;
+	font-size: 13pt;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.madSelection:hover{
+background-color: #ffffee;
+transition: .5s;
+}
+
+.bufferDiv{
+border: 1px solid black;
+width: 370px;
+height: 520px;
+background: #eee;
 }

@@ -1,0 +1,7 @@
+INTPUT SPEC:
+
+Input should be ONLY the first sheet of the MSS
+
+Input should ONLY have columns A-H, delete other columns
+
+Input should be saved as a .csv filetype

@@ -14,7 +14,7 @@
 <a href="#" class="navigation-button" id="bye">LOCKED</a>
 <a href="#" class="navigation-button-right" onclick="trick();">HINT</a>
 <a href="http://www.raletech.com/puzzles/directory/" class="navigation-button-right">DIRECTORY</a>
-<a style="margin-left: 50px">Welcome to level 4.</a>
+<a style="margin-left: 50px">Welcome to level 4. Don't have fun!</a>
 </div></header>
 
 <div align="center" style="height:100vh; margin-top:120px">
@@ -24,7 +24,7 @@
 	<table class="poop"><tr><td><div class="noColor">&diams;</div></td>
 	<td>
 	<table>
-	<tr><td class="blank" id="win"></td></tr>
+		<tr><td class="blank" id="win"></td></tr>
 	<tr><td class="blank"></td></tr>
 	<tr><td class="blank"></td></tr>
 	<tr><td class="blank"></td></tr>
@@ -47,15 +47,16 @@
 	<tr><td class="blank"></td></tr>
 	<tr><td class="blank"></td></tr>
 	</table>
+		
 	</td>
 	<td>
 	<div class="noColor" style="visibility:hidden"></div></td>
 	</tr>
 	</table>
 	</div>
-<a href="#" class="yellow" onClick="yellow(); blipStealerStarter();">&diams;</a>
-<a href="#" class="pink" onClick="pink(); blipStealerStarter();">&hearts;</a>
-<a href="#" class="green" onClick="green(); blipStealerStarter();">&clubs;</a>
+<a href="#" class="yellow" onClick="yellow(); timerStarter();">&diams;</a>
+<a href="#" class="pink" onClick="pink(); timerStarter();">&hearts;</a>
+<a href="#" class="green" onClick="green(); timerStarter();">&clubs;</a>
 	</div>
 	
 </div>
@@ -69,12 +70,11 @@ var arrayNL = [];
 var thing = "stackY";
 var thing2 = "&diams;";
 var numberClicks = 5;
-var stealerStarter = false;
+var timerStart = false;
 var keepGoing = true;
-
-
+	
 function trick(){
-alert("Hit the correct color really rapidly!"); //*looks at camera like in Parks and Rec* you can win by button mashing. This game sucks.
+alert("Hit the symbols at the bottom! A wrong hit is a step back! (If you're using a keyboard you can use a,s,d)"); //*looks at camera like in Parks and Rec* you can win by button mashing. This game sucks.
 }
 
 function yellow(){
@@ -82,7 +82,9 @@ function yellow(){
 	var colorCheck = document.getElementById("innerBorder").className;
 	
 	if(colorCheck=="stackY"){
-	colorChange("blipy",true);
+		colorChange("blipy",true);
+	} else {
+		colorChange("blank", false);
 	}
 }
 
@@ -91,7 +93,9 @@ function pink(){
 	var colorCheck = document.getElementById("innerBorder").className;
 	
 	if(colorCheck=="stackP"){
-	colorChange("blipp",true);
+		colorChange("blipp",true);
+	} else {
+		colorChange("blank", false);
 	}
 }
 	
@@ -100,7 +104,9 @@ function green(){
 	var colorCheck = document.getElementById("innerBorder").className;
 	
 	if(colorCheck=="stackG"){
-	colorChange("blipg", true);
+		colorChange("blipg", true);
+	} else {
+		colorChange("blank", false);
 	}
 }
 
@@ -128,24 +134,7 @@ function colorChange(color, add){
 	
 }
 
-function discoBorder(){ //once the playArea is clicked this function runs,
-	//document.querySelector(".playArea").removeAttribute("onclick"); // but it doesn't need to be told to run on every click after that
-	//the above is not true anymore since I'm tracking color changes by clicks, not a timer
-	//also, that means I can throw a bunch of other stuff into this function because it runs every click
-	
-	document.getElementById("innerBorder").className = thing;
-	document.querySelector(".noColor").innerHTML = thing2;
-	
-	if(numberClicks === 0){//alter this every 3-5 color calls
-		var rando = Math.random() * 100;
-		
-		if(rando < 33){thing = "stackP"; thing2 = "&hearts;"}
-		else if(rando > 66){thing = "stackG"; thing2 = "&clubs;"}
-		else{thing = "stackY"; thing2 = "&diams;"}
-		
-		while((numberClicks!=3)&&(numberClicks!=4)&&(numberClicks!=5)){numberClicks = Math.ceil(Math.random() * 10);}
-	}
-	numberClicks--;
+function discoBorder(){ //every time playArea is clicked this function runs,
 	
 	var winBlip = document.getElementById("win").className;
 	
@@ -153,15 +142,30 @@ function discoBorder(){ //once the playArea is clicked this function runs,
 	
 }
 
-function blipStealerStarter(){ //Can't be arsed to find a more elegant way to do this right now. What works, works.
+function timerStarter(){ //Can't be arsed to find a more elegant way to do this right now. What works, works.
 
-	if(stealerStarter === false){stealerStarter = true; blipStealer();}
+	if(timerStart === false){timerStart = true; colorChanger();}
 	
 }
 
-function blipStealer(){
+var rando = 0;
+var historicRando = 0;
+	
+function colorChanger(){
+	
+	document.getElementById("innerBorder").className = thing;
+	document.querySelector(".noColor").innerHTML = thing2;
+	
+	while(rando==historicRando){ //prevent it from rolling the same color twice.
+		rando = Math.ceil(Math.random() * 3); //gives 1,2,3
+	}
+	historicRando = rando;
 
-	setTimeout(function() {colorChange("blank", false); if(keepGoing){blipStealer();} }, 1000);
+	if(rando==1){thing = "stackP"; thing2 = "&hearts;"}
+	else if(rando==2){thing = "stackG"; thing2 = "&clubs;"}
+	else{thing = "stackY"; thing2 = "&diams;"}
+
+	setTimeout(function() {if(keepGoing){colorChanger();} }, 1600);
 	
 }
 

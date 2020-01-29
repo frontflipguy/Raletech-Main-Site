@@ -1,0 +1,167 @@
+	<!DOCTYPE html>
+	<html>
+	
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<link href="leve3.css" rel="stylesheet" type="text/css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="/otherstuff/prototype/playObj.js"></script>
+		<script src="/otherstuff/prototype/drawBkgd.js"></script>
+		<script src="/otherstuff/prototype/distCheck.js"></script>
+		<script src="/otherstuff/prototype/catDirection.js"></script>
+		<script src="/otherstuff/prototype/initializeAll.js"></script>
+		<script src="/otherstuff/prototype/updateAll.js"></script>
+		<script src="/otherstuff/prototype/freeMovement.js"></script>
+		<script src="/otherstuff/prototype/collisionMovement.js"></script>
+
+
+
+		<title>Prototyping Area</title>
+
+	</head>
+	<body>
+	<header>
+		<div class="navigation">
+		<a href="http://www.raletech.com/" class="icon"></a>
+		<a href="#" class="navigation-button" id="bye">DIS MY CAT</a>
+		<a style="margin-left: 50px">dis what he do</a>
+		</div>
+	</header>
+
+	<div align="center" style="height:100vh; margin-top:70px">
+		<div style="margin-top: 90px">
+
+		<!--HTML here-->
+			<div id="inst" class="whole-screen relative" align="center">
+				<div id="adiv" class="adiv">Cat simulator</div>
+				<div id="bdiv" class="bdiv" align="center">
+					<canvas id="canv" class="canvClass"></canvas>
+					
+				</div>
+				<!--<div id="cdiv" class="cdiv relative"></div>-->
+			</div>
+	
+		</div>
+	</div>
+		
+	<script>
+		
+	//variable declarations, housekeeping, object initialization
+	var color = "#FFF";
+	var speed1 = 6;
+	var worldSize = 1200;
+
+	document.getElementById("canv").getContext("2d").canvas.width = $(canv).width();
+	document.getElementById("canv").getContext("2d").canvas.height = $(canv).height();
+
+	var mousedown = false;
+	var mousexpos = 143;
+	var mouseypos = 0;
+		
+	var catr = new Image();
+	catr.src = 'images/cats20r.png';
+	var catl = new Image();
+	catl.src = 'images/cats20l.png';
+	var catu = new Image();
+	catu.src = 'images/cats20u.png';
+	var catd = new Image();
+	catd.src = 'images/cats20d.png';
+		
+	var bush = new Image();
+	bush.src = 'images/bush1.png'; //scaled down to 60x60px
+		
+	var grass1 = new Image();
+	grass1.src = 'images/bg1.png';
+	var grass2 = new Image();
+	grass2.src = 'images/bg2.png';
+	var grass3 = new Image();
+	grass3.src = 'images/bg3.png';
+	var grass4 = new Image();
+	grass4.src = 'images/bg4.png';
+	var grass5 = new Image();
+	grass5.src = 'images/bg5.png';
+		
+	var map = new Image();
+	map.src = 'images/map2.png'; //the map
+		
+	var catImg = catr;
+		
+	var objArray = []; //if the worldSize is 1200 pixels and the standard tilesize is 60x60 pixels, then this array will be 20x20 tiles, so to speak.
+	for(var m = 0; m < 20; m++){ //makes it an array of arrays so it is now a 2d array
+		objArray[m] = [];
+	}
+	for(var m = 0; m < 20; m++){
+		for(var n = 0; n < 20; n++){ //makes it an array of arrays so it is now a 2d array
+			objArray[m][n] = undefined;
+		}
+	}
+		
+	player1 = new playObj($(canv).width()/2,$(canv).height()/2,"#000",28,true);
+		
+	//catr.onload = function(){player1.drawCat(catr);};
+	player1.drawCirc(); 
+	map.onload = function(){initializeAll(); updateAll();};
+		
+
+		
+	//////////////////////////////////////////////////////////////////////////////////////////
+		
+		
+	//stuff for mouse input
+		
+	$(canv).mousedown(function(){mousedown = true;});
+	$(canv).mousemove(function(e){
+		var rect = document.getElementById("canv").getBoundingClientRect();
+		mousexpos = e.clientX - rect.left;
+		mouseypos = e.clientY - rect.top;
+	});
+	$(document).mouseup(function(){mousedown = false;});
+
+	//stuff for touch screen
+	
+	$(canv).on("touchstart", function(e){e.preventDefault(); mousedown = true;});
+	$(canv).on("touchmove", function(e){
+		mousedown = true;
+		e.preventDefault();
+		var rect = document.getElementById("canv").getBoundingClientRect();
+		mousexpos = e.touches[0].clientX - rect.left;
+		mouseypos = e.touches[0].clientY - rect.top;
+		$(adiv).html("x: " + parseInt(mousexpos) + " y: " + parseInt(mouseypos));
+	});
+	$(document).on("touchend", function(){mousedown = false;});	
+
+		
+	///////////////////////////////////////////////////////////////////////////////////////////
+		
+		
+	//main function loop
+
+	running();
+		
+	function running(){
+		
+		if(mousedown){
+			drawBkgd();
+			//color="#FFF";
+			
+			catImg = catDirection(); //catDirection figures out which way the cat should be facing and returns the corresponding image
+			
+			updateAll(); //updates all locations as appropriate and draws all objects
+						
+			player1.drawCat(catImg); 
+			//player1.drawCirc(); 
+			//player1.color = "#000";
+		}
+
+		
+		setTimeout(function(){running();}, 25);
+	}
+		
+
+
+		
+	</script>
+
+
+	</body>
+	</html>
