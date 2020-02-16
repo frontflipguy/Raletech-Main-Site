@@ -232,3 +232,18 @@ transition: .5s;
 	box-shadow: 0px -1px 5px 1px #AAA;
 	background-color: #EDEEFD;
 }
+
+.popup{
+	position: absolute;
+	width: 400px;
+	background-color: #EDEDEE;
+	margin: 10px;
+	border: 1px solid black;
+	padding: 0px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 9px #888;
+	z-index: 3;
+	transition: 1s;
+	font-weight: 700;
+	font-size: 120%;
+}

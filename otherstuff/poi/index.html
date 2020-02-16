@@ -46,7 +46,7 @@
 				</tr>
 				<tr class="shadow">
 					<td class="tds column">
-						<select id="armDropdown" name="arm">
+						<select id="armDropdown">
 							<option value="arm1" selected>Arm1</option>
 							<option value="subArm1">SubArm1</option>
 							<option value="subSubArm1">SubSubArm1</option>
@@ -61,12 +61,12 @@
 					<td class="tds group1">
 						<div id="radiusOn" class="little-button idiv relative onOff">On</div>
 					</td>
-					<td class="tds group1">
-						Color: <input type="color" id="color" value="#000000" name="">
+					<td class="tds group1" align="center">
+						Color: <input type="color" id="color" value="#000000">
 					</td>
 					<td class="tds group1">Lgth: <input id="radius" type="number" class="text-input" value="120"/> </td>
 					
-					<td class="tds group2" hidden>Spd: <input type="number" class="speed-element" id="speed" value="4" step=".1"/></td>
+					<td class="tds group0" hidden>Spd: <input type="number" class="speed-element" id="speed" value="4" step=".1"/></td>
 					<td class="tds clockwise group2" hidden><div class="little-button idiv relative" id="direction">CW</div></td>
 					<td class="tds group2" hidden>Offset: <input type="number" class="speed-element" id="offset" value="0"/>&deg;</td>
 					
@@ -236,7 +236,12 @@ $("#looks, #behavior, #endpoints").on("click", function(){
 	$("#looks, #behavior, #endpoints").removeClass("selected-tab");
 	$(this).addClass("selected-tab");
 	
-	$(".group1, .group2, .group3").hide();
+	var selectedArm = $("#armDropdown")[0].value;
+	
+	$(".group0, .group1, .group2, .group3").hide();
+	if(this.id=="behavior"&&selectedArm!="arm1"&&selectedArm!="arm2"&&selectedArm!="arm3"){ //not a base arm
+		$(".group0").show();
+	}
 	if(this.id=="looks"){
 		$(".group1").show();
 	} else if(this.id=="behavior"){
@@ -265,7 +270,7 @@ $("#radiusOn, #color, #radius, #direction, #speed, #offset, #endpointDecor, #end
 			obj.radius = $(this).val();
 		break;
 		case "direction":
-			if($(this).html()=="CW"){obj.direction = 1;} else {obj.direction = -1;}
+			 obj.direction = $(this).html()=="CW" ? -1 : 1; //do you have time to talk about t e r n a r y  o p e r a t i o n s ?
 		break;
 		case "speed":
 			obj.speed = $(this).val();
@@ -325,6 +330,15 @@ $("#endpointDecor").on("mousedown", function(){
 		
 		var obj = toObj($("#armDropdown")[0].value);
 		
+		var selectArm = $("#armDropdown")[0].value;
+		if($("#behavior").hasClass("selected-tab")){ //if the "behavior" element has class "selected-tab"
+			if(selectArm=="arm1"||selectArm=="arm2"||selectArm=="arm3"){
+				$(".group0").hide();
+			} else {
+				$(".group0").show();
+			}
+		}
+		
 		$("#radiusOn").html(onoffMap[obj.radiusOn]);
 		$("#color").val(obj.color);
 		$("#radius").val(obj.radius);
@@ -333,6 +347,7 @@ $("#endpointDecor").on("mousedown", function(){
 		$("#offset").val(obj.offset);
 		$("#endpointDecor").html(obj.endpointDecor);
 		$("#endColor").val(obj.endColor);
+		
 	});
 	
 	//this is to fix how it overwrites an old pattern--it should start anew everytime a change is made.
@@ -482,40 +497,33 @@ function running(){
 	
 		var xhttp = new XMLHttpRequest();
 							
-		xhttp.open("GET", "pois.xml", true);
+		xhttp.open("GET", "./saved_designs/" + search + ".xml", true);
 		xhttp.setRequestHeader('Cache-Control', 'no-cache');
 		xhttp.send();
 
 		xhttp.onreadystatechange = function() {
 			if(this.readyState == 4 && this.status == 200) {
-				retrieveXML(this, search);
+				retrieveXML(this);
 			}
 		}
 	}
 	
 	//I split this out into its own function because a e s t h e t i c
-	function retrieveXML(xmlDoc, search) {
+	function retrieveXML(xmlDoc) {
 		
 		var xml = xmlDoc.responseXML;
-		var savedObject = xml.getElementById(search);
-		console.log(savedObject);
+		var savedObject = xml.getElementsByTagName("MAIN")[0];
 		
 		for(r = 0; r<objArray.length; r++){
-			console.log(savedObject.children[r]);
-			//objArray[r].xloc = parseInt(givenArm.getElementsByTagName("XLOC")[0].innerHTML);
-			//objArray[r].yloc = parseInt(givenArm.getElementsByTagName("YLOC")[0].innerHTML);
-			//objArray[r].radiusxloc = parseInt(givenArm.getElementsByTagName("RADIUSXLOC")[0].innerHTML);
-			//objArray[r].radiusyloc = parseInt(givenArm.getElementsByTagName("RADIUSYLOC")[0].innerHTML);
 			objArray[r].color = savedObject.children[r].getElementsByTagName("COLOR")[0].innerHTML;
-			objArray[r].radius = parseInt(savedObject.children[r].getElementsByTagName("RADIUS")[0].innerHTML);
+			objArray[r].radius = savedObject.children[r].getElementsByTagName("RADIUS")[0].innerHTML;
 			objArray[r].direction = savedObject.children[r].getElementsByTagName("DIRECTION")[0].innerHTML;
 			objArray[r].speed = savedObject.children[r].getElementsByTagName("SPEED")[0].innerHTML; //enrage is near
 			objArray[r].radiusOn = savedObject.children[r].getElementsByTagName("RADIUSON")[0].innerHTML == "true" ? true : false; //this is bullshit. Stupid motherfucker was returning true or false as a STRING
-			objArray[r].offset = parseInt(savedObject.children[r].getElementsByTagName("OFFSET")[0].innerHTML); //sorry I got angry and lashed out in the line above
+			objArray[r].offset = savedObject.children[r].getElementsByTagName("OFFSET")[0].innerHTML; //sorry I got angry and lashed out in the line above
 			objArray[r].endpointDecor = savedObject.children[r].getElementsByTagName("ENDPOINTDECOR")[0].innerHTML;
 			objArray[r].endColor = savedObject.children[r].getElementsByTagName("ENDCOLOR")[0].innerHTML;
-			//objArray[r].oldradiusxloc = parseInt(givenArm.getElementsByTagName("OLDRADIUSXLOC")[0].innerHTML);
-			//objArray[r].oldradiusyloc = parseInt(givenArm.getElementsByTagName("OLDRADIUSYLOC")[0].innerHTML);
+
 		}
 	}
 
@@ -525,8 +533,31 @@ function running(){
 		//create unique id for this save
 		var date = new Date();
 		var id = date.getTime();
-		console.log(id);
-					
+		
+		//when you save a little popup box pops up. That's what the following stuff does...
+		$("#bdiv").prepend("<div class='popup'><div>Design saved!</div>"
+							+ "<div><input id='target' style='width: 360px' value='http://www.raletech.com/otherstuff/poi/?" + id + "'></input></div>"
+						  	+ "<div><input id='copy' value='copy to clipboard' type='button'></input><input id='close' value='close' type='button'></input></div>"
+						  );
+		
+		$(document).ready(function(){
+			
+			$("#copy").click(function(){
+				console.log("copy");
+				var target = document.getElementById("target");
+				target.focus();
+				target.setSelectionRange(0, target.value.length);
+				document.execCommand("copy");
+				$("#copy").val("copied to clipboard!");
+			});
+			
+			$("#close").click(function(){
+				console.log("close");
+				$(".popup").remove();
+			});
+			
+		});
+	
 		//I give up
 		var ohLawd; //he comin'
 		ohLawd = 'id="' + id + '"';
@@ -535,10 +566,6 @@ function running(){
 		//and arm0 is actually the bg object
 		for(r = 0; r<objArray.length; r++){ 
 
-			//ohLawd = ohLawd + '"arm' + r + 'xloc="' + encodeURIComponent(objArray[r].xloc);
-			//ohLawd = ohLawd + '"arm' + r + 'yloc="' + encodeURIComponent(objArray[r].yloc);
-			//ohLawd = ohLawd + '"arm' + r + 'radiusxloc="' + encodeURIComponent(objArray[r].radiusxloc);
-			//ohLawd = ohLawd + '"arm' + r + 'radiusyloc="' + encodeURIComponent(objArray[r].radiusyloc);
 			ohLawd = ohLawd + '&arm' + r + 'color="' + encodeURIComponent(objArray[r].color) + '"';
 			ohLawd = ohLawd + '&arm' + r + 'radius="' + encodeURIComponent(objArray[r].radius) + '"';
 			ohLawd = ohLawd + '&arm' + r + 'direction="' + encodeURIComponent(objArray[r].direction) + '"';
@@ -547,8 +574,6 @@ function running(){
 			ohLawd = ohLawd + '&arm' + r + 'offset="' + encodeURIComponent(objArray[r].offset) + '"';
 			ohLawd = ohLawd + '&arm' + r + 'endpointDecor="' + encodeURIComponent(objArray[r].endpointDecor) + '"';
 			ohLawd = ohLawd + '&arm' + r + 'endColor="' + encodeURIComponent(objArray[r].endColor) + '"';
-			//ohLawd = ohLawd + '"arm' + r + 'oldradiusxloc="' + encodeURIComponent(objArray[r].oldradiusxloc);
-			//ohLawd = ohLawd + '"arm' + r + 'oldradiusyloc="' + encodeURIComponent(objArray[r].oldradiusyloc);
 
 		}
 		console.log(ohLawd);

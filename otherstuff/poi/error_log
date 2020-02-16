@@ -5,3 +5,108 @@
 [26-Jan-2020 18:30:11 America/New_York] PHP Parse error:  syntax error, unexpected '[' in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 27
 [26-Jan-2020 18:30:15 America/New_York] PHP Parse error:  syntax error, unexpected '[' in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 27
 [26-Jan-2020 18:30:21 America/New_York] PHP Parse error:  syntax error, unexpected '[' in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 27
+[01-Feb-2020 17:11:30 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 35
+[01-Feb-2020 17:11:30 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 36
+[01-Feb-2020 17:11:30 America/New_York] PHP Fatal error:  Uncaught exception 'DOMException' with message 'Invalid Character Error' in /home/raledmbg/public_html/otherstuff/poi/saveParams.php:36
+Stack trace:
+#0 /home/raledmbg/public_html/otherstuff/poi/saveParams.php(36): DOMDocument->createElement('', 'error')
+#1 {main}
+  thrown in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 36
+[01-Feb-2020 17:22:40 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 35
+[01-Feb-2020 17:22:40 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 36
+[01-Feb-2020 17:22:40 America/New_York] PHP Fatal error:  Uncaught exception 'DOMException' with message 'Invalid Character Error' in /home/raledmbg/public_html/otherstuff/poi/saveParams.php:36
+Stack trace:
+#0 /home/raledmbg/public_html/otherstuff/poi/saveParams.php(36): DOMDocument->createElement('', 'error')
+#1 {main}
+  thrown in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 36
+[01-Feb-2020 17:27:02 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 35
+[01-Feb-2020 17:27:02 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 36
+[01-Feb-2020 17:27:02 America/New_York] PHP Fatal error:  Uncaught exception 'DOMException' with message 'Invalid Character Error' in /home/raledmbg/public_html/otherstuff/poi/saveParams.php:36
+Stack trace:
+#0 /home/raledmbg/public_html/otherstuff/poi/saveParams.php(36): DOMDocument->createElement('', 'error')
+#1 {main}
+  thrown in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 36
+[01-Feb-2020 17:29:10 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 35
+[01-Feb-2020 17:29:10 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 36
+[01-Feb-2020 17:29:10 America/New_York] PHP Fatal error:  Uncaught exception 'DOMException' with message 'Invalid Character Error' in /home/raledmbg/public_html/otherstuff/poi/saveParams.php:36
+Stack trace:
+#0 /home/raledmbg/public_html/otherstuff/poi/saveParams.php(36): DOMDocument->createElement('', 'error')
+#1 {main}
+  thrown in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 36
+[01-Feb-2020 17:37:36 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 37
+[01-Feb-2020 17:37:36 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 38
+[01-Feb-2020 17:37:36 America/New_York] PHP Fatal error:  Uncaught exception 'DOMException' with message 'Invalid Character Error' in /home/raledmbg/public_html/otherstuff/poi/saveParams.php:38
+Stack trace:
+#0 /home/raledmbg/public_html/otherstuff/poi/saveParams.php(38): DOMDocument->createElement('', 'error')
+#1 {main}
+  thrown in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 38
+[01-Feb-2020 18:35:39 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 37
+[01-Feb-2020 18:35:39 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 38
+[01-Feb-2020 18:35:39 America/New_York] PHP Fatal error:  Uncaught exception 'DOMException' with message 'Invalid Character Error' in /home/raledmbg/public_html/otherstuff/poi/saveParams.php:38
+Stack trace:
+#0 /home/raledmbg/public_html/otherstuff/poi/saveParams.php(38): DOMDocument->createElement('', 'error')
+#1 {main}
+  thrown in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 38
+[01-Feb-2020 18:40:15 America/New_York] PHP Warning:  fwrite() expects parameter 2 to be string, object given in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:40:15 America/New_York] PHP Warning:  fwrite() expects parameter 2 to be string, object given in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:40:15 America/New_York] PHP Warning:  fwrite() expects parameter 2 to be string, object given in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:40:15 America/New_York] PHP Warning:  fwrite() expects parameter 2 to be string, object given in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:40:15 America/New_York] PHP Warning:  fwrite() expects parameter 2 to be string, object given in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:40:15 America/New_York] PHP Warning:  fwrite() expects parameter 2 to be string, object given in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:40:15 America/New_York] PHP Warning:  fwrite() expects parameter 2 to be string, object given in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:40:15 America/New_York] PHP Warning:  fwrite() expects parameter 2 to be string, object given in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:40:15 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 37
+[01-Feb-2020 18:40:15 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 38
+[01-Feb-2020 18:40:15 America/New_York] PHP Fatal error:  Uncaught exception 'DOMException' with message 'Invalid Character Error' in /home/raledmbg/public_html/otherstuff/poi/saveParams.php:38
+Stack trace:
+#0 /home/raledmbg/public_html/otherstuff/poi/saveParams.php(38): DOMDocument->createElement('', 'error')
+#1 {main}
+  thrown in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 38
+[01-Feb-2020 18:40:37 America/New_York] PHP Warning:  fwrite() expects parameter 2 to be string, object given in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:40:37 America/New_York] PHP Warning:  fwrite() expects parameter 2 to be string, object given in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:40:37 America/New_York] PHP Warning:  fwrite() expects parameter 2 to be string, object given in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:40:37 America/New_York] PHP Warning:  fwrite() expects parameter 2 to be string, object given in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:40:37 America/New_York] PHP Warning:  fwrite() expects parameter 2 to be string, object given in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:40:37 America/New_York] PHP Warning:  fwrite() expects parameter 2 to be string, object given in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:40:37 America/New_York] PHP Warning:  fwrite() expects parameter 2 to be string, object given in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:40:37 America/New_York] PHP Warning:  fwrite() expects parameter 2 to be string, object given in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:40:37 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 37
+[01-Feb-2020 18:40:37 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 38
+[01-Feb-2020 18:40:37 America/New_York] PHP Fatal error:  Uncaught exception 'DOMException' with message 'Invalid Character Error' in /home/raledmbg/public_html/otherstuff/poi/saveParams.php:38
+Stack trace:
+#0 /home/raledmbg/public_html/otherstuff/poi/saveParams.php(38): DOMDocument->createElement('', 'error')
+#1 {main}
+  thrown in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 38
+[01-Feb-2020 18:41:44 America/New_York] PHP Catchable fatal error:  Object of class DOMElement could not be converted to string in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:43:05 America/New_York] PHP Parse error:  syntax error, unexpected ';' in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 39
+[01-Feb-2020 18:44:13 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 37
+[01-Feb-2020 18:44:13 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 38
+[01-Feb-2020 18:44:13 America/New_York] PHP Fatal error:  Uncaught exception 'DOMException' with message 'Invalid Character Error' in /home/raledmbg/public_html/otherstuff/poi/saveParams.php:38
+Stack trace:
+#0 /home/raledmbg/public_html/otherstuff/poi/saveParams.php(38): DOMDocument->createElement('', 'error')
+#1 {main}
+  thrown in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 38
+[01-Feb-2020 19:40:14 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 37
+[01-Feb-2020 19:40:14 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 38
+[01-Feb-2020 19:40:14 America/New_York] PHP Fatal error:  Uncaught exception 'DOMException' with message 'Invalid Character Error' in /home/raledmbg/public_html/otherstuff/poi/saveParams.php:38
+Stack trace:
+#0 /home/raledmbg/public_html/otherstuff/poi/saveParams.php(38): DOMDocument->createElement('', 'error')
+#1 {main}
+  thrown in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 38
+[01-Feb-2020 19:41:20 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 37
+[01-Feb-2020 19:41:20 America/New_York] PHP Notice:  Undefined offset: 8 in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 38
+[01-Feb-2020 19:41:20 America/New_York] PHP Fatal error:  Uncaught exception 'DOMException' with message 'Invalid Character Error' in /home/raledmbg/public_html/otherstuff/poi/saveParams.php:38
+Stack trace:
+#0 /home/raledmbg/public_html/otherstuff/poi/saveParams.php(38): DOMDocument->createElement('', 'error')
+#1 {main}
+  thrown in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 38
+[09-Feb-2020 14:09:48 America/New_York] PHP Warning:  DOMDocument::load(): I/O warning : failed to load external entity &quot;/home/raledmbg/public_html/otherstuff/poi/saved_designs/1581275387938.xml&quot; in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 17
+[09-Feb-2020 14:09:48 America/New_York] PHP Fatal error:  Call to a member function appendChild() on a non-object in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 52
+[09-Feb-2020 14:15:25 America/New_York] PHP Fatal error:  Call to a member function appendChild() on a non-object in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 49
+[09-Feb-2020 14:16:57 America/New_York] PHP Fatal error:  Call to a member function appendChild() on a non-object in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 49
+[09-Feb-2020 16:32:50 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 42
+[09-Feb-2020 16:37:47 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 44
+[09-Feb-2020 16:38:39 America/New_York] PHP Fatal error:  Cannot use object of type DOMNodeList as array in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 20
+[09-Feb-2020 16:39:39 America/New_York] PHP Catchable fatal error:  Object of class DOMNodeList could not be converted to string in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 21
+[09-Feb-2020 16:44:01 America/New_York] PHP Catchable fatal error:  Object of class DOMDocument could not be converted to string in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 20
+[09-Feb-2020 20:15:26 America/New_York] PHP Fatal error:  Call to undefined method DOMNodeList::appendChild() in /home/raledmbg/public_html/otherstuff/poi/saveParams.php on line 44
